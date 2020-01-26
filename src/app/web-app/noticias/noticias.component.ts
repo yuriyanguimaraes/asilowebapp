@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from "./../services/noticias.service"
 import { Noticia } from "./noticia.model"
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-noticias',
@@ -19,7 +20,7 @@ export class NoticiasComponent implements OnInit {
 
   getNoticias() {
     this.ns.getNoticias().subscribe(noticias => {
-      this.noticias = noticias
+      this.noticias = noticias['data']
     })
   }
 
