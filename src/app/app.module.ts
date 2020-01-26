@@ -14,14 +14,16 @@ import { FooterComponent } from './web-components/footer/footer.component';
 import { NoticiasComponent } from './web-app/noticias/noticias.component';
 
 //Services
-import { NoticiasService } from "./web-app/services/noticias.service"
+import { NoticiasService } from "./web-app/services/noticias.service";
+import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    NoticiaCardComponent
   ],
   imports: [
     BrowserModule,
