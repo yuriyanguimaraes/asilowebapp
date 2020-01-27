@@ -12,10 +12,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './web-components/header/header.component';
 import { FooterComponent } from './web-components/footer/footer.component';
 import { NoticiasComponent } from './web-app/noticias/noticias.component';
+import { HomeComponent } from './web-app/home/home.component'
+import { CarouselComponent } from './web-app/home/carousel/carousel.component';
+
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
-import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
+import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-ca
     HeaderComponent,
     FooterComponent,
     NoticiasComponent,
-    NoticiaCardComponent
+    NoticiaCardComponent,
+    HomeComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
