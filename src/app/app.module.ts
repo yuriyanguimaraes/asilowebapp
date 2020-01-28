@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ContatoComponent } from './contato/contato.component';
 import { routing } from './app.routing';
+import { HomeTestComponent } from './home-test/home-test.component';
+import { HeaderComponent } from './web-components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContatoComponent
+    ContatoComponent,
+    HomeTestComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

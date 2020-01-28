@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from "@angular/router"
-import { AppComponent } from "./app.component"
 import { ContatoComponent } from "./contato/contato.component"
 import { ModuleWithProviders } from "@angular/core";
+import { HomeTestComponent } from "./home-test/home-test.component";
 
 export const ROUTES: Routes = [
 
@@ -14,7 +14,8 @@ export const ROUTES: Routes = [
     //]}
 
     // CONTATO ROUTES
-    { path: '', component: AppComponent},
+    { path: '', component: HomeTestComponent }, //somente pora teste
+    { path: 'home', component: HomeTestComponent }, //somente para teste
     { path: 'contato', component: ContatoComponent}
 
 ];
