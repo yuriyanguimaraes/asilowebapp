@@ -15,7 +15,8 @@ import { NoticiasComponent } from './web-app/noticias/noticias.component';
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
-import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
+import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component';
+import { SobreComponent } from './web-app/sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-ca
     HeaderComponent,
     FooterComponent,
     NoticiasComponent,
-    NoticiaCardComponent
+    NoticiaCardComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,
