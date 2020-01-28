@@ -1,11 +1,14 @@
 <br>
 <div class="col-md-12">
 
-  <div class="row">
+  <div class="row" *ngIf="noticias; else notData">
     <div *ngFor="let noticia of noticias" class="col-md-3">
       <app-noticia-card [noticia]="noticia"></app-noticia-card>
     </div>
   </div>
+  <ng-template #notData>
+    <p class="notData">Não há notícias para serem exibidas!</p>
+  </ng-template>
 
 </div>
 <br>
