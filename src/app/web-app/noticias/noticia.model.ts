@@ -3,5 +3,6 @@ export interface Noticia {
     status: boolean,
     _id: string,
     titulo: string,
-    descricao: string
+    descricao: string,
+    data: string
 }

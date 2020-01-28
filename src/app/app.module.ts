@@ -17,21 +17,30 @@ import { NoticiasComponent } from './web-app/noticias/noticias.component';
 import { NoticiasService } from "./web-app/services/noticias.service";
 import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
 
+//Pipes
+import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe"
+
 @NgModule({
   declarations: [
+    //Components
     AppComponent,
     HeaderComponent,
     FooterComponent,
     NoticiasComponent,
-    NoticiaCardComponent
+    NoticiaCardComponent,
+
+    //Pipes
+    DateAgoPipe
   ],
   imports: [
+    //Modules
     BrowserModule,
     HttpModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
   ],
   providers: [
+    //Services
     NoticiasService
   ],
   bootstrap: [AppComponent]
