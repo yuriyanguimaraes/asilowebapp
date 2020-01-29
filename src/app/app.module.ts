@@ -29,7 +29,7 @@ import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-ca
     NoticiasComponent,
     NoticiaCardComponent,
     HomeComponent,
-    CarouselComponent
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
