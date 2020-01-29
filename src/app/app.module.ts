@@ -12,14 +12,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './web-components/header/header.component';
 import { FooterComponent } from './web-components/footer/footer.component';
 import { NoticiasComponent } from './web-app/noticias/noticias.component';
+import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
+import { NoticiaComponent } from './web-app/noticia/noticia.component'
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
-import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
-import { NoticiaComponent } from './web-app/noticia/noticia.component'
 
 @NgModule({
   declarations: [
@@ -29,11 +29,10 @@ import { NoticiaComponent } from './web-app/noticia/noticia.component'
     FooterComponent,
     NoticiasComponent,
     NoticiaCardComponent,
+    NoticiaComponent,
 
     //Pipes
-    DateAgoPipe,
-
-    NoticiaComponent
+    DateAgoPipe
   ],
   imports: [
     //Modules
