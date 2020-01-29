@@ -18,7 +18,8 @@ import { NoticiasService } from "./web-app/services/noticias.service";
 import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
 
 //Pipes
-import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe"
+import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
+import { NoticiaComponent } from './web-app/noticia/noticia.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe"
     NoticiaCardComponent,
 
     //Pipes
-    DateAgoPipe
+    DateAgoPipe,
+
+    NoticiaComponent
   ],
   imports: [
     //Modules
