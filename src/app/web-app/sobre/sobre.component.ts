@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { SobreService } from './../services/sobre.service'
+import { Sobre } from './sobre.model'
 
 @Component({
   selector: 'app-sobre',
@@ -7,13 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SobreComponent implements OnInit {
 
-  about: string[] = ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt eos ad facere expedita tenetur officiis sed quam asperiores deleniti impedit iusto vel nulla, eveniet voluptas animi. Voluptas eaque similique impedit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim iure officia dolorem porro soluta dolore deserunt molestias vitae illo, veritatis minima quasi nam fugiat hic quae odio cupiditate dicta excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium blanditiis soluta consectetur ipsam recusandae excepturi. Magnam itaque consequuntur est dignissimos quis saepe rerum illo, voluptatibus, error laborum nihil id.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt eos ad facere expedita tenetur officiis sed quam asperiores deleniti impedit iusto vel nulla, eveniet voluptas animi. Voluptas eaque similique impedit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim iure officia dolorem porro soluta dolore deserunt molestias vitae illo, veritatis minima quasi nam fugiat hic quae odio cupiditate dicta excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium blanditiis soluta consectetur ipsam recusandae excepturi. Magnam itaque consequuntur est dignissimos quis saepe rerum illo, voluptatibus, error laborum nihil id.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt eos ad facere expedita tenetur officiis sed quam asperiores deleniti impedit iusto vel nulla, eveniet voluptas animi. Voluptas eaque similique impedit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim iure officia dolorem porro soluta dolore deserunt molestias vitae illo, veritatis minima quasi nam fugiat hic quae odio cupiditate dicta excepturi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium blanditiis soluta consectetur ipsam recusandae excepturi. Magnam itaque consequuntur est dignissimos quis saepe rerum illo, voluptatibus, error laborum nihil id."];
+  about: Sobre[]
 
-  constructor() { }
+  constructor(private sobreS: SobreService) { }
 
   ngOnInit() {
+    this.getSobre()
   }
+
+  getSobre() {
+    this.sobreS.getSobre().subscribe(sobreS => {
+      this.about = sobreS; 
+
+    })
+  }
+  
 
 }
