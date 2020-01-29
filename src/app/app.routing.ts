@@ -8,7 +8,7 @@ export const ROUTES: Routes = [
 
     // Rotas WebApp
     { path: 'noticias', component: NoticiasComponent },
-    { path: 'noticia/:titulo', component: NoticiaComponent }
+    { path: 'noticia/:id', component: NoticiaComponent }
 
     // Rotas administrativas - children routes
     //{path: 'admin', component:, children: [

@@ -17,6 +17,7 @@ import { NoticiaComponent } from './web-app/noticia/noticia.component'
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
+import { NoticiaService } from "./web-app/services/noticia.service"
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
@@ -43,7 +44,8 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
   ],
   providers: [
     //Services
-    NoticiasService
+    NoticiasService,
+    NoticiaService
   ],
   bootstrap: [AppComponent]
 })
