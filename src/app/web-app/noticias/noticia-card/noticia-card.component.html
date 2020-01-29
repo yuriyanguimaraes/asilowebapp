@@ -1,10 +1,12 @@
-<div class="card text-center h-100">
-  <div class="card-body">
-    <a href="#">
+<a href="#">
+  <div class="card text-center h-100">
+    <img class="card-img"
+      src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-9.jpg" alt="Sheep-9">
+    <div class="card-img-overlay d-flex justify-content-center align-items-center" id="overlay">
       <h5 class="card-title">{{noticia.titulo}}</h5>
-    </a>
+    </div>
+    <div class="card-footer text-muted">
+      Publicado há {{noticia.data | dateAgo}}
+    </div>
   </div>
-  <div class="card-footer text-muted">
-    Publicado há {{noticia.data | dateAgo}}
-  </div>
-</div>
+</a>
