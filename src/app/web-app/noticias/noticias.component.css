@@ -1,12 +1,16 @@
-.notData{
+.notData {
     text-align: center;
 }
 
-#marginTopBottomCardsContainer{
+#marginTopBottomCardsContainer {
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
-#marginBottomCardsCol{
+#marginBottomCardsCol {
     margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
 }
