@@ -10,8 +10,8 @@ export class ContatoComponent implements OnInit {
   constructor() {}
 
   //AQUI SERÁ FEITO A CONFIGURAÇÃO DA API DO GOOGLE MAPS
-  lat: number = -23.8779431;
-  lng: number = -49.8046873;
+  lat: number = -21.748462;
+  lng: number = -48.824793;
   zoom: number = 15;
 
 

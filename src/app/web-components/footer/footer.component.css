@@ -1,0 +1,4 @@
+/* adicionei para corrigir um bug que tava dando na parte de Contatos */
+footer {
+    clear: both;
+}

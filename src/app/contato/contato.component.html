@@ -4,6 +4,15 @@ CORREÇÕES!!!
 TBM UTILIZEI CSS ESPECÍFICO PARA A PÁGINA!
 -->
 
+<!-- TEM MUITA COISA PRA ARRUMAR, ISSO FOI O QUE CONSEGUI FAZER
+PORÉM, JÁ VOU ESTUDANDO MAIS PRA IR DEIXANDO MELHOR!!! -->
+
+<div class="jumbotron">
+  <div class="container">
+    <h2 class="font-weight-bold text-center text-uppercase">Contato</h2>
+  </div>
+</div>
+
 <div class="container-xl">
 
   <section id="informacoes">
@@ -12,27 +21,37 @@ TBM UTILIZEI CSS ESPECÍFICO PARA A PÁGINA!
       <tbody>
         <tr>
           <td class="td-dir"><img src="./../../assets/contato-images/endereco.svg"/></td>
-          <td class="td-esq"> <span>Rua dos bobos, nº0, Centro, Tangamandápio - AC</span> </td>
+          <td class="td-esq"> <span>Rua Gama Cerqueira, 430, São José
+            14940-000 Ibitinga</span> </td>
         </tr>
         <tr>
           <td class="td-dir"> <img src="./../../assets/contato-images/telefone.svg"/> </td>
-          <td class="td-esq"> <span>(16) 4002-8922</span></td>
+          <td class="td-esq"> <span>(16) 3342 2509</span></td>
         </tr>
         <tr>
           <td class="td-dir"> <img src="./../../assets/contato-images/enviar.svg"/> </td>
-          <td class="td-esq"> <span>example@example.com.br</span></td>
+          <td class="td-esq"> <span>larsaovicentedepaula@numsei.com.br</span></td>
         </tr>
       </tbody>
     </table>
 
+  </section>
+
+  <section id="mapa">
     <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
       <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
-
-    <span id="toHidden">Ícones feitos por <a href="https://www.flaticon.com/br/autores/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/br/" title="Flaticon"> www.flaticon.com</a></span>
-
-    
-
   </section>
 
+  
+
+  <span id="toHidden">Ícones feitos por <a href="https://www.flaticon.com/br/autores/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/br/" title="Flaticon"> www.flaticon.com</a></span>
+
 </div>
+
+  <section id="redes-sociais">
+    <p>Acesse também nossas redes sociais :)</p>
+    <a href="https://www.facebook.com/larsaovicenteibitinga/" target="_blank"><img src="./../../assets/contato-images/facebook.svg"/></a>
+  </section>
+
+  <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3203.984678398103!2d-48.826959985471454!3d-21.748750785612827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRua%20Gama%20Cerqueira%2C%20430%2C%20S%C3%A3o%20Jos%C3%A9%20(51%2C50%20km)%2014940-000%20Ibitinga!5e1!3m2!1spt-BR!2sbr!4v1580326456449!5m2!1spt-BR!2sbr" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
