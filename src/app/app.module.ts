@@ -6,13 +6,15 @@ import { ContatoComponent } from './contato/contato.component';
 import { routing } from './app.routing';
 import { HomeTestComponent } from './home-test/home-test.component';
 import { HeaderComponent } from './web-components/header/header.component';
+import { FooterComponent } from './web-components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContatoComponent,
     HomeTestComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+div#container {
+    display: block;
+    background-color: white;
+}
+
+section#informacoes {
+    padding: 10px;
+}
+
+table td {
+    width: 100px;
+    height: 100px;
+    border: 6px solid black;
+}
+
+td.td-dir img {
+    width: 100px;
+    height: 100px;
+}
