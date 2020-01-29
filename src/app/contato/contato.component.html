@@ -1,3 +1,9 @@
+<!-- O CONTEÚDO NÃO ESTÁ RESPONSIVO E NEM ESTÁ INTEGRADO COM O BACK-END
+APENAS QUIS MONTAR O LAYOUT PARA AVALIAÇÃO, E SE APROVADO, DEPOIS FAÇO AS DEVIDAS
+CORREÇÕES!!!
+TBM UTILIZEI CSS ESPECÍFICO PARA A PÁGINA!
+-->
+
 <div class="container-xl">
 
   <section id="informacoes">
@@ -6,14 +12,24 @@
       <tbody>
         <tr>
           <td class="td-dir"><img src="./../../assets/contato-images/endereco.svg"/></td>
-          <td>Otto</td>
+          <td class="td-esq"> <span>Rua dos bobos, nº0, Centro, Tangamandápio - AC</span> </td>
         </tr>
         <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
+          <td class="td-dir"> <img src="./../../assets/contato-images/telefone.svg"/> </td>
+          <td class="td-esq"> <span>(16) 4002-8922</span></td>
+        </tr>
+        <tr>
+          <td class="td-dir"> <img src="./../../assets/contato-images/enviar.svg"/> </td>
+          <td class="td-esq"> <span>example@example.com.br</span></td>
         </tr>
       </tbody>
     </table>
+
+    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+      <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+
+    <span id="toHidden">Ícones feitos por <a href="https://www.flaticon.com/br/autores/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/br/" title="Flaticon"> www.flaticon.com</a></span>
 
     
 

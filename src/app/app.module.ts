@@ -7,6 +7,7 @@ import { routing } from './app.routing';
 import { HomeTestComponent } from './home-test/home-test.component';
 import { HeaderComponent } from './web-components/header/header.component';
 import { FooterComponent } from './web-components/footer/footer.component';
+import { AgmCoreModule } from '@agm/core'
 
 @NgModule({
   declarations: [
@@ -14,11 +15,14 @@ import { FooterComponent } from './web-components/footer/footer.component';
     ContatoComponent,
     HomeTestComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

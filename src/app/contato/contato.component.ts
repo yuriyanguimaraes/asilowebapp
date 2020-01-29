@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  //AQUI SERÁ FEITO A CONFIGURAÇÃO DA API DO GOOGLE MAPS
+  lat: number = -23.8779431;
+  lng: number = -49.8046873;
+  zoom: number = 15;
+
+
+  ngOnInit() {}
 
 }
