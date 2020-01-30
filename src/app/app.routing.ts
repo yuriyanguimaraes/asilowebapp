@@ -5,6 +5,7 @@ import { NoticiasComponent } from "./web-app/noticias/noticias.component"
 import { NoticiaComponent } from "./web-app/noticia/noticia.component"
 import { SobreComponent } from "./web-app/sobre/sobre.component"
 import { ContatoComponent } from "./web-app/contato/contato.component"
+import { FAQComponent } from './faq/faq.component'
 
 export const ROUTES: Routes = [
 
@@ -12,9 +13,10 @@ export const ROUTES: Routes = [
     { path: 'noticias', component: NoticiasComponent },
     { path: 'noticia/:title', component: NoticiaComponent },
     { path: 'sobre', component: SobreComponent },
-    { path: 'contato', component: ContatoComponent }
+    { path: 'contato', component: ContatoComponent },
+    { path: 'faq', component: FAQComponent }
 
-    // Rotas administrativas - children routes
+    //Rotas administrativas - children routes
     //{path: 'admin', component:, children: [
     //    {},
     //    {}
