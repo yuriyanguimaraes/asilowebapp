@@ -11,7 +11,7 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-    getNoticiasThreeResults(): Observable<Noticia[]> {
-        return this.http.get<Noticia[]>(`${AsiloWebApi}/noticia-three-results`)
-    }
+  getNoticiasThreeResults(): Observable<Noticia[]> {
+    return this.http.get<Noticia[]>(`${AsiloWebApi}/noticia-three-results`)
+  }
 }

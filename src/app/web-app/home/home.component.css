@@ -13,24 +13,24 @@
 }
 
 .btn:hover {
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 }
 
-.btn-primary{
+.btn-primary {
     background-color: #2F3C7E !important;
     border-color: #2B3252 !important;
     color: #ffffff !important;
 }
 
-.btn-secondary{
+.btn-secondary {
     background-color: #EF5455 !important;
     border-color: #EF5455 !important;
     color: #ffffff !important;
 }
 
-.btn-secondary:hover{
+.btn-secondary:hover {
     background-color: #ec003b !important;
     border-color: #ec003b !important;
 }
