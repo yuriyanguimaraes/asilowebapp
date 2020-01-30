@@ -16,8 +16,7 @@ import { NoticiasComponent } from './web-app/noticias/noticias.component';
 import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
 import { NoticiaComponent } from './web-app/noticia/noticia.component'
 import { SobreComponent } from './web-app/sobre/sobre.component';
-import { ContatoComponent } from './contato/contato.component';
-import { HomeTestComponent } from './home-test/home-test.component';
+import { ContatoComponent } from './web-app/contato/contato.component';
 
 
 //Services
@@ -38,6 +37,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     NoticiaCardComponent,
     NoticiaComponent,
     SobreComponent,
+    ContatoComponent,
 
     //Pipes
     DateAgoPipe
