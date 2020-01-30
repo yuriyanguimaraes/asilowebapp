@@ -5,7 +5,7 @@ import { NoticiasComponent } from "./web-app/noticias/noticias.component"
 import { NoticiaComponent } from "./web-app/noticia/noticia.component"
 import { SobreComponent } from "./web-app/sobre/sobre.component"
 import { ContatoComponent } from "./web-app/contato/contato.component"
-import { FAQComponent } from './faq/faq.component'
+import { FAQComponent } from './web-app/faq/faq.component'
 
 export const ROUTES: Routes = [
 

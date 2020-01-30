@@ -1,3 +1,4 @@
+//Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from "@angular/router"
@@ -20,7 +21,7 @@ import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-ca
 import { NoticiaComponent } from './web-app/noticia/noticia.component'
 import { SobreComponent } from './web-app/sobre/sobre.component';
 import { ContatoComponent } from './web-app/contato/contato.component';
-import {FAQComponent} from './../app/faq/faq.component'
+import { FAQComponent } from './web-app/faq/faq.component'
 
 
 //Services
@@ -53,9 +54,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     HttpModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8'
-    }),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8' }),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot()
