@@ -1,9 +1,13 @@
+//Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from "@angular/router"
 import { HttpModule } from "@angular/http"
 import { HttpClientModule } from "@angular/common/http"
 import { AgmCoreModule } from '@agm/core'
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 //Routes
 import { ROUTES } from "./app.routing"
@@ -17,6 +21,7 @@ import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-ca
 import { NoticiaComponent } from './web-app/noticia/noticia.component'
 import { SobreComponent } from './web-app/sobre/sobre.component';
 import { ContatoComponent } from './web-app/contato/contato.component';
+import { FAQComponent } from './web-app/faq/faq.component'
 
 
 //Services
@@ -38,6 +43,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     NoticiaComponent,
     SobreComponent,
     ContatoComponent,
+    FAQComponent,
 
     //Pipes
     DateAgoPipe
@@ -48,9 +54,10 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     HttpModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8'
-    })
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8' }),
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [
     //Services
