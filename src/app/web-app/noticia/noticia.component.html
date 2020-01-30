@@ -1,2 +1,6 @@
-<h1>{{noticia?.titulo}}</h1>
-<p>{{noticia?.descricao}}</p>
+<div class="container-fluid" id="marginTopBottomContentContainer">
+    <h2 class="tituloNoticia">{{noticia?.titulo}}</h2>
+    <p class="dataNoticia">Publicado em {{noticia?.data | date: 'dd/MM/yyyy'}}</p>
+    <hr>
+    <p class="conteudoNoticia">{{noticia?.descricao}}</p>
+</div>

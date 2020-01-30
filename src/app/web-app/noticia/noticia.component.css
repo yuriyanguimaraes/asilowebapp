@@ -1,0 +1,20 @@
+#marginTopBottomContentContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.tituloNoticia {
+    text-align: center;
+}
+
+.conteudoNoticia {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.dataNoticia {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    color: #a0a0a0
+}
