@@ -14,10 +14,12 @@ import { FooterComponent } from './web-components/footer/footer.component';
 import { NoticiasComponent } from './web-app/noticias/noticias.component';
 import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
 import { NoticiaComponent } from './web-app/noticia/noticia.component'
+import { SobreComponent } from './web-app/sobre/sobre.component';
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
 import { NoticiaService } from "./web-app/services/noticia.service"
+import { SobreService } from './web-app/services/sobre.service';
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
@@ -31,6 +33,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     NoticiasComponent,
     NoticiaCardComponent,
     NoticiaComponent,
+    SobreComponent,
 
     //Pipes
     DateAgoPipe
@@ -45,7 +48,8 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
   providers: [
     //Services
     NoticiasService,
-    NoticiaService
+    NoticiaService,
+    SobreService
   ],
   bootstrap: [AppComponent]
 })
