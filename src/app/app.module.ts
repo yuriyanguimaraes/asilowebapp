@@ -22,6 +22,8 @@ import { NoticiaComponent } from './web-app/noticia/noticia.component'
 import { SobreComponent } from './web-app/sobre/sobre.component';
 import { ContatoComponent } from './web-app/contato/contato.component';
 import { FAQComponent } from './web-app/faq/faq.component'
+import { HomeComponent } from './web-app/home/home.component'
+import { CarouselComponent } from './web-app/home/carousel/carousel.component';
 
 
 //Services
@@ -31,6 +33,7 @@ import { SobreService } from './web-app/services/sobre.service';
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
+
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     SobreComponent,
     ContatoComponent,
     FAQComponent,
+    HomeComponent,
+    CarouselComponent,
 
     //Pipes
     DateAgoPipe
