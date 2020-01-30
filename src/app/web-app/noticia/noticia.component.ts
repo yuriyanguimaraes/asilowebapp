@@ -14,13 +14,13 @@ export class NoticiaComponent implements OnInit {
   constructor(private ns: NoticiaService, private ar: ActivatedRoute) { }
 
   ngOnInit() {
-    const _id: string = this.ar.snapshot.params['_id']
+    const titulo: string = this.ar.snapshot.params['title']
 
-    this.getNoticiaById(_id)
+    this.getNoticiaByTitle(titulo)
   }
 
-  getNoticiaById(id: string) {
-    this.ns.getNoticiaById(id).subscribe((noticia) => {
+  getNoticiaByTitle(title: string) {
+    this.ns.getNoticiaByTitle(title).subscribe((noticia) => {
       this.noticia = noticia['data']
     })
   }

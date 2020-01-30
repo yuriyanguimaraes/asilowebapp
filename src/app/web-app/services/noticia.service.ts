@@ -9,7 +9,7 @@ export class NoticiaService {
 
     constructor(private http: HttpClient) { }
 
-    getNoticiaById(id: string): Observable<Noticia> {
-        return this.http.get<Noticia>(`${AsiloWebApi}/noticia/${id}`)
+    getNoticiaByTitle(title: string): Observable<Noticia> {
+        return this.http.get<Noticia>(`${AsiloWebApi}/noticia/${title}`)
     }
 }
