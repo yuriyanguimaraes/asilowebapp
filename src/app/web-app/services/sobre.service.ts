@@ -7,11 +7,10 @@ import { Sobre } from './../sobre/sobre.model'
 @Injectable()
 export class SobreService {
 
-  constructor(private http : HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
   getSobre(): Observable<Sobre[]> {
     return this.http.get<Sobre[]>(`${AsiloWebApi}/sobre`)
   }
 
-  
 }

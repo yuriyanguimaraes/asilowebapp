@@ -19,10 +19,9 @@ export class SobreComponent implements OnInit {
 
   getSobre() {
     this.sobreS.getSobre().subscribe(sobreS => {
-      this.about = sobreS; 
-
+      this.about = sobreS;
     })
   }
-  
+
 
 }
