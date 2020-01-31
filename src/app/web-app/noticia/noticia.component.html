@@ -1,8 +1,7 @@
 <div class="container-fluid" id="marginTopBottomContentContainer">
-    <h2 class="tituloNoticia">{{noticia?.titulo}}</h2>
-    <p class="dataNoticia">Publicado em {{noticia?.data | date: 'dd/MM/yyyy'}}</p>
-    <img class="imagemNoticia" [src]="noticia?.imagem">
+    <h2 class="tituloNoticia">{{noticia['titulo']}}</h2>
+    <p class="dataNoticia">Publicado em {{noticia['data'] | date: 'dd/MM/yyyy'}}</p>
+    <img class="imagemNoticia" [src]="noticia['imagem']">
     <hr>
-    <p class="conteudoNoticia">{{noticia?.descricao}}</p>
+    <p class="conteudoNoticia">{{noticia['descricao']}}</p>
 </div>
-
