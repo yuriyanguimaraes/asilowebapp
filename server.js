@@ -1,13 +1,12 @@
 const express = require('express')
 const path = require('path')
-const environment = require('./src/environments/environment')
 
 const app = express()
 
 app.use(express.static(__dirname + '/dist/asiloweb-app/'))
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', environment.apiUrl)
+    res.setHeader('Access-Control-Allow-Origin', 'https://asiloweb-api.herokuapp.com')
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
     res.setHeader('Access-Control-Allow-Credentials', true)
