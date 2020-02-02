@@ -33,6 +33,7 @@ import { SobreService } from './web-app/services/sobre.service';
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
+import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
 
 
 @NgModule({
@@ -51,7 +52,9 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     CarouselComponent,
 
     //Pipes
-    DateAgoPipe
+    DateAgoPipe,
+
+    PortalTransparenciaComponent
   ],
   imports: [
     //Modules
