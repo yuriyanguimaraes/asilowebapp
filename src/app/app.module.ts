@@ -24,17 +24,16 @@ import { ContatoComponent } from './web-app/contato/contato.component';
 import { FAQComponent } from './web-app/faq/faq.component'
 import { HomeComponent } from './web-app/home/home.component'
 import { CarouselComponent } from './web-app/home/carousel/carousel.component';
-
+import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
 import { NoticiaService } from "./web-app/services/noticia.service"
 import { SobreService } from './web-app/services/sobre.service';
+import { TransparenciaService } from "./web-app/services/transparencia.service"
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
-import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
-
 
 @NgModule({
   declarations: [
@@ -50,11 +49,10 @@ import { PortalTransparenciaComponent } from './web-app/portal-transparencia/por
     FAQComponent,
     HomeComponent,
     CarouselComponent,
+    PortalTransparenciaComponent,
 
     //Pipes
-    DateAgoPipe,
-
-    PortalTransparenciaComponent
+    DateAgoPipe
   ],
   imports: [
     //Modules
@@ -71,7 +69,8 @@ import { PortalTransparenciaComponent } from './web-app/portal-transparencia/por
     //Services
     NoticiasService,
     NoticiaService,
-    SobreService
+    SobreService,
+    TransparenciaService
   ],
   bootstrap: [AppComponent]
 })
