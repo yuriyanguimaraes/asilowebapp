@@ -3,3 +3,13 @@
     right: 10px;
     top: 13px;
 }
+
+.accordionSizeAndPosition{
+    position: absolute;
+    right: 10px;
+    width: 75%;
+}
+
+.menuPosition{
+    left: 10px;
+}
