@@ -18,7 +18,8 @@ export const ROUTES: Routes = [
     { path: 'sobre', component: SobreComponent },
     { path: 'contato', component: ContatoComponent },
     { path: 'faq', component: FAQComponent },
-    { path: 'transparencia', component: PortalTransparenciaComponent }
+    { path: 'transparencia', component: PortalTransparenciaComponent },
+    { path: 'transparencia/:categoria', component: PortalTransparenciaComponent }
 
     //Rotas administrativas - children routes
     //{path: 'admin', component:, children: [

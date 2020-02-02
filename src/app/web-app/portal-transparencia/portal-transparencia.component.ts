@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Transparencia } from "./transparencia.model"
 import { TransparenciaService } from "./../services/transparencia.service"
+import { ActivatedRoute, Router } from "@angular/router"
 
 @Component({
   selector: 'app-portal-transparencia',
@@ -11,14 +12,30 @@ export class PortalTransparenciaComponent implements OnInit {
 
   documents: Transparencia[]
 
-  constructor(private ts: TransparenciaService) { }
+  constructor(private ts: TransparenciaService, private ar: ActivatedRoute, private r: Router) { }
 
   ngOnInit() {
-    this.getDocumentsTransparencia()
+    this.r.routeReuseStrategy.shouldReuseRoute = () => false
+
+    let category = this.ar.snapshot.params['categoria']
+
+    if (category) {
+      this.getDocumentsTransparenciaByCategory(category)
+    } else {
+      this.getDocumentsTransparencia()
+    }
+
   }
 
   getDocumentsTransparencia() {
     this.ts.getDocumentsTransparencia().subscribe(documents => {
+      this.documents = documents['data']
+      console.log(this.documents)
+    })
+  }
+
+  getDocumentsTransparenciaByCategory(category: string) {
+    this.ts.getDocumentsTransparenciaByCategory(category).subscribe(documents => {
       this.documents = documents['data']
       console.log(this.documents)
     })

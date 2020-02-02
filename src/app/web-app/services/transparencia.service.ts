@@ -12,4 +12,8 @@ export class TransparenciaService {
     getDocumentsTransparencia(): Observable<Transparencia[]> {
         return this.http.get<Transparencia[]>(`${AsiloWebApi}/transparencia`)
     }
+
+    getDocumentsTransparenciaByCategory(category: string): Observable<Transparencia[]>{
+        return this.http.get<Transparencia[]>(`${AsiloWebApi}/transparencia/${category}`)
+    }
 }

@@ -62,7 +62,7 @@ import { DocumentsCollapseComponent } from './web-app/portal-transparencia/docum
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload' }),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8' }),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
