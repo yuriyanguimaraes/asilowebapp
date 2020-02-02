@@ -30,14 +30,12 @@ export class PortalTransparenciaComponent implements OnInit {
   getDocumentsTransparencia() {
     this.ts.getDocumentsTransparencia().subscribe(documents => {
       this.documents = documents['data']
-      console.log(this.documents)
     })
   }
 
   getDocumentsTransparenciaByCategory(category: string) {
     this.ts.getDocumentsTransparenciaByCategory(category).subscribe(documents => {
       this.documents = documents['data']
-      console.log(this.documents)
     })
   }
 
