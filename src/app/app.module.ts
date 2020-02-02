@@ -25,6 +25,7 @@ import { FAQComponent } from './web-app/faq/faq.component'
 import { HomeComponent } from './web-app/home/home.component'
 import { CarouselComponent } from './web-app/home/carousel/carousel.component';
 import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
+import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -34,7 +35,6 @@ import { TransparenciaService } from "./web-app/services/transparencia.service"
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
-import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
 
 @NgModule({
   declarations: [
@@ -51,11 +51,10 @@ import { DocumentsCollapseComponent } from './web-app/portal-transparencia/docum
     HomeComponent,
     CarouselComponent,
     PortalTransparenciaComponent,
+    DocumentsCollapseComponent,
 
     //Pipes
-    DateAgoPipe,
-
-    DocumentsCollapseComponent
+    DateAgoPipe
   ],
   imports: [
     //Modules
