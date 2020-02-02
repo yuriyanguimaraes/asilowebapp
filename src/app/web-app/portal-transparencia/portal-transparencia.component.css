@@ -4,12 +4,18 @@
     top: 13px;
 }
 
-.accordionSizeAndPosition{
-    position: absolute;
-    right: 10px;
+.accordionSizeAndPosition {
     width: 75%;
 }
 
-.menuPosition{
+.menuPosition {
     left: 10px;
+}
+
+.alignContentInsideModal {
+    justify-content: center;
+}
+
+.btnPeriodSearch {
+    text-align: end;
 }
