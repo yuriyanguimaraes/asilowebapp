@@ -34,6 +34,7 @@ import { TransparenciaService } from "./web-app/services/transparencia.service"
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
+import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     PortalTransparenciaComponent,
 
     //Pipes
-    DateAgoPipe
+    DateAgoPipe,
+
+    DocumentsCollapseComponent
   ],
   imports: [
     //Modules

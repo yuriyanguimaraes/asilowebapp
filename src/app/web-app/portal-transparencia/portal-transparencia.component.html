@@ -23,13 +23,13 @@
 
             <form>
               <div class="form-row align-items-center alignContentInsideModal">
-                De
+                De &nbsp;
                 <div class="col-sm-5 my-1">
-                  <input type="date" class="form-control" id="inlineFormInputName">
-                </div>
-                Até
+                  <input type="date" class="form-control">
+                </div>&nbsp;&nbsp;
+                Até &nbsp;
                 <div class="col-sm-5 my-1">
-                  <input type="date" class="form-control" id="inlineFormInputName">
+                  <input type="date" class="form-control">
                 </div>
               </div>
             </form>
@@ -55,78 +55,10 @@
       <a href="#" class="list-group-item list-group-item-action">Documentos Oficiais</a>
     </div>
 
-    <div class="accordion col-9" id="accordionExample">
-
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h6 class="mb-0">
-            Relatório de Atividades realizadas em Janeiro 2020
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-chevron-down"
-                id="arrowDownIconCollapse"></i>
-            </button>
-          </h6>
-        </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body">
-            Relatório de Atividades realizadas no mês de Janeiro de 2020 no Lar São Vicente de Paula em Ibitinga - SP
-            <br>
-            <small class="infoDocs"><b>Categoria: </b> Relatório de Atividades</small>&nbsp;
-            <small class="infoDocs"><b>Postado em: </b> 02/02/2020</small>
-            <hr>
-            <button type="submit" class="btn btn-outline-success btn-sm float-right">Download</button>
-            <br/>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h6 class="mb-0">
-            Prestação de Contas 2019
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo"
-              aria-expanded="true" aria-controls="collapseTwo"><i class="fa fa-chevron-down"
-                id="arrowDownIconCollapse"></i>
-            </button>
-          </h6>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
-            Relatório de Atividades realizadas no mês de Janeiro de 2020 no Lar São Vicente de Paula em Ibitinga - SP
-            <br>
-            <small class="infoDocs"><b>Categoria: </b> Prestação de Contas</small>&nbsp;
-            <small class="infoDocs"><b>Postado em: </b> 20/12/2019</small>
-            <hr>
-            <button type="submit" class="btn btn-outline-success btn-sm float-right">Download</button>
-            <br/>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h6 class="mb-0">
-            Documentos Oficiais 2018
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree"
-              aria-expanded="true" aria-controls="collapseThree"><i class="fa fa-chevron-down"
-                id="arrowDownIconCollapse"></i>
-            </button>
-          </h6>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body">
-            Relatório de Atividades realizadas no mês de Janeiro de 2020 no Lar São Vicente de Paula em Ibitinga - SP
-            <br>
-            <small class="infoDocs"><b>Categoria: </b> Documentos Oficiais</small>&nbsp;
-            <small class="infoDocs"><b>Postado em: </b> 01/03/2018</small>
-            <hr>
-            <button type="submit" class="btn btn-outline-success btn-sm float-right">Download</button>
-            <br/>
-          </div>
-        </div>
-      </div>
-
+    <div class="accordion col-9" id="accordion">
+      <app-documents-collapse *ngFor="let document of documents" [document]="document"></app-documents-collapse>
     </div>
+
   </div>
 
   <br />

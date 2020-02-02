@@ -8,4 +8,8 @@ import { Transparencia } from "./../portal-transparencia/transparencia.model"
 export class TransparenciaService {
 
     constructor(private http: HttpClient) { }
+
+    getDocumentsTransparencia(): Observable<Transparencia[]> {
+        return this.http.get<Transparencia[]>(`${AsiloWebApi}/transparencia`)
+    }
 }
