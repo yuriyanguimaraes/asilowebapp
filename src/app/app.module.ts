@@ -26,6 +26,7 @@ import { HomeComponent } from './web-app/home/home.component'
 import { CarouselComponent } from './web-app/home/carousel/carousel.component';
 import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
 import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
+import { LoadingComponent } from './web-components/loading/loading.component';
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -52,6 +53,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     CarouselComponent,
     PortalTransparenciaComponent,
     DocumentsCollapseComponent,
+    LoadingComponent,
 
     //Pipes
     DateAgoPipe

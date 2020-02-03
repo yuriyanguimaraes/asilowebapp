@@ -58,8 +58,15 @@
         routerLinkActive="active">Documentos Oficiais</a>
     </div>
 
-    <div class="accordion col-9" id="accordion">
-      <app-documents-collapse *ngFor="let document of documents" [document]="document"></app-documents-collapse>
+
+
+    <div class="col-9">
+
+      <app-loading [condition]="documents"></app-loading>
+
+      <div class="accordion" id="accordion">
+        <app-documents-collapse *ngFor="let document of documents" [document]="document"></app-documents-collapse>
+      </div>
     </div>
 
   </div>
