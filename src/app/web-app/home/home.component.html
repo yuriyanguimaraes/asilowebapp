@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-md-4" *ngFor="let noticia of noticias">
       <div class="card mb-3">
-        <a [routerLink]="['/noticias/', noticia._id]"><img class="card-img-top" src="{{noticia.imagem}}"
+        <a [routerLink]="['/noticia', noticia.titulo]"><img class="card-img-top" src="{{noticia.imagem}}"
             alt="{{noticia.titulo}}"></a>
         <div class="card-body">
           <h5 class="card-title">{{noticia.titulo | slice: 0:50}}
@@ -14,7 +14,7 @@
           </h5>
           <p class="card-text">{{noticia.descricao | slice: 0:130}}
             <span *ngIf="showEllipsisInTheText(noticia.descricao, 130)">...
-              <a [routerLink]="['/noticias/', noticia._id]">continuar lendo</a>
+              <a [routerLink]="['/noticia', noticia.titulo]">continuar lendo</a>
             </span>
           </p>
           <p class="card-text">

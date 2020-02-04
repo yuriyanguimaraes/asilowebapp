@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from "@angular/router"
 import { NoticiaService } from "./../services/noticia.service"
+import { Subscription } from "rxjs"
+import { Noticia } from "./../noticias/noticia.model"
 
 @Component({
   selector: 'app-noticia',
   templateUrl: './noticia.component.html',
   styleUrls: ['./noticia.component.css']
 })
-export class NoticiaComponent implements OnInit {
+export class NoticiaComponent implements OnInit, OnDestroy {
 
-  noticia: string
+  public noticia: string
+
+  private components: Subscription
 
   constructor(private ns: NoticiaService, private ar: ActivatedRoute) { }
 
@@ -19,8 +23,12 @@ export class NoticiaComponent implements OnInit {
     this.getNoticiaByTitle(titulo)
   }
 
+  ngOnDestroy() {
+    this.components.unsubscribe()
+  }
+
   getNoticiaByTitle(title: string) {
-    this.ns.getNoticiaByTitle(title).subscribe((noticia) => {
+    this.components = this.ns.getNoticiaByTitle(title).subscribe((noticia) => {
       this.noticia = noticia['data']
     })
   }
