@@ -8,6 +8,7 @@ import { AgmCoreModule } from '@agm/core'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 //Routes
 import { ROUTES } from "./app.routing"
@@ -63,6 +64,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload' }),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8' }),
     BsDropdownModule.forRoot(),

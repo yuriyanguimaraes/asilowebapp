@@ -12,6 +12,10 @@ export class PortalTransparenciaComponent implements OnInit {
 
   documents: Transparencia[]
 
+  filterDate: boolean = false
+  filterCategory: boolean = false
+  order: boolean = false
+
   constructor(private ts: TransparenciaService, private ar: ActivatedRoute, private r: Router) { }
 
   ngOnInit() {
@@ -20,6 +24,7 @@ export class PortalTransparenciaComponent implements OnInit {
     let category = this.ar.snapshot.params['categoria']
 
     if (category) {
+      this.filterCategory = true
       this.getDocumentsTransparenciaByCategory(category)
     } else {
       this.getDocumentsTransparencia()
@@ -37,6 +42,18 @@ export class PortalTransparenciaComponent implements OnInit {
     this.ts.getDocumentsTransparenciaByCategory(category).subscribe(documents => {
       this.documents = documents['data']
     })
+  }
+
+  clearConditions() {
+    if (this.filterCategory) {
+      this.filterCategory = false
+    } else if (this.filterDate) {
+      this.filterDate = false
+    } else {
+      this.order = false
+    }
+
+    this.r.navigate(['/transparencia'])
   }
 
 }

@@ -2,95 +2,112 @@
 
   <h2 class="titlePage">Portal da Transparência</h2>
   <hr>
+  <div>
+    <div class="btnPeriodSearch">
 
-  <div class="btnPeriodSearch">
-    <!-- Botão para acionar modal -->
-    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modalPeriodSearch">
-      Buscar por período
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="modalPeriodSearch" tabindex="-1" role="dialog" aria-labelledby="modalPeriodSearchLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalPeriodSearchLabel">Buscar por Período</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
+      <div class="btn-group marginDropdown" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-info btn-sm dropdown-toggle"
+          aria-controls="dropdown-basic">
+          Ordenar por <span class="caret"></span>
+        </button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item" href="#">Data - mais novo primeiro</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Data - mais antigo primeiro</a></li>
+        </ul>
+      </div>
 
-            <form>
-              <div class="form-row align-items-center alignContentInsideModal">
-                De &nbsp;
-                <div class="col-sm-5 my-1">
-                  <input type="date" class="form-control">
-                </div>&nbsp;&nbsp;
-                Até &nbsp;
-                <div class="col-sm-5 my-1">
-                  <input type="date" class="form-control">
+      <!-- Botão para acionar modal -->
+      <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
+        Buscar por período
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="modalPeriodSearch" tabindex="-1" role="dialog"
+        aria-labelledby="modalPeriodSearchLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalPeriodSearchLabel">Buscar por Período</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form>
+                <div class="form-row align-items-center alignContentInsideModal">
+                  De &nbsp;
+                  <div class="col-sm-5 my-1">
+                    <input type="date" class="form-control">
+                  </div>&nbsp;&nbsp;
+                  Até &nbsp;
+                  <div class="col-sm-5 my-1">
+                    <input type="date" class="form-control">
+                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
 
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-outline-danger btn-sm">Limpar</button>
-            <button type="submit" class="btn btn-outline-info btn-sm"><b><i class="fa fa-search"></i></b></button>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-outline-danger btn-sm">Limpar</button>
+              <button type="submit" class="btn btn-outline-info btn-sm"><b><i class="fa fa-search"></i></b></button>
+            </div>
           </div>
         </div>
       </div>
+
+      <button *ngIf="filter || order" type="button" class="btn btn-outline-danger btn-sm marginClearFilter"
+        (click)="clearConditions()">Limpar
+        filtros </button>
+
     </div>
-  </div>
-  <br />
+    <br />
 
-  <div class="row">
+    <div class="row">
 
-    <div class="list-group col-3 menuPosition">
-      <a [routerLink]="['/transparencia', 'Relatório%20de%20Atividades']" class="list-group-item list-group-item-action"
-        routerLinkActive="active">
-        Relatório de Atividades
-      </a>
-      <a [routerLink]="['/transparencia', 'Prestação%20de%20Contas']" class="list-group-item list-group-item-action"
-        routerLinkActive="active">Prestação de Contas</a>
-      <a [routerLink]="['/transparencia', 'Documentos%20Oficiais']" class="list-group-item list-group-item-action"
-        routerLinkActive="active">Documentos Oficiais</a>
-    </div>
-
-
-
-    <div class="col-9">
-
-      <app-loading [condition]="documents"></app-loading>
-
-      <div class="accordion" id="accordion">
-        <app-documents-collapse *ngFor="let document of documents" [document]="document"></app-documents-collapse>
+      <div class="list-group col-3 menuPosition">
+        <a [routerLink]="['/transparencia', 'Relatório%20de%20Atividades']"
+          class="list-group-item list-group-item-action" routerLinkActive="active">
+          Relatório de Atividades
+        </a>
+        <a [routerLink]="['/transparencia', 'Prestação%20de%20Contas']" class="list-group-item list-group-item-action"
+          routerLinkActive="active">Prestação de Contas</a>
+        <a [routerLink]="['/transparencia', 'Documentos%20Oficiais']" class="list-group-item list-group-item-action"
+          routerLinkActive="active">Documentos Oficiais</a>
       </div>
+
+
+
+      <div class="col-9">
+
+        <app-loading [condition]="documents"></app-loading>
+
+        <div class="accordion" id="accordion">
+          <app-documents-collapse *ngFor="let document of documents" [document]="document"></app-documents-collapse>
+        </div>
+      </div>
+
     </div>
 
+    <br />
+
+    <nav aria-label="Navegação de página exemplo">
+      <ul class="pagination" style="justify-content: center;">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Anterior">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Anterior</span>
+          </a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Próximo">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Próximo</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
   </div>
-
-  <br />
-
-  <nav aria-label="Navegação de página exemplo">
-    <ul class="pagination" style="justify-content: center;">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Anterior">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">Anterior</span>
-        </a>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Próximo">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">Próximo</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-</div>
