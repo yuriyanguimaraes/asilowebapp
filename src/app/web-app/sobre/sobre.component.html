@@ -1,17 +1,13 @@
-<br>
-
-<h1>Nossa História</h1>
-
-<br>
-
-<div class="texto" *ngFor="let sobre of about">
-  <p>
-    {{ about }}
-  </p>
+<div class="container-fluid" id="marginTopBottomContentAbout">
+  <h2>Sobre Nós</h2>
+  <hr>
+  <div *ngIf="about; else notData">
+    <div *ngFor="let sobre of about">
+      <p>{{ about }}</p>
+    </div>
+    <p>Venha nos visitar, <a [routerLink]="['/contato']">Contatos</a>.</p>
+  </div>
+  <ng-template #notData>
+    <p class="notData">Não há texto para ser exibido.</p>
+  </ng-template>
 </div>
-
-<p>  
-Venha nos visitar, <a [routerLink]="['/contato']">Contatos</a>.
-</p>
-
-<br>
