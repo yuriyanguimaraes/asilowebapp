@@ -12,10 +12,6 @@ export class TransparenciaService {
     params = new HttpParams()
 
     getDocumentsWithParams(): Observable<Transparencia[]> {
-
-        this.params = this.params.append("order", "ascending")
-        this.params = this.params.append("page", "1")
-
         return this.http.get<Transparencia[]>(`${AsiloWebApi}/transparencia`, { params: this.params })
     }
 }

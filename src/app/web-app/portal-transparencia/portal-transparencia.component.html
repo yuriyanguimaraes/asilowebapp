@@ -55,8 +55,8 @@
         </div>
       </div>
 
-      <button *ngIf="filterCategory || filterDate || order" type="button" class="btn btn-outline-danger btn-sm marginClearFilter"
-        (click)="clearConditions()">Limpar
+      <button *ngIf="filterCategory || filterDate || order" type="button"
+        class="btn btn-outline-danger btn-sm marginClearFilter" (click)="clearConditions()">Limpar
         filtros </button>
 
     </div>
@@ -66,7 +66,7 @@
 
       <div class="list-group col-3 menuPosition">
         <a [routerLink]="['/transparencia', 'Relatório%20de%20Atividades']"
-          class="list-group-item list-group-item-action" routerLinkActive="active">
+          class="list-group-item list-group-item-action">
           Relatório de Atividades
         </a>
         <a [routerLink]="['/transparencia', 'Prestação%20de%20Contas']" class="list-group-item list-group-item-action"
