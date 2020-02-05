@@ -21,25 +21,11 @@ export class PortalTransparenciaComponent implements OnInit {
   ngOnInit() {
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
 
-    let category = this.ar.snapshot.params['categoria']
-
-    if (category) {
-      this.filterCategory = true
-      this.getDocumentsTransparenciaByCategory(category)
-    } else {
-      this.getDocumentsTransparencia()
-    }
-
+    this.getDocumentsWithParams()
   }
 
-  getDocumentsTransparencia() {
-    this.ts.getDocumentsTransparencia().subscribe(documents => {
-      this.documents = documents['data']
-    })
-  }
-
-  getDocumentsTransparenciaByCategory(category: string) {
-    this.ts.getDocumentsTransparenciaByCategory(category).subscribe(documents => {
+  getDocumentsWithParams() {
+    this.ts.getDocumentsWithParams().subscribe(documents => {
       this.documents = documents['data']
     })
   }
