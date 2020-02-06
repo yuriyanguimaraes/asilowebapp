@@ -10,14 +10,18 @@ import { Router } from "@angular/router"
 })
 export class PortalTransparenciaComponent implements OnInit {
 
+  //Dataset
   documents: Transparencia[]
 
+  //Control Variables
   filterDate: boolean = false
   filterCategory: boolean = false
   order: boolean = false
 
+  //Selected Items
   dropdownSelectedItem: any
 
+  //Menu Items Set
   dropdownMenuItems: any[] = [
     { option: 'Data - mais novo primeiro', param: 'descending' },
     { option: 'Data - mais antigo primeiro', param: 'ascending' }
