@@ -13,7 +13,8 @@
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
           <li role="menuItem">
             <a *ngFor="let item of dropdownOrderMenuItems" class="dropdown-item"
-              [class.active]="item === dropdownSelectedItem" (click)="onSelectDropdownMenu(item)">{{item.option}}</a>
+              [class.active]="item === dropdownOrderSelectedItem"
+              (click)="onSelectOrderDropdownMenu(item)">{{item.option}}</a>
           </li>
         </ul>
       </div>
@@ -67,14 +68,8 @@
     <div class="row">
 
       <div class="list-group col-3 menuPosition">
-        <a class="list-group-item list-group-item-action"
-          (click)="setCategoryByParam('relatório de atividades'); setActiveMenuItem($event)">Relatório de Atividades</a>
-        <a class="list-group-item list-group-item-action"
-          (click)="setCategoryByParam('prestação de contas'); setActiveMenuItem($event)">Prestação
-          de Contas</a>
-        <a class="list-group-item list-group-item-action"
-          (click)="setCategoryByParam('documentos oficiais'); setActiveMenuItem($event)">Documentos
-          Oficiais</a>
+        <a *ngFor="let item of categoryMenuItems" class="list-group-item list-group-item-action"
+          [class.active]="item === categorySelectedItem" (click)="onSelectCategoryMenu(item)">{{item.option}}</a>
       </div>
 
 

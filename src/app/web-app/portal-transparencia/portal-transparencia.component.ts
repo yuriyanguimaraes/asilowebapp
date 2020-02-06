@@ -19,12 +19,19 @@ export class PortalTransparenciaComponent implements OnInit {
   order: boolean = false
 
   //Selected Items
-  dropdownSelectedItem: any
+  dropdownOrderSelectedItem: any
+  categorySelectedItem: any
 
   //Menu Items Set
   dropdownOrderMenuItems: any[] = [
     { option: 'Data - mais novo primeiro', param: 'descending' },
     { option: 'Data - mais antigo primeiro', param: 'ascending' }
+  ]
+
+  categoryMenuItems: any[] = [
+    { option: 'Relatório de Atividades', param: 'relatório de atividades' },
+    { option: 'Prestação de Contas', param: 'prestação de contas' },
+    { option: 'Documentos Oficiais', param: 'documentos oficiais' },
   ]
 
   constructor(private ts: TransparenciaService, private r: Router, private render: Renderer) { }
@@ -44,11 +51,19 @@ export class PortalTransparenciaComponent implements OnInit {
     })
   }
 
-  onSelectDropdownMenu(item: any) {
-    this.dropdownSelectedItem = item
+  onSelectOrderDropdownMenu(item: any) {
+    this.dropdownOrderSelectedItem = item
     this.documents = null
     this.order = true
     this.ts.params = this.ts.params.set('order', item['param'])
+    this.getDocumentsWithParams()
+  }
+
+  onSelectCategoryMenu(item: any) {
+    this.categorySelectedItem = item
+    this.documents = null
+    this.filterCategory = true
+    this.ts.params = this.ts.params.set('category', item['param'])
     this.getDocumentsWithParams()
   }
 
@@ -68,6 +83,7 @@ export class PortalTransparenciaComponent implements OnInit {
   clearConditions() {
     if (this.filterCategory) {
       this.filterCategory = false
+      this.categorySelectedItem = null
       this.ts.params = this.ts.params.delete('category')
     } else if (this.filterDate) {
       this.filterDate = false
@@ -75,6 +91,7 @@ export class PortalTransparenciaComponent implements OnInit {
       this.ts.params = this.ts.params.delete('dateFinish')
     } else {
       this.order = false
+      this.dropdownOrderSelectedItem = null
       this.ts.params = this.ts.params.set('order', 'descending')
     }
 
