@@ -17,3 +17,7 @@
 .marginClearFilter {
     margin-left: 6px;
 }
+
+a {
+    cursor: pointer;
+}
