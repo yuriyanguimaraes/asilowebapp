@@ -16,6 +16,13 @@ export class PortalTransparenciaComponent implements OnInit {
   filterCategory: boolean = false
   order: boolean = false
 
+  dropdownSelectedItem: any
+
+  dropdownMenuItems: any[] = [
+    { option: 'Data - mais novo primeiro', param: 'descending' },
+    { option: 'Data - mais antigo primeiro', param: 'ascending' }
+  ]
+
   constructor(private ts: TransparenciaService, private r: Router, private render: Renderer) { }
 
   ngOnInit() {
@@ -33,17 +40,12 @@ export class PortalTransparenciaComponent implements OnInit {
     })
   }
 
-  setOrderByParam(valueOrder: string) {
-    this.ts.params = this.ts.params.set('order', valueOrder)
-    this.order = true
+  onSelectDropdownMenu(item: any) {
+    this.dropdownSelectedItem = item
     this.documents = null
+    this.order = true
+    this.ts.params = this.ts.params.set('order', item['param'])
     this.getDocumentsWithParams()
-  }
-
-  setActiveDropdownMenuItem(event: any) {
-    let oldClasses = event.target.getAttribute('class')
-
-    this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
   }
 
   setCategoryByParam(valueCategory: string) {
@@ -69,7 +71,7 @@ export class PortalTransparenciaComponent implements OnInit {
       this.ts.params = this.ts.params.delete('dateFinish')
     } else {
       this.order = false
-      this.ts.params = this.ts.params.delete('order')
+      this.ts.params = this.ts.params.set('order', 'descending')
     }
 
     this.documents = null

@@ -11,12 +11,10 @@
           Ordenar por <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem"><a class="dropdown-item"
-              (click)="setOrderByParam('descending'); setActiveDropdownMenuItem($event)">Data - mais novo
-              primeiro</a></li>
-          <li role="menuitem"><a class="dropdown-item"
-              (click)="setOrderByParam('ascending'); setActiveDropdownMenuItem($event)">Data - mais antigo
-              primeiro</a></li>
+          <li role="menuItem">
+            <a *ngFor="let item of dropdownMenuItems" class="dropdown-item"
+              [class.active]="item === dropdownSelectedItem" (click)="onSelectDropdownMenu(item)">{{item.option}}</a>
+          </li>
         </ul>
       </div>
 
