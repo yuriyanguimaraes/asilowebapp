@@ -69,14 +69,14 @@
     <div class="row">
 
       <div class="list-group col-3 menuPosition">
-        <a [routerLink]="['/transparencia', 'Relatório%20de%20Atividades']"
-          class="list-group-item list-group-item-action">
-          Relatório de Atividades
-        </a>
-        <a [routerLink]="['/transparencia', 'Prestação%20de%20Contas']" class="list-group-item list-group-item-action"
-          routerLinkActive="active">Prestação de Contas</a>
-        <a [routerLink]="['/transparencia', 'Documentos%20Oficiais']" class="list-group-item list-group-item-action"
-          routerLinkActive="active">Documentos Oficiais</a>
+        <a class="list-group-item list-group-item-action"
+          (click)="setCategoryByParam('relatório de atividades'); setActiveMenuItem($event)">Relatório de Atividades</a>
+        <a class="list-group-item list-group-item-action"
+          (click)="setCategoryByParam('prestação de contas'); setActiveMenuItem($event)">Prestação
+          de Contas</a>
+        <a class="list-group-item list-group-item-action"
+          (click)="setCategoryByParam('documentos oficiais'); setActiveMenuItem($event)">Documentos
+          Oficiais</a>
       </div>
 
 

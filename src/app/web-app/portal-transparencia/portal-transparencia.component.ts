@@ -46,13 +46,30 @@ export class PortalTransparenciaComponent implements OnInit {
     this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
   }
 
+  setCategoryByParam(valueCategory: string) {
+    this.ts.params = this.ts.params.set('category', valueCategory)
+    this.filterCategory = true
+    this.documents = null
+    this.getDocumentsWithParams()
+  }
+
+  setActiveMenuItem(event: any) {
+    let oldClasses = event.target.getAttribute('class')
+
+    this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
+  }
+
   clearConditions() {
     if (this.filterCategory) {
       this.filterCategory = false
+      this.ts.params = this.ts.params.delete('category')
     } else if (this.filterDate) {
       this.filterDate = false
+      this.ts.params = this.ts.params.delete('dateStart')
+      this.ts.params = this.ts.params.delete('dateFinish')
     } else {
       this.order = false
+      this.ts.params = this.ts.params.delete('order')
     }
 
     this.r.navigate(['/transparencia'])
