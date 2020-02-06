@@ -12,7 +12,7 @@
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
           <li role="menuItem">
-            <a *ngFor="let item of dropdownMenuItems" class="dropdown-item"
+            <a *ngFor="let item of dropdownOrderMenuItems" class="dropdown-item"
               [class.active]="item === dropdownSelectedItem" (click)="onSelectDropdownMenu(item)">{{item.option}}</a>
           </li>
         </ul>

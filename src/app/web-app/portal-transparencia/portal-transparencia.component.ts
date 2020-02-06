@@ -22,7 +22,7 @@ export class PortalTransparenciaComponent implements OnInit {
   dropdownSelectedItem: any
 
   //Menu Items Set
-  dropdownMenuItems: any[] = [
+  dropdownOrderMenuItems: any[] = [
     { option: 'Data - mais novo primeiro', param: 'descending' },
     { option: 'Data - mais antigo primeiro', param: 'ascending' }
   ]
