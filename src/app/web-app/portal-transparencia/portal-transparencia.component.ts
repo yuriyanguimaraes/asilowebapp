@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer } from '@angular/core';
 import { Transparencia } from "./transparencia.model"
 import { TransparenciaService } from "./../services/transparencia.service"
-import { ActivatedRoute, Router } from "@angular/router"
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-portal-transparencia',
@@ -16,7 +16,7 @@ export class PortalTransparenciaComponent implements OnInit {
   filterCategory: boolean = false
   order: boolean = false
 
-  constructor(private ts: TransparenciaService, private ar: ActivatedRoute, private r: Router, private render: Renderer) { }
+  constructor(private ts: TransparenciaService, private r: Router, private render: Renderer) { }
 
   ngOnInit() {
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
@@ -72,7 +72,8 @@ export class PortalTransparenciaComponent implements OnInit {
       this.ts.params = this.ts.params.delete('order')
     }
 
-    this.r.navigate(['/transparencia'])
+    this.documents = null
+    this.getDocumentsWithParams()
   }
 
 }
