@@ -20,9 +20,6 @@ export class NoticiasComponent implements OnInit {
 
   getNoticias() {
     this.ns.getNoticias().subscribe(noticias => {
-      for (let i = 0; i < noticias['data'].length; i++) {
-        noticias['data'][i]['descricao'] = noticias['data'][i]['descricao'].substring(0, 74)
-      }
       this.noticias = noticias['data']
     })
   }
