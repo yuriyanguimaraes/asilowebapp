@@ -36,15 +36,15 @@
             </div>
             <div class="modal-body">
 
-              <form>
+              <form [formGroup]="dateBetweenFilterForm" novalidate>
                 <div class="form-row align-items-center alignContentInsideModal">
                   De &nbsp;
                   <div class="col-sm-5 my-1">
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" formControlName="dateStart">
                   </div>&nbsp;&nbsp;
                   Até &nbsp;
                   <div class="col-sm-5 my-1">
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" formControlName="dateFinish">
                   </div>
                 </div>
               </form>
@@ -52,7 +52,9 @@
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-outline-danger btn-sm">Limpar</button>
-              <button type="submit" class="btn btn-outline-info btn-sm"><b><i class="fa fa-search"></i></b></button>
+              <button #closeModal type="submit" class="btn btn-outline-info btn-sm" data-dismiss="modal"
+                (click)="onClickFilterDate()" [disabled]="!dateBetweenFilterForm.valid"><b><i
+                    class="fa fa-search"></i></b></button>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit, Renderer } from '@angular/core';
+import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms"
 import { Transparencia } from "./transparencia.model"
 import { TransparenciaService } from "./../services/transparencia.service"
 import { Router } from "@angular/router"
@@ -10,8 +11,13 @@ import { Router } from "@angular/router"
 })
 export class PortalTransparenciaComponent implements OnInit {
 
+  @ViewChild('closeModal') private closeModal: ElementRef
+
   //Dataset
   documents: Transparencia[]
+
+  //Forms Set
+  dateBetweenFilterForm: FormGroup
 
   //Control Variables
   filterDate: boolean = false
@@ -34,13 +40,47 @@ export class PortalTransparenciaComponent implements OnInit {
     { option: 'Documentos Oficiais', param: 'documentos oficiais' },
   ]
 
-  constructor(private ts: TransparenciaService, private r: Router, private render: Renderer) { }
+  constructor(
+    private ts: TransparenciaService,
+    private r: Router,
+    private render: Renderer,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
 
     this.ts.params = this.ts.params.set('order', 'descending')
     this.ts.params = this.ts.params.set('page', '1')
+
+    this.getDocumentsWithParams()
+
+    //Init Form
+    this.dateBetweenFilterForm = this.fb.group({
+      dateStart: this.fb.control(null, [Validators.required]),
+      dateFinish: this.fb.control(null)
+    })
+  }
+
+  showFormResult() {
+    console.log(this.dateBetweenFilterForm.value.dateStart)
+  }
+
+  onClickFilterDate() {
+
+    let dateStart = this.dateBetweenFilterForm.value.dateStart
+    let dateFinish = this.dateBetweenFilterForm.value.dateFinish
+
+    this.documents = null
+    this.filterDate = true
+    this.ts.params = this.ts.params.set('dateStart', dateStart)
+
+    if (dateFinish) {
+      this.ts.params = this.ts.params.set('dateFinish', dateFinish)
+    }
+
+    this.closeModal.nativeElement.click()
+    this.dateBetweenFilterForm.reset()
 
     this.getDocumentsWithParams()
   }
