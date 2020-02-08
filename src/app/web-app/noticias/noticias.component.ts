@@ -24,11 +24,11 @@ export class NoticiasComponent implements OnInit {
   filterDate: boolean = false
   order: boolean = false
 
-  constructor(private ns: NoticiasService) { }
+  constructor(private _service: NoticiasService) { }
 
   ngOnInit() {
-    this.ns.params = this.ns.params.set('order', 'descending')
-    this.ns.params = this.ns.params.set('page', '1')
+    this._service.params = this._service.params.set('order', 'descending')
+    this._service.params = this._service.params.set('page', '1')
 
     this.getNoticiasWithParams()
   }
@@ -39,7 +39,7 @@ export class NoticiasComponent implements OnInit {
 
   getNoticiasWithParams() {
     this.isLoading = true
-    this.httpReq = this.ns.getNoticiasWithParams().subscribe(response => {
+    this.httpReq = this._service.getNoticiasWithParams().subscribe(response => {
       this.statusResponse = response.status
       this.messageApi = response.body['message']
       this.noticias = response.body['data']
@@ -56,7 +56,7 @@ export class NoticiasComponent implements OnInit {
 
   getPage(page: number) {
     this.noticias = null
-    this.ns.params = this.ns.params.set('page', page.toString())
+    this._service.params = this._service.params.set('page', page.toString())
     this.getNoticiasWithParams()
   }
 
