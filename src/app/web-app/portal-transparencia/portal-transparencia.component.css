@@ -1,0 +1,35 @@
+.menuPosition {
+    left: 10px;
+}
+
+.alignContentInsideModal {
+    justify-content: center;
+}
+
+.btnPeriodSearch {
+    text-align: start;
+}
+
+.marginDropdown {
+    margin-right: 6px;
+}
+
+.marginClearFilter {
+    margin-left: 6px;
+}
+
+a {
+    cursor: pointer;
+}
+
+button:disabled {
+    pointer-events: none;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.notData {
+    text-align: center;
+}

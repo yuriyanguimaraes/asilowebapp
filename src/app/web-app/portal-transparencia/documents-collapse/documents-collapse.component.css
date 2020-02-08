@@ -1,0 +1,15 @@
+#arrowDownIconCollapse {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    color: rgb(138, 138, 138);
+}
+
+.infoDocs {
+    font-style: italic;
+    color: #bdbdbd
+}
+
+.btnDownload {
+    text-align: end;
+}
