@@ -62,29 +62,6 @@ export class PortalTransparenciaComponent implements OnInit {
     })
   }
 
-  showFormResult() {
-    console.log(this.dateBetweenFilterForm.value.dateStart)
-  }
-
-  onClickFilterDate() {
-
-    let dateStart = this.dateBetweenFilterForm.value.dateStart
-    let dateFinish = this.dateBetweenFilterForm.value.dateFinish
-
-    this.documents = null
-    this.filterDate = true
-    this.ts.params = this.ts.params.set('dateStart', dateStart)
-
-    if (dateFinish) {
-      this.ts.params = this.ts.params.set('dateFinish', dateFinish)
-    }
-
-    this.closeModal.nativeElement.click()
-    this.dateBetweenFilterForm.reset()
-
-    this.getDocumentsWithParams()
-  }
-
   getDocumentsWithParams() {
     this.ts.getDocumentsWithParams().subscribe(documents => {
       this.documents = documents['data']
@@ -118,6 +95,25 @@ export class PortalTransparenciaComponent implements OnInit {
     let oldClasses = event.target.getAttribute('class')
 
     this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
+  }
+
+  onClickFilterDate() {
+
+    let dateStart = this.dateBetweenFilterForm.value.dateStart
+    let dateFinish = this.dateBetweenFilterForm.value.dateFinish
+
+    this.documents = null
+    this.filterDate = true
+    this.ts.params = this.ts.params.set('dateStart', dateStart)
+
+    if (dateFinish) {
+      this.ts.params = this.ts.params.set('dateFinish', dateFinish)
+    }
+
+    this.closeModal.nativeElement.click()
+    this.dateBetweenFilterForm.reset()
+
+    this.getDocumentsWithParams()
   }
 
   clearConditions() {
