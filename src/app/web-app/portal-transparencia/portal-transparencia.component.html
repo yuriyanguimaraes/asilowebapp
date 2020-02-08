@@ -86,7 +86,7 @@
             [document]="document"></app-documents-collapse>
         </div>
         <div *ngIf="!isLoading && !documents">
-          <p class="notData">{{messageApi}}</p>
+          <app-no-data [message]="messageApi"></app-no-data>
         </div>
       </div>
 
