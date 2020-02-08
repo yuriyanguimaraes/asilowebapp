@@ -52,7 +52,7 @@
             </div>
             <div class="modal-footer">
               <button *ngIf="!dateBetweenFilterForm.pristine" type="submit" class="btn btn-outline-danger btn-sm"
-                (click)="onClickCleanInputFields()">Limpar</button>
+                (click)="onClickCleanInputFieldsDateSearch()">Limpar</button>
               <button #closeModal type="submit" class="btn btn-outline-info btn-sm" data-dismiss="modal"
                 (click)="onClickFilterDate()" [disabled]="!dateBetweenFilterForm.valid"><b><i
                     class="fa fa-search"></i></b></button>
@@ -79,11 +79,14 @@
 
       <div class="col-9">
 
-        <app-loading [condition]="documents"></app-loading>
-        <div *ngIf="documents" class="accordion" id="accordion">
+        <app-loading [condition]="isLoading"></app-loading>
+        <div *ngIf="documents && statusResponse == 200" class="accordion" id="accordion">
           <app-documents-collapse
             *ngFor="let document of documents | paginate: { itemsPerPage: limit, currentPage: p, totalItems: total }"
             [document]="document"></app-documents-collapse>
+        </div>
+        <div *ngIf="!isLoading && !documents">
+          <p class="notData">{{messageApi}}</p>
         </div>
       </div>
 
