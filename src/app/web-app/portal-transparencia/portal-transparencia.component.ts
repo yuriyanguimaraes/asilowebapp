@@ -121,19 +121,17 @@ export class PortalTransparenciaComponent implements OnInit {
   }
 
   clearConditions() {
-    if (this.filterCategory) {
-      this.filterCategory = false
-      this.categorySelectedItem = null
-      this.ts.params = this.ts.params.delete('category')
-    } else if (this.filterDate) {
-      this.filterDate = false
-      this.ts.params = this.ts.params.delete('dateStart')
-      this.ts.params = this.ts.params.delete('dateFinish')
-    } else {
-      this.order = false
-      this.dropdownOrderSelectedItem = null
-      this.ts.params = this.ts.params.set('order', 'descending')
-    }
+    this.filterCategory = false
+    this.categorySelectedItem = null
+    this.ts.params = this.ts.params.delete('category')
+
+    this.filterDate = false
+    this.ts.params = this.ts.params.delete('dateStart')
+    this.ts.params = this.ts.params.delete('dateFinish')
+
+    this.order = false
+    this.dropdownOrderSelectedItem = null
+    this.ts.params = this.ts.params.set('order', 'descending')
 
     this.documents = null
     this.getDocumentsWithParams()
