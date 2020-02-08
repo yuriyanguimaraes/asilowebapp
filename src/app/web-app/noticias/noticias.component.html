@@ -36,32 +36,33 @@
             </div>
             <div class="modal-body">
 
-              <form>
+              <form [formGroup]="dateBetweenFilterForm" novalidate>
                 <div class="form-row align-items-center alignContentInsideModal">
                   De &nbsp;
                   <div class="col-sm-5 my-1">
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" formControlName="dateStart">
                   </div>&nbsp;&nbsp;
                   Até &nbsp;
                   <div class="col-sm-5 my-1">
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" formControlName="dateFinish">
                   </div>
                 </div>
               </form>
 
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-outline-danger btn-sm"
+              <button *ngIf="!dateBetweenFilterForm.pristine" type="submit" class="btn btn-outline-danger btn-sm"
                 (click)="onClickCleanInputFieldsDateSearch()">Limpar</button>
               <button #closeModal type="submit" class="btn btn-outline-info btn-sm" data-dismiss="modal"
-                (click)="onClickFilterDate()"><b><i class="fa fa-search"></i></b></button>
+                (click)="onClickFilterDate()" [disabled]="!dateBetweenFilterForm.valid"><b><i
+                    class="fa fa-search"></i></b></button>
             </div>
           </div>
         </div>
       </div>
 
-      <button *ngIf="filterCategory || filterDate || order" type="button"
-        class="btn btn-outline-danger btn-sm marginClearFilter" (click)="clearConditions()">Limpar
+      <button *ngIf="filterDate || order" type="button" class="btn btn-outline-danger btn-sm marginClearFilter"
+        (click)="clearConditions()">Limpar
         filtros </button>
 
     </div>
