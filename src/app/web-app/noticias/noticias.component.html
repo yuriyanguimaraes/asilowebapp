@@ -2,9 +2,7 @@
   <h2 class="titlePage">Notícias</h2>
   <hr>
   <div>
-
     <div class="btnPeriodSearch">
-
       <div class="btn-group marginDropdown" dropdown>
         <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-info btn-sm dropdown-toggle"
           aria-controls="dropdown-basic">
@@ -18,7 +16,6 @@
           </li>
         </ul>
       </div>
-
       <!-- Botão para acionar modal -->
       <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
         Buscar por período
@@ -35,7 +32,6 @@
               </button>
             </div>
             <div class="modal-body">
-
               <form [formGroup]="dateBetweenFilterForm" novalidate>
                 <div class="form-row align-items-center alignContentInsideModal">
                   De &nbsp;
@@ -48,7 +44,6 @@
                   </div>
                 </div>
               </form>
-
             </div>
             <div class="modal-footer">
               <button *ngIf="!dateBetweenFilterForm.pristine" type="submit" class="btn btn-outline-danger btn-sm"
@@ -60,15 +55,11 @@
           </div>
         </div>
       </div>
-
       <button *ngIf="filterDate || order" type="button" class="btn btn-outline-danger btn-sm marginClearFilter"
         (click)="clearConditions()">Limpar
         filtros </button>
-
     </div>
-
     <br />
-
     <app-loading [condition]="isLoading"></app-loading>
     <div class="row" *ngIf="noticias && statusResponse == 200">
       <div *ngFor="let noticia of noticias | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}"
@@ -79,15 +70,12 @@
     <div *ngIf="!isLoading && !noticias">
       <app-no-data [message]="messageApi"></app-no-data>
     </div>
-
     <br />
-
     <nav *ngIf="noticias">
       <ul class="pagination">
         <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
         </pagination-controls>
       </ul>
     </nav>
-
   </div>
 </div>
