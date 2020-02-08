@@ -1,12 +1,13 @@
 <a [routerLink]="['/noticia', noticia['titulo']]">
   <div class="card text-center">
-    <img class="card-img"
-      [src]="noticia['imagem'][0]" [alt]="noticia['titulo']">
+    <img *ngIf="!noticia['imagem'][0]" class="card-img" src="assets/img/noticias-card/square_red.png"
+      [alt]="noticia['titulo']">
+    <img *ngIf="noticia['imagem'][0]" class="card-img" [src]="noticia['imagem'][0]" [alt]="noticia['titulo']">
     <div class="card-img-overlay d-flex justify-content-center align-items-center" id="overlay">
       <h5 class="card-title">{{noticia['titulo']}}</h5>
     </div>
     <div class="card-footer text-muted">
-      Publicado há {{noticia['data'] | dateAgo}}
+      Publicado há {{noticia['date'] | dateAgo}}
     </div>
   </div>
 </a>
