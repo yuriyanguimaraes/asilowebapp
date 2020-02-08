@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
 import { NoticiasService } from "./../services/noticias.service"
 import { Noticia } from "./noticia.model"
 import { Subscription } from "rxjs"
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-noticias',
@@ -24,15 +25,24 @@ export class NoticiasComponent implements OnInit {
   filterDate: boolean = false
   order: boolean = false
 
+  //Selected Items
+  dropdownOrderSelectedItem: any
+
   //Menu Items Set
   dropdownOrderMenuItems: any[] = [
     { option: 'Data - mais novo primeiro', param: 'descending' },
     { option: 'Data - mais antigo primeiro', param: 'ascending' }
   ]
 
-  constructor(private _service: NoticiasService) { }
+  constructor(
+    private _service: NoticiasService,
+    private r: Router,
+    private render: Renderer
+  ) { }
 
   ngOnInit() {
+    this.r.routeReuseStrategy.shouldReuseRoute = () => false
+
     this._service.params = this._service.params.set('order', 'descending')
     this._service.params = this._service.params.set('page', '1')
 
@@ -63,6 +73,31 @@ export class NoticiasComponent implements OnInit {
   getPage(page: number) {
     this.noticias = null
     this._service.params = this._service.params.set('page', page.toString())
+    this.getNoticiasWithParams()
+  }
+
+  setActiveMenuItem(event: any) {
+    let oldClasses = event.target.getAttribute('class')
+    this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
+  }
+
+  onSelectOrderDropdownMenu(item: any) {
+    this.order = true
+    this.noticias = null
+    this.dropdownOrderSelectedItem = item
+    this._service.params = this._service.params.set('order', item['param'])
+    this.getNoticiasWithParams()
+  }
+
+  clearConditions() {
+    this.noticias = null
+
+    this._service.params = this._service.params.set('page', '1')
+
+    this.order = false
+    this.dropdownOrderSelectedItem = null
+    this._service.params = this._service.params.set('order', 'descending')
+
     this.getNoticiasWithParams()
   }
 
