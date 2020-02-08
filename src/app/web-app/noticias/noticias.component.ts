@@ -24,6 +24,12 @@ export class NoticiasComponent implements OnInit {
   filterDate: boolean = false
   order: boolean = false
 
+  //Menu Items Set
+  dropdownOrderMenuItems: any[] = [
+    { option: 'Data - mais novo primeiro', param: 'descending' },
+    { option: 'Data - mais antigo primeiro', param: 'ascending' }
+  ]
+
   constructor(private _service: NoticiasService) { }
 
   ngOnInit() {
