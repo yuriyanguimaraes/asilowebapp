@@ -25,3 +25,7 @@ a {
 button:disabled {
     pointer-events: none;
 }
+
+.pagination {
+    justify-content: center;
+}

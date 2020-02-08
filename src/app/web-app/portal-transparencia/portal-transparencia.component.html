@@ -91,8 +91,11 @@
 
     <br />
 
-    <nav>
-      <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+    <nav *ngIf="documents">
+      <ul class="pagination">
+        <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
+        </pagination-controls>
+      </ul>
     </nav>
 
   </div>

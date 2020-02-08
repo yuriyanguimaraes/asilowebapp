@@ -26,6 +26,7 @@ export class PortalTransparenciaComponent implements OnInit {
   p: number
   total: number
   limit: number
+  messageApi: string
 
   //Selected Items
   dropdownOrderSelectedItem: any
@@ -68,6 +69,7 @@ export class PortalTransparenciaComponent implements OnInit {
   getDocumentsWithParams() {
     this.ts.getDocumentsWithParams().subscribe(response => {
       this.documents = response['data']
+      this.messageApi = response['message']
       this.p = response['page']
       this.total = response['count']
       this.limit = response['limit']
