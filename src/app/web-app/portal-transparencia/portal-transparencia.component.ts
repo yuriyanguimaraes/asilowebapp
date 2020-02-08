@@ -68,6 +68,12 @@ export class PortalTransparenciaComponent implements OnInit {
     })
   }
 
+  setActiveMenuItem(event: any) {
+    let oldClasses = event.target.getAttribute('class')
+
+    this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
+  }
+
   onSelectOrderDropdownMenu(item: any) {
     this.dropdownOrderSelectedItem = item
     this.documents = null
@@ -89,12 +95,6 @@ export class PortalTransparenciaComponent implements OnInit {
     this.filterCategory = true
     this.documents = null
     this.getDocumentsWithParams()
-  }
-
-  setActiveMenuItem(event: any) {
-    let oldClasses = event.target.getAttribute('class')
-
-    this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
   }
 
   onClickFilterDate() {
