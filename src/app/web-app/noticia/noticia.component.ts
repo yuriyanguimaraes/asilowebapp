@@ -19,6 +19,7 @@ export class NoticiaComponent implements OnInit, OnDestroy {
   isLoading: boolean
   messageApi: string
   statusResponse: number
+  hasImage: boolean = false
 
   constructor(private ns: NoticiaService, private ar: ActivatedRoute) { }
 
@@ -39,6 +40,9 @@ export class NoticiaComponent implements OnInit, OnDestroy {
       this.messageApi = response.body['message']
       this.noticia = response.body['data']
       this.isLoading = false
+      if (this.noticia.imagem.length > 0) {
+        this.hasImage = true
+      }
     }, err => {
       this.statusResponse = err.status
       this.messageApi = err.body['message']
