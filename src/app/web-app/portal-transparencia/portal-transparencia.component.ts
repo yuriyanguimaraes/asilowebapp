@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms"
 import { Transparencia } from "./transparencia.model"
 import { TransparenciaService } from "./../services/transparencia.service"
 import { Router } from "@angular/router"
+import { Subscription } from "rxjs"
 
 @Component({
   selector: 'app-portal-transparencia',
@@ -12,6 +13,8 @@ import { Router } from "@angular/router"
 export class PortalTransparenciaComponent implements OnInit {
 
   @ViewChild('closeModal') private closeModal: ElementRef
+
+  private httpReq: Subscription
 
   //Dataset
   documents: Transparencia[]
@@ -68,9 +71,13 @@ export class PortalTransparenciaComponent implements OnInit {
     })
   }
 
+  ngOnDestroy() {
+    this.httpReq.unsubscribe()
+  }
+
   getDocumentsWithParams() {
     this.isLoading = true
-    this.ts.getDocumentsWithParams().subscribe(response => {
+    this.httpReq = this.ts.getDocumentsWithParams().subscribe(response => {
       this.statusResponse = response.status
       this.documents = response.body['data']
       this.messageApi = response.body['message']
