@@ -74,6 +74,10 @@ export class PortalTransparenciaComponent implements OnInit {
     this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
   }
 
+  onClickCleanInputFieldsDateSearch() {
+    this.dateBetweenFilterForm.reset()
+  }
+
   onSelectOrderDropdownMenu(item: any) {
     this.dropdownOrderSelectedItem = item
     this.documents = null
