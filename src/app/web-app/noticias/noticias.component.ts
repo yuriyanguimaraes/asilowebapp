@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from "./../services/noticias.service"
 import { Noticia } from "./noticia.model"
+import { Subscription } from "rxjs"
 
 @Component({
   selector: 'app-noticias',
@@ -13,6 +14,7 @@ export class NoticiasComponent implements OnInit {
   noticias: Noticia[]
 
   //Control Variables
+  private httpReq: Subscription
   isLoading: boolean
 
   constructor(private ns: NoticiasService) { }
@@ -21,9 +23,13 @@ export class NoticiasComponent implements OnInit {
     this.getNoticias()
   }
 
+  ngOnDestroy() {
+    this.httpReq.unsubscribe()
+  }
+
   getNoticias() {
     this.isLoading = true
-    this.ns.getNoticias().subscribe(noticias => {
+    this.httpReq = this.ns.getNoticias().subscribe(noticias => {
       this.noticias = noticias['data']
       this.isLoading = false
     })
