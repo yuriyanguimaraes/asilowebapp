@@ -21,7 +21,10 @@ export class NoticiaComponent implements OnInit, OnDestroy {
   statusResponse: number
   hasImage: boolean = false
 
-  constructor(private ns: NoticiaService, private ar: ActivatedRoute) { }
+  constructor(
+    private _service: NoticiaService,
+    private ar: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     const titulo: string = this.ar.snapshot.params['title']
@@ -35,7 +38,7 @@ export class NoticiaComponent implements OnInit, OnDestroy {
 
   getNoticiaByTitle(title: string) {
     this.isLoading = true
-    this.httpReq = this.ns.getNoticiaByTitle(title).subscribe(response => {
+    this.httpReq = this._service.getNoticiaByTitle(title).subscribe(response => {
       this.statusResponse = response.status
       this.messageApi = response.body['message']
       this.noticia = response.body['data']
