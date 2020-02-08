@@ -16,6 +16,8 @@ export class NoticiasComponent implements OnInit {
   //Control Variables
   private httpReq: Subscription
   isLoading: boolean
+  messageApi: string
+  statusResponse: number
 
   constructor(private ns: NoticiasService) { }
 
@@ -29,8 +31,14 @@ export class NoticiasComponent implements OnInit {
 
   getNoticias() {
     this.isLoading = true
-    this.httpReq = this.ns.getNoticias().subscribe(noticias => {
-      this.noticias = noticias['data']
+    this.httpReq = this.ns.getNoticias().subscribe(response => {
+      this.statusResponse = response.status
+      this.messageApi = response.body['message']
+      this.noticias = response.body['data']
+      this.isLoading = false
+    }, err => {
+      this.statusResponse = err.status
+      this.messageApi = err.error['message']
       this.isLoading = false
     })
   }
