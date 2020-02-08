@@ -1,6 +1,6 @@
 {
   "name": "asiloweb-app",
-  "version": "1.0.0",
+  "version": "2.1",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
