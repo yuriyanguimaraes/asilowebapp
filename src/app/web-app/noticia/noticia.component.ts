@@ -11,8 +11,10 @@ import { Noticia } from "./../noticias/noticia.model"
 })
 export class NoticiaComponent implements OnInit, OnDestroy {
 
+  //Dataset
   public noticia: string
 
+  //Control Variables
   private httpReq: Subscription
 
   constructor(private ns: NoticiaService, private ar: ActivatedRoute) { }
