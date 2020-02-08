@@ -2,7 +2,7 @@
   <h2 class="titlePage">Notícias</h2>
   <hr>
   <div class="row" *ngIf="noticias; else notData">
-    <div *ngFor="let noticia of noticias" class="col-md-3" id="marginBottomCardsCol">
+    <div *ngFor="let noticia of noticias" class="col-md-4" id="marginBottomCardsCol">
       <app-noticia-card [noticia]="noticia"></app-noticia-card>
     </div>
   </div>
