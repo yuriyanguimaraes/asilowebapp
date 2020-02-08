@@ -23,6 +23,9 @@ export class PortalTransparenciaComponent implements OnInit {
   filterDate: boolean = false
   filterCategory: boolean = false
   order: boolean = false
+  p: number
+  total: number
+  limit: number
 
   //Selected Items
   dropdownOrderSelectedItem: any
@@ -62,9 +65,18 @@ export class PortalTransparenciaComponent implements OnInit {
     })
   }
 
+  getPage(page: number) {
+    this.documents = null
+    this.ts.params = this.ts.params.set('page', page.toString())
+    this.getDocumentsWithParams()
+  }
+
   getDocumentsWithParams() {
-    this.ts.getDocumentsWithParams().subscribe(documents => {
-      this.documents = documents['data']
+    this.ts.getDocumentsWithParams().subscribe(response => {
+      this.documents = response['data']
+      this.p = response['page']
+      this.total = response['count']
+      this.limit = response['limit']
     })
   }
 
@@ -121,6 +133,10 @@ export class PortalTransparenciaComponent implements OnInit {
   }
 
   clearConditions() {
+    this.documents = null
+
+    this.ts.params = this.ts.params.set('page', '1')
+
     this.filterCategory = false
     this.categorySelectedItem = null
     this.ts.params = this.ts.params.delete('category')
@@ -133,7 +149,6 @@ export class PortalTransparenciaComponent implements OnInit {
     this.dropdownOrderSelectedItem = null
     this.ts.params = this.ts.params.set('order', 'descending')
 
-    this.documents = null
     this.getDocumentsWithParams()
   }
 
