@@ -12,10 +12,13 @@ import { Noticia } from "./../noticias/noticia.model"
 export class NoticiaComponent implements OnInit, OnDestroy {
 
   //Dataset
-  public noticia: string
+  noticia: Noticia
 
   //Control Variables
   private httpReq: Subscription
+  isLoading: boolean
+  messageApi: string
+  statusResponse: number
 
   constructor(private ns: NoticiaService, private ar: ActivatedRoute) { }
 
@@ -30,8 +33,16 @@ export class NoticiaComponent implements OnInit, OnDestroy {
   }
 
   getNoticiaByTitle(title: string) {
-    this.httpReq = this.ns.getNoticiaByTitle(title).subscribe((noticia) => {
-      this.noticia = noticia['data']
+    this.isLoading = true
+    this.httpReq = this.ns.getNoticiaByTitle(title).subscribe(response => {
+      this.statusResponse = response.status
+      this.messageApi = response.body['message']
+      this.noticia = response.body['data']
+      this.isLoading = false
+    }, err => {
+      this.statusResponse = err.status
+      this.messageApi = err.body['message']
+      this.isLoading = false
     })
   }
 

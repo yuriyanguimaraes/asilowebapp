@@ -4,5 +4,5 @@ export interface Noticia {
     _id: string,
     titulo: string,
     descricao: string,
-    data: string
+    date: string
 }
