@@ -21,3 +21,7 @@
 a {
     cursor: pointer;
 }
+
+button:disabled {
+    pointer-events: none;
+}
