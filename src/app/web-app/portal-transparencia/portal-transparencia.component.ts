@@ -65,12 +65,6 @@ export class PortalTransparenciaComponent implements OnInit {
     })
   }
 
-  getPage(page: number) {
-    this.documents = null
-    this.ts.params = this.ts.params.set('page', page.toString())
-    this.getDocumentsWithParams()
-  }
-
   getDocumentsWithParams() {
     this.ts.getDocumentsWithParams().subscribe(response => {
       this.documents = response['data']
@@ -84,6 +78,12 @@ export class PortalTransparenciaComponent implements OnInit {
     let oldClasses = event.target.getAttribute('class')
 
     this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
+  }
+
+  getPage(page: number) {
+    this.documents = null
+    this.ts.params = this.ts.params.set('page', page.toString())
+    this.getDocumentsWithParams()
   }
 
   onClickCleanInputFieldsDateSearch() {
