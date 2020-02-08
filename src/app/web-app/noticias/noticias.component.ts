@@ -9,7 +9,11 @@ import { Noticia } from "./noticia.model"
 })
 export class NoticiasComponent implements OnInit {
 
+  //Dataset
   noticias: Noticia[]
+
+  //Control Variables
+  isLoading: boolean
 
   constructor(private ns: NoticiasService) { }
 
@@ -18,8 +22,10 @@ export class NoticiasComponent implements OnInit {
   }
 
   getNoticias() {
+    this.isLoading = true
     this.ns.getNoticias().subscribe(noticias => {
       this.noticias = noticias['data']
+      this.isLoading = false
     })
   }
 }
