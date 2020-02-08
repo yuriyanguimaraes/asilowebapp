@@ -123,13 +123,6 @@ export class PortalTransparenciaComponent implements OnInit {
     this.getDocumentsWithParams()
   }
 
-  setCategoryByParam(valueCategory: string) {
-    this._service.params = this._service.params.set('category', valueCategory)
-    this.filterCategory = true
-    this.documents = null
-    this.getDocumentsWithParams()
-  }
-
   onClickFilterDate() {
 
     let dateStart = this.dateBetweenFilterForm.value.dateStart
