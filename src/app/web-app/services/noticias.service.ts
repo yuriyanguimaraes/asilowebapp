@@ -11,7 +11,7 @@ export class NoticiasService {
 
     params = new HttpParams()
 
-    getNoticias(): Observable<HttpResponse<Noticia[]>> {
+    getNoticiasWithParams(): Observable<HttpResponse<Noticia[]>> {
         return this.http.get<Noticia[]>(`${AsiloWebApi}/noticia`, { params: this.params, observe: 'response' })
     }
 

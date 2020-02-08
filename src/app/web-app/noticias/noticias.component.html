@@ -1,13 +1,26 @@
 <div class="container-fluid marginTopBottomContentContainer">
   <h2 class="titlePage">Notícias</h2>
   <hr>
-  <app-loading [condition]="isLoading"></app-loading>
-  <div class="row" *ngIf="noticias">
-    <div *ngFor="let noticia of noticias" class="col-md-4" id="marginBottomCardsCol">
-      <app-noticia-card [noticia]="noticia"></app-noticia-card>
+  <div>
+    <app-loading [condition]="isLoading"></app-loading>
+    <div class="row" *ngIf="noticias && statusResponse == 200">
+      <div *ngFor="let noticia of noticias | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}"
+        class="col-md-4" id="marginBottomCardsCol">
+        <app-noticia-card [noticia]="noticia"></app-noticia-card>
+      </div>
     </div>
-  </div>
-  <div *ngIf="!isLoading && !noticias">
-    <app-no-data [message]="messageApi"></app-no-data>
+    <div *ngIf="!isLoading && !noticias">
+      <app-no-data [message]="messageApi"></app-no-data>
+    </div>
+
+    <br />
+
+    <nav *ngIf="noticias">
+      <ul class="pagination">
+        <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
+        </pagination-controls>
+      </ul>
+    </nav>
+
   </div>
 </div>

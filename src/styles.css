@@ -8,3 +8,7 @@
 .titlePage {
     text-align: center;
 }
+
+.pagination {
+    justify-content: center;
+}
