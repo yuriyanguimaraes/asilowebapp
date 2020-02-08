@@ -13,7 +13,7 @@ export class NoticiaComponent implements OnInit, OnDestroy {
 
   public noticia: string
 
-  private components: Subscription
+  private httpReq: Subscription
 
   constructor(private ns: NoticiaService, private ar: ActivatedRoute) { }
 
@@ -24,11 +24,11 @@ export class NoticiaComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.components.unsubscribe()
+    this.httpReq.unsubscribe()
   }
 
   getNoticiaByTitle(title: string) {
-    this.components = this.ns.getNoticiaByTitle(title).subscribe((noticia) => {
+    this.httpReq = this.ns.getNoticiaByTitle(title).subscribe((noticia) => {
       this.noticia = noticia['data']
     })
   }
