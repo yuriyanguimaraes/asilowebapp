@@ -12,7 +12,8 @@ h2 {
 }
 
 .tituloSobre {
-    text-align: center;
+    text-align: left;
+    text-indent: 1%;
 }
 
 .conteudoSobre {

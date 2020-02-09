@@ -2,10 +2,13 @@
   <h2>Sobre Nós</h2>
   <hr>
   <div *ngIf="sobre; else notData">
-    <h1 class="tituloSobre">{{sobre['titulo']}}</h1>
+    <h3 class="tituloSobre">{{sobre['titulo']}}</h3>
     <img class="imagemSobre" [src]="sobre['imagem']" [alt]="sobre['titulo']">
-    <p class="conteudoSobre">{{sobre['descricao']}}</p>
-    <p>Venha nos visitar, <a [routerLink]="['/contato']">Contatos</a>.</p>
+    <br>
+    <div class="conteudoSobre">
+      <p>{{sobre['descricao']}}</p>
+      <p>Para mais informações acesse nossa página de <a [routerLink]="['/contato']">Contato</a>.</p>
+    </div>
   </div>
   <ng-template #notData>
     <p class="notData">Não há texto para ser exibido!</p>
