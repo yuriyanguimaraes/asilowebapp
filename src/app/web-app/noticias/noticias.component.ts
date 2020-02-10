@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from "./../services/noticias.service"
 import { Noticia } from "./noticia.model"
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-noticias',

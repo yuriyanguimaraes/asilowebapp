@@ -8,6 +8,9 @@ import { AgmCoreModule } from '@agm/core'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
+import { NgxPaginationModule } from "ngx-pagination"
 
 //Routes
 import { ROUTES } from "./app.routing"
@@ -25,16 +28,18 @@ import { FAQComponent } from './web-app/faq/faq.component'
 import { HomeComponent } from './web-app/home/home.component'
 import { CarouselComponent } from './web-app/home/carousel/carousel.component';
 import { DoacaoComponent } from './web-app/doacao/doacao.component';
-
+import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
+import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
+import { LoadingComponent } from './web-components/loading/loading.component';
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
 import { NoticiaService } from "./web-app/services/noticia.service"
 import { SobreService } from './web-app/services/sobre.service';
+import { TransparenciaService } from "./web-app/services/transparencia.service"
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
-
 
 @NgModule({
   declarations: [
@@ -50,6 +55,9 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     FAQComponent,
     HomeComponent,
     CarouselComponent,
+    PortalTransparenciaComponent,
+    DocumentsCollapseComponent,
+    LoadingComponent,
 
     //Pipes
     DateAgoPipe,
@@ -61,17 +69,22 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload' }),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8' }),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [
     //Services
     NoticiasService,
     NoticiaService,
-    SobreService
+    SobreService,
+    TransparenciaService
   ],
   bootstrap: [AppComponent]
 })
