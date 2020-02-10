@@ -24,6 +24,7 @@ import { ContatoComponent } from './web-app/contato/contato.component';
 import { FAQComponent } from './web-app/faq/faq.component'
 import { HomeComponent } from './web-app/home/home.component'
 import { CarouselComponent } from './web-app/home/carousel/carousel.component';
+import { DoacaoComponent } from './web-app/doacao/doacao.component';
 
 
 //Services
@@ -51,7 +52,9 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     CarouselComponent,
 
     //Pipes
-    DateAgoPipe
+    DateAgoPipe,
+
+    DoacaoComponent
   ],
   imports: [
     //Modules
