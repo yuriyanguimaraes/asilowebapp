@@ -75,7 +75,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload' }),
-    AgmCoreModule.forRoot({ apiKey: process.env.API_KEY_GOOGLE }),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8' }),
     // necessita proteger esta apiKey,via BD?
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
