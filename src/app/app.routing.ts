@@ -7,6 +7,7 @@ import { SobreComponent } from "./web-app/sobre/sobre.component"
 import { ContatoComponent } from "./web-app/contato/contato.component"
 import { FAQComponent } from './web-app/faq/faq.component'
 import { HomeComponent } from "./web-app/home/home.component"
+import { DoacaoComponent } from "./web-app/doacao/doacao.component"
 import { PortalTransparenciaComponent } from "./web-app/portal-transparencia/portal-transparencia.component"
 
 export const ROUTES: Routes = [
@@ -18,6 +19,7 @@ export const ROUTES: Routes = [
     { path: 'sobre', component: SobreComponent },
     { path: 'contato', component: ContatoComponent },
     { path: 'faq', component: FAQComponent },
+    { path: 'doacao', component: DoacaoComponent },
     { path: 'transparencia', component: PortalTransparenciaComponent },
     { path: 'transparencia/:categoria', component: PortalTransparenciaComponent }
 

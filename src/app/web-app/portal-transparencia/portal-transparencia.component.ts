@@ -50,7 +50,7 @@ export class PortalTransparenciaComponent implements OnInit {
   ]
 
   constructor(
-    private ts: TransparenciaService,
+    private _service: TransparenciaService,
     private r: Router,
     private render: Renderer,
     private fb: FormBuilder
@@ -59,8 +59,8 @@ export class PortalTransparenciaComponent implements OnInit {
   ngOnInit() {
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
 
-    this.ts.params = this.ts.params.set('order', 'descending')
-    this.ts.params = this.ts.params.set('page', '1')
+    this._service.params = this._service.params.set('order', 'descending')
+    this._service.params = this._service.params.set('page', '1')
 
     this.getDocumentsWithParams()
 
@@ -77,7 +77,7 @@ export class PortalTransparenciaComponent implements OnInit {
 
   getDocumentsWithParams() {
     this.isLoading = true
-    this.httpReq = this.ts.getDocumentsWithParams().subscribe(response => {
+    this.httpReq = this._service.getDocumentsWithParams().subscribe(response => {
       this.statusResponse = response.status
       this.documents = response.body['data']
       this.messageApi = response.body['message']
@@ -99,7 +99,7 @@ export class PortalTransparenciaComponent implements OnInit {
 
   getPage(page: number) {
     this.documents = null
-    this.ts.params = this.ts.params.set('page', page.toString())
+    this._service.params = this._service.params.set('page', page.toString())
     this.getDocumentsWithParams()
   }
 
@@ -111,7 +111,7 @@ export class PortalTransparenciaComponent implements OnInit {
     this.dropdownOrderSelectedItem = item
     this.documents = null
     this.order = true
-    this.ts.params = this.ts.params.set('order', item['param'])
+    this._service.params = this._service.params.set('order', item['param'])
     this.getDocumentsWithParams()
   }
 
@@ -119,14 +119,7 @@ export class PortalTransparenciaComponent implements OnInit {
     this.categorySelectedItem = item
     this.documents = null
     this.filterCategory = true
-    this.ts.params = this.ts.params.set('category', item['param'])
-    this.getDocumentsWithParams()
-  }
-
-  setCategoryByParam(valueCategory: string) {
-    this.ts.params = this.ts.params.set('category', valueCategory)
-    this.filterCategory = true
-    this.documents = null
+    this._service.params = this._service.params.set('category', item['param'])
     this.getDocumentsWithParams()
   }
 
@@ -137,10 +130,10 @@ export class PortalTransparenciaComponent implements OnInit {
 
     this.documents = null
     this.filterDate = true
-    this.ts.params = this.ts.params.set('dateStart', dateStart)
+    this._service.params = this._service.params.set('dateStart', dateStart)
 
     if (dateFinish) {
-      this.ts.params = this.ts.params.set('dateFinish', dateFinish)
+      this._service.params = this._service.params.set('dateFinish', dateFinish)
     }
 
     this.closeModal.nativeElement.click()
@@ -152,19 +145,19 @@ export class PortalTransparenciaComponent implements OnInit {
   clearConditions() {
     this.documents = null
 
-    this.ts.params = this.ts.params.set('page', '1')
+    this._service.params = this._service.params.set('page', '1')
 
     this.filterCategory = false
     this.categorySelectedItem = null
-    this.ts.params = this.ts.params.delete('category')
+    this._service.params = this._service.params.delete('category')
 
     this.filterDate = false
-    this.ts.params = this.ts.params.delete('dateStart')
-    this.ts.params = this.ts.params.delete('dateFinish')
+    this._service.params = this._service.params.delete('dateStart')
+    this._service.params = this._service.params.delete('dateFinish')
 
     this.order = false
     this.dropdownOrderSelectedItem = null
-    this.ts.params = this.ts.params.set('order', 'descending')
+    this._service.params = this._service.params.set('order', 'descending')
 
     this.getDocumentsWithParams()
   }

@@ -11,11 +11,20 @@ import { Noticia } from "./../noticias/noticia.model"
 })
 export class NoticiaComponent implements OnInit, OnDestroy {
 
-  public noticia: string
+  //Dataset
+  noticia: Noticia
 
-  private components: Subscription
+  //Control Variables
+  private httpReq: Subscription
+  isLoading: boolean
+  messageApi: string
+  statusResponse: number
+  hasImage: boolean = false
 
-  constructor(private ns: NoticiaService, private ar: ActivatedRoute) { }
+  constructor(
+    private _service: NoticiaService,
+    private ar: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     const titulo: string = this.ar.snapshot.params['title']
@@ -24,12 +33,23 @@ export class NoticiaComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.components.unsubscribe()
+    this.httpReq.unsubscribe()
   }
 
   getNoticiaByTitle(title: string) {
-    this.components = this.ns.getNoticiaByTitle(title).subscribe((noticia) => {
-      this.noticia = noticia['data']
+    this.isLoading = true
+    this.httpReq = this._service.getNoticiaByTitle(title).subscribe(response => {
+      this.statusResponse = response.status
+      this.messageApi = response.body['message']
+      this.noticia = response.body['data']
+      this.isLoading = false
+      if (this.noticia.imagem.length > 0) {
+        this.hasImage = true
+      }
+    }, err => {
+      this.statusResponse = err.status
+      this.messageApi = err.body['message']
+      this.isLoading = false
     })
   }
 

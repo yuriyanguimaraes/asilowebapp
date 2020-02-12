@@ -9,8 +9,7 @@ export class SobreService {
 
   constructor(private http: HttpClient) { }
 
-  getSobre(): Observable<Sobre[]> {
-    return this.http.get<Sobre[]>(`${AsiloWebApi}/sobre`)
+  getSobre(): Observable<Sobre> {
+    return this.http.get<Sobre>(`${AsiloWebApi}/quemSomos`)
   }
-
 }
