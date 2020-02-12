@@ -42,6 +42,9 @@ import { TransparenciaService } from "./web-app/services/transparencia.service"
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
 
+//Environment Variables
+import { apiKeyGoogle } from "./../environments/apiKeyGoogle"
+
 @NgModule({
   declarations: [
     //Components
@@ -75,7 +78,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload' }),
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8' }),
+    AgmCoreModule.forRoot({ apiKey: apiKeyGoogle }),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
