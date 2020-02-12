@@ -1,6 +1,6 @@
 /* PARA TESTES */
 
-/* section {
+section {
     border: 3px solid black;
 }
 
@@ -14,7 +14,7 @@ td.td-esq {
 
 section#redes-sociais p {
     background-color: blue;
-} */
+}
 
 /* CSS EM USO */
 
@@ -40,22 +40,31 @@ div#container {
     display: block;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
 }
 
 section#informacoes, section#mapa, section#redes-sociais {
+    position: relative;
     display: block;
     float: left;
     margin: 20px;
     padding: 10px;
-    width: 550px;
+    /* width: 550px; */
+    /* width: 50%; */
+}
+
+section#informações {
+    width: 45%;
 }
 
 section#mapa {
-    float: right;
-    width: 480px;
+    /* float: left; */
+    /* width: 480px; */
+    width: 50%;
 }
 
 section#redes-sociais {
+    clear: both;
     margin-left: 40px;
 }
 
@@ -86,10 +95,10 @@ td span {
 
 /* CONFIG DA API DO GOOGLE MAPS */
 section#mapa agm-map {
-    position: relative;
+    position: relative;  
     /* float: right; */
-    width: 550px;
-    height: 300px;
+    width: 500px;
+    height: 250px;
 }
 
 /* CONFIG DA SEÇÃO DE REDES SOCIAIS */
