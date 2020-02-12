@@ -19,7 +19,7 @@ export class FAQComponent implements OnInit {
 
   getFAQ(){
     this.faqs.getFAQ().subscribe(faq =>{
-      this.faq = faq
+      this.faq = faq['pergunta']
     }) 
   }
 }
