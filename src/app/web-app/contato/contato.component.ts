@@ -9,13 +9,17 @@ export class ContatoComponent implements OnInit {
 
   constructor() { }
 
-  //AQUI SERÁ FEITO A CONFIGURAÇÃO DA API DO GOOGLE MAPS
+  ngOnInit() { }
+
+  // CONFIGURAÇÃO DA API DO GOOGLE MAPS
   // LOCALIZAÇÃO DO LAR DE IBITINGA
   lat: number = -21.748462;
   lng: number = -48.824793;
   zoom: number = 15;
 
-
-  ngOnInit() { }
+  // OUTRAS VARIÁVEIS
+  endereco: string = 'teste-endereco'
+  telefone: string = 'teste-telefone'
+  email: string = 'teste-email'
 
 }
