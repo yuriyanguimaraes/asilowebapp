@@ -1,3 +1,4 @@
+import { Contato } from './contato.model';
 import { ContatoService } from './../services/contato.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,13 +11,14 @@ export class ContatoComponent implements OnInit {
 
   constructor(private contatoService: ContatoService) { 
 
-    this.endereco = this.contatoService.getContato();
+    this.endereco = this.contatoService.getTeste();
     this.telefone = this.contatoService.getTeste();
     this.email = this.contatoService.getTeste();
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   // CONFIGURAÇÃO DA API DO GOOGLE MAPS
   // LOCALIZAÇÃO DO LAR DE IBITINGA
@@ -25,7 +27,7 @@ export class ContatoComponent implements OnInit {
   zoom: number = 15;
 
   // OUTRAS VARIÁVEIS
-  endereco: any
+  endereco: string
   telefone: string
   email: string
 

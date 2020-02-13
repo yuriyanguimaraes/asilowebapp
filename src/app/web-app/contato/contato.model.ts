@@ -1,5 +1,4 @@
 export interface Contato {
-    telefone,
     _id: string,
     rua: string,
     bairro: string,
