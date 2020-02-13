@@ -57,8 +57,7 @@ div#informacoes {
 div#mapa {
     display: block;
     position: relative;
-    float: right;
-    width: auto;
+    float: left;
 }
 
 div#redes-sociais {
@@ -70,15 +69,16 @@ div#redes-sociais {
 table {
     border-collapse: separate;
     border-spacing: 20px 30px;
-    /* margin: auto; */
 }
 
 table td.td-dir, td.td-dir img {
+    border-top: none;
     width: 40px;
     height: 40px;
 }
 
 td.td-esq {
+    border-top: none;
     position: relative;
     width: 300px;
 }
@@ -99,14 +99,6 @@ div#mapa agm-map {
     height: 330px;
 }
 
-/* CONFIG DA SEÇÃO DE REDES SOCIAIS */
-/* section#redes-sociais {
-    display: block;
-    float: left;
-    margin-bottom: 10px;
-    margin: auto;
-} */
-
 div#redes-sociais img {
     width: 80px;
     height: 80px;
@@ -114,7 +106,6 @@ div#redes-sociais img {
 }
 
 div#redes-sociais p {
-    /* display: block; */
     font-weight: bolder;
     font-size: 20px;
 }
