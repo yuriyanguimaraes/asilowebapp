@@ -1,3 +1,4 @@
+import { ContatoService } from './../services/contato.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contatoService: ContatoService) { 
+
+    this.endereco = this.contatoService.getContato();
+    this.telefone = this.contatoService.getTeste();
+    this.email = this.contatoService.getTeste();
+
+  }
 
   ngOnInit() { }
 
@@ -18,8 +25,8 @@ export class ContatoComponent implements OnInit {
   zoom: number = 15;
 
   // OUTRAS VARIÁVEIS
-  endereco: string = 'teste-endereco'
-  telefone: string = 'teste-telefone'
-  email: string = 'teste-email'
+  endereco: any
+  telefone: string
+  email: string
 
 }
