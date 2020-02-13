@@ -5,10 +5,10 @@
 </div>
 
 <!-- CONTAINER PRINCIPAL DE CONTEÚDO -->
-<div class="container-xl">
+<div class="container">
 
 <!-- SEÇÃO COM AS INFORMAÇÕES DE CONTATO -->
-  <section id="informacoes">
+  <div id="informacoes">
 
     <table>
       <tbody>
@@ -27,14 +27,14 @@
       </tbody>
     </table>
 
-  </section>
+  </div>
 
   <!-- SEÇÃO COM A API DO GOOGLE MAPS -->
-  <section id="mapa">
+  <div id="mapa">
     <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
-  </section>
+  </div>
 
 
   <!-- AUTORIA DOS ÍCONES UTILIZADOS -->
@@ -43,11 +43,11 @@
       www.flaticon.com</a></span>
 
   <!-- SEÇÃO COM AS REDES SOCIAIS -->
-  <section id="redes-sociais">
+  <div id="redes-sociais">
     <p>Acesse também nossas redes sociais :)</p>
     <a href="https://www.facebook.com/larsaovicenteibitinga/" target="_blank"><img
         src="./../../assets/contato-images/facebook.svg" /></a>
-  </section>
+    </div>
 
 </div>
 

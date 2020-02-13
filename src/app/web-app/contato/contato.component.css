@@ -1,6 +1,6 @@
 /* PARA TESTES */
 
-section {
+div {
     border: 3px solid black;
 }
 
@@ -12,7 +12,7 @@ td.td-esq {
     border: 1px solid green;
 }
 
-section#redes-sociais p {
+div#redes-sociais p {
     background-color: blue;
 }
 
@@ -43,7 +43,7 @@ div#container {
     margin: auto;
 }
 
-section#informacoes, section#mapa, section#redes-sociais {
+div#informacoes, div#mapa, div#redes-sociais {
     position: relative;
     display: block;
     float: left;
@@ -53,17 +53,17 @@ section#informacoes, section#mapa, section#redes-sociais {
     /* width: 50%; */
 }
 
-section#informações {
+div#informações {
     width: 45%;
 }
 
-section#mapa {
+div#mapa {
     /* float: left; */
     /* width: 480px; */
     width: 50%;
 }
 
-section#redes-sociais {
+div#redes-sociais {
     clear: both;
     margin-left: 40px;
 }
@@ -94,7 +94,7 @@ td span {
 }
 
 /* CONFIG DA API DO GOOGLE MAPS */
-section#mapa agm-map {
+div#mapa agm-map {
     position: relative;  
     /* float: right; */
     width: 500px;
@@ -109,13 +109,13 @@ section#mapa agm-map {
     margin: auto;
 } */
 
-section#redes-sociais img {
+div#redes-sociais img {
     width: 80px;
     height: 80px;
     margin: 0px 2px 2px 0px;
 }
 
-section#redes-sociais p {
+div#redes-sociais p {
     display: block;
     font-weight: bolder;
     font-size: 20px;
