@@ -1,10 +1,10 @@
 /* PARA TESTES */
 
-/* div {
+div {
     border: 3px solid black;
 }
 
-table, table td.td-dir, td.td-dir img {
+table td.td-dir, td.td-dir img {
     border: 1px solid red;
 }
 
@@ -14,7 +14,7 @@ td.td-esq {
 
 div#redes-sociais p {
     background-color: blue;
-} */
+}
 
 /* CSS EM PROD */
 
@@ -34,36 +34,30 @@ h2 {
 
 /* ESTRUTURAÇÃO */
 div#container {
+    display: block;
+    position: relative;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
+    /* margin: auto; */
 }
 
-div.conteudo-flutuante, div#informacoes, div#mapa, div#redes-sociais {
+div#informacoes, div#mapa, div#redes-sociais {
+    /* float: left; */
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
-div.conteudo-flutuante {
-    width: 100%;
-    float: left;
+div#informações {
+    width: 45%;
 }
 
-div#informacoes {
-    display: block;
-    position: relative;
-    float: left;
-}
-
-div#mapa {
-    display: block;
-    position: relative;
-    float: right;
-    width: auto;
-}
+/* div#mapa {
+    width: 70%
+} */
 
 div#redes-sociais {
-    text-align: center;
     clear: both;
+    /* margin-left: 40px; */
 }
 
 /* CONFIGS NA SEÇÃO DE INFORMAÇÃO */
@@ -94,9 +88,9 @@ td span {
 /* CONFIG DA API DO GOOGLE MAPS */
 div#mapa agm-map {
     position: relative;
-    align-content: center;
+    /* float: right; */
     width: 550px;
-    height: 330px;
+    height: 300px;
 }
 
 /* CONFIG DA SEÇÃO DE REDES SOCIAIS */
