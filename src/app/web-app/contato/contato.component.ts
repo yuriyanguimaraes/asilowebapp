@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Contato } from './contato.model';
 import { ContatoService } from './../services/contato.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,15 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor(private contatoService: ContatoService) { 
+  Contato: Contato
 
-    this.endereco = this.contatoService.getTeste();
-    this.telefone = this.contatoService.getTeste();
-    this.email = this.contatoService.getTeste();
-
+  constructor(private contatoService: ContatoService) {
   }
 
   ngOnInit() {
+    this.contatoService.getContato().subscribe(response => {
+      console.log(response)
+      this.Contato = response['data']
+    })
   }
 
   // CONFIGURAÇÃO DA API DO GOOGLE MAPS
@@ -25,10 +27,5 @@ export class ContatoComponent implements OnInit {
   lat: number = -21.748462;
   lng: number = -48.824793;
   zoom: number = 15;
-
-  // OUTRAS VARIÁVEIS
-  endereco: string
-  telefone: string
-  email: string
 
 }

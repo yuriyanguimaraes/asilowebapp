@@ -16,15 +16,15 @@
           <tbody>
             <tr>
               <td class="td-dir"><img src="./../../assets/contato-images/endereco.svg" /></td>
-              <td class="td-esq"> <span>{{ endereco }}</span> </td>
+              <td class="td-esq"> <span>{{ Contato.rua }} {{ Contato.numero }} {{ Contato.bairro }} {{ Contato.complemento }} {{ Contato.cidade }}  {{ Contato.estado }} </span> </td>
             </tr>
-            <tr>
+            <tr *ngFor="let numero of Contato.telefone">
               <td class="td-dir"> <img src="./../../assets/contato-images/telefone.svg" /> </td>
-              <td class="td-esq"> <span>{{ telefone }}</span></td>
+              <td class="td-esq"> <span>{{ numero }}</span></td>
             </tr>
             <tr>
               <td class="td-dir"> <img src="./../../assets/contato-images/enviar.svg" /> </td>
-              <td class="td-esq"> <span>{{ email }}</span></td>
+              <td class="td-esq"> <span>{{ Contato.email }}</span></td>
             </tr>
           </tbody>
         </table>

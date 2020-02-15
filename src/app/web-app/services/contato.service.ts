@@ -9,8 +9,8 @@ export class ContatoService {
     
     constructor(private http: HttpClient){}
 
-    getContato(): Observable<Contato[]>{
-        return this.http.get<Contato[]>(`${AsiloWebApi}/contato`)
+    getContato(): Observable<Contato>{
+        return this.http.get<Contato>(`${AsiloWebApi}/contato`)
     }
 
     getTeste(){
