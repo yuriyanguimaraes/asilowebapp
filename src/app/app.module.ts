@@ -37,7 +37,8 @@ import { NoDataComponent } from './web-components/no-data/no-data.component';
 import { NoticiasService } from "./web-app/services/noticias.service";
 import { NoticiaService } from "./web-app/services/noticia.service"
 import { SobreService } from './web-app/services/sobre.service';
-import { TransparenciaService } from "./web-app/services/transparencia.service"
+import { TransparenciaService } from "./web-app/services/transparencia.service";
+import { ContatoService } from './web-app/services/contato.service';
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
@@ -89,7 +90,8 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle"
     NoticiasService,
     NoticiaService,
     SobreService,
-    TransparenciaService
+    TransparenciaService,
+    ContatoService
   ],
   bootstrap: [AppComponent]
 })
