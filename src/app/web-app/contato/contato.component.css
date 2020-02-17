@@ -1,10 +1,10 @@
 /* PARA TESTES */
 
-/* section {
+/* div {
     border: 3px solid black;
 }
 
-table td.td-dir, td.td-dir img {
+table, table td.td-dir, td.td-dir img {
     border: 1px solid red;
 }
 
@@ -12,15 +12,13 @@ td.td-esq {
     border: 1px solid green;
 }
 
-section#redes-sociais p {
+div#redes-sociais p {
     background-color: blue;
 } */
 
-/* CSS EM USO */
+/* CSS EM PROD */
 
-/* CSS DO ESTILO DA PÁGINA */
-/* como aqui vai ser padronizado para todos, não seria interessante
-colocar em uma folha universal? */
+/* CONFIGS DO TÍTULO DA PÁGINA */
 #marginTopBottomCardsContainer {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -36,42 +34,51 @@ h2 {
 
 /* ESTRUTURAÇÃO */
 div#container {
-    /* float: left; */
-    display: block;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-section#informacoes, section#mapa, section#redes-sociais {
-    display: block;
+div.conteudo-flutuante, div#informacoes, div#mapa, div#redes-sociais {
+    margin: 10px;
+    padding: 5px;
+}
+
+div.conteudo-flutuante {
+    width: 100%;
     float: left;
-    margin: 20px;
-    padding: 10px;
-    width: 550px;
 }
 
-section#mapa {
-    float: right;
-    width: 480px;
+div#informacoes {
+    display: block;
+    position: relative;
+    float: left;
 }
 
-section#redes-sociais {
-    margin-left: 40px;
+div#mapa {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+div#redes-sociais {
+    text-align: center;
+    clear: both;
 }
 
 /* CONFIGS NA SEÇÃO DE INFORMAÇÃO */
 table {
     border-collapse: separate;
     border-spacing: 20px 30px;
-    /* margin: auto; */
 }
 
 table td.td-dir, td.td-dir img {
+    border-top: none;
     width: 40px;
     height: 40px;
 }
 
 td.td-esq {
+    border-top: none;
     position: relative;
     width: 300px;
 }
@@ -85,29 +92,20 @@ td span {
 }
 
 /* CONFIG DA API DO GOOGLE MAPS */
-section#mapa agm-map {
+div#mapa agm-map {
     position: relative;
-    /* float: right; */
+    align-content: center;
     width: 550px;
-    height: 300px;
+    height: 330px;
 }
 
-/* CONFIG DA SEÇÃO DE REDES SOCIAIS */
-/* section#redes-sociais {
-    display: block;
-    float: left;
-    margin-bottom: 10px;
-    margin: auto;
-} */
-
-section#redes-sociais img {
+div#redes-sociais img {
     width: 80px;
     height: 80px;
     margin: 0px 2px 2px 0px;
 }
 
-section#redes-sociais p {
-    display: block;
+div#redes-sociais p {
     font-weight: bolder;
     font-size: 20px;
 }
