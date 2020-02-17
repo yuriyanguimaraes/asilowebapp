@@ -9,17 +9,21 @@ import { FAQ } from "./../faq/faq.model"
 })
 export class FAQComponent implements OnInit {
 
-  faq: FAQ[]
+  faqs: FAQ[]
+  private contador = 0;
 
-  constructor(private faqs: FAQService) { }
+  constructor(private faq: FAQService) { }
 
   ngOnInit() {
     this.getFAQ()
   }
 
   getFAQ(){
-    this.faqs.getFAQ().subscribe(faq =>{
-      this.faq = faq['pergunta']
+    this.faq.getFAQ().subscribe(faqs =>{
+      this.faqs = faqs;
+      this.contador = this.contador +1;
     }) 
   }
 }
+
+

@@ -1,23 +1,39 @@
-.question {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0
-  }
-  
-  .question input,
-  .question .answer { display: none }
-  
-  .question label {
-    display: inline-block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    width: 100%
-  }
-  
-  .question input:checked ~ .answer {
-    display: block
-  }
+#marginTopBottomContentContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+h2{
+  text-align: center;
+}
+p{
+  text-align: center;
+  font-size: 2vw;
+}
 
-  #marginTopBottomCardsContainer {
-    margin-top: 15px;
-    margin-bottom: 15px;
+.question {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  /* text-align: center;
+  font-size: 2vw; */
+  text-align: justify;
+  text-justify: inter-word;
+  text-align: center;
+  font-size: 12px;         
+}
+.question input,
+.question .answer {
+  display: none;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 12px; 
+  }
+.question label {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 100%;
+  text-justify: inter-word;        
+}
+.question input:checked ~ .answer {
+  display: block;
 }
