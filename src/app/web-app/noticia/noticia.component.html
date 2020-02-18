@@ -1,7 +1,13 @@
-<div class="container-fluid" id="marginTopBottomContentContainer">
-    <h2 class="tituloNoticia">{{noticia['titulo']}}</h2>
-    <p class="dataNoticia">Publicado em {{noticia['data'] | date: 'dd/MM/yyyy'}}</p>
-    <img class="imagemNoticia" [src]="noticia['imagem']">
-    <hr>
-    <p class="conteudoNoticia">{{noticia['descricao']}}</p>
+<div class="container-fluid marginTopBottomContentContainer">
+    <app-loading [condition]="isLoading"></app-loading>
+    <div *ngIf="noticia">
+        <h2 class="titlePage">{{noticia['titulo']}}</h2>
+        <p class="dataNoticia">Publicado em {{noticia['date'] | date: 'dd/MM/yyyy'}}</p>
+        <img *ngIf="hasImage" class="imagemNoticia" [src]="noticia['imagem']">
+        <hr>
+        <p class="conteudoNoticia">{{noticia['descricao']}}</p>
+    </div>
+    <div *ngIf="!isLoading && !noticia">
+        <app-no-data [message]="messageApi"></app-no-data>
+    </div>
 </div>

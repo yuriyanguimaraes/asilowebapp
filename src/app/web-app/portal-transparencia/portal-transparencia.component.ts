@@ -1,39 +1,41 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
-import { NoticiasService } from "./../services/noticias.service"
-import { Noticia } from "./noticia.model"
-import { Subscription } from "rxjs"
-import { Router } from "@angular/router"
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"
+import { Transparencia } from "./transparencia.model"
+import { TransparenciaService } from "./../services/transparencia.service"
+import { Router } from "@angular/router"
+import { Subscription } from "rxjs"
 
 @Component({
-  selector: 'app-noticias',
-  templateUrl: './noticias.component.html',
-  styleUrls: ['./noticias.component.css']
+  selector: 'app-portal-transparencia',
+  templateUrl: './portal-transparencia.component.html',
+  styleUrls: ['./portal-transparencia.component.css']
 })
-export class NoticiasComponent implements OnInit {
+export class PortalTransparenciaComponent implements OnInit {
 
   @ViewChild('closeModal') private closeModal: ElementRef
 
   private httpReq: Subscription
 
   //Dataset
-  noticias: Noticia[]
+  documents: Transparencia[]
 
   //Forms Set
   dateBetweenFilterForm: FormGroup
 
   //Control Variables
-  isLoading: boolean = false
-  messageApi: string
-  statusResponse: number
+  filterDate: boolean = false
+  filterCategory: boolean = false
+  order: boolean = false
   p: number
   total: number
   limit: number
-  filterDate: boolean = false
-  order: boolean = false
+  messageApi: string
+  statusResponse: number
+  isLoading: boolean
 
   //Selected Items
   dropdownOrderSelectedItem: any
+  categorySelectedItem: any
 
   //Menu Items Set
   dropdownOrderMenuItems: any[] = [
@@ -41,8 +43,14 @@ export class NoticiasComponent implements OnInit {
     { option: 'Data - mais antigo primeiro', param: 'ascending' }
   ]
 
+  categoryMenuItems: any[] = [
+    { option: 'Relatório de Atividades', param: 'relatório de atividades' },
+    { option: 'Prestação de Contas', param: 'prestação de contas' },
+    { option: 'Documentos Oficiais', param: 'documentos oficiais' },
+  ]
+
   constructor(
-    private _service: NoticiasService,
+    private _service: TransparenciaService,
     private r: Router,
     private render: Renderer,
     private fb: FormBuilder
@@ -54,7 +62,7 @@ export class NoticiasComponent implements OnInit {
     this._service.params = this._service.params.set('order', 'descending')
     this._service.params = this._service.params.set('page', '1')
 
-    this.getNoticiasWithParams()
+    this.getDocumentsWithParams()
 
     //Init Form
     this.dateBetweenFilterForm = this.fb.group({
@@ -67,32 +75,32 @@ export class NoticiasComponent implements OnInit {
     this.httpReq.unsubscribe()
   }
 
-  getNoticiasWithParams() {
+  getDocumentsWithParams() {
     this.isLoading = true
-    this.httpReq = this._service.getNoticiasWithParams().subscribe(response => {
+    this.httpReq = this._service.getDocumentsWithParams().subscribe(response => {
       this.statusResponse = response.status
+      this.documents = response.body['data']
       this.messageApi = response.body['message']
-      this.noticias = response.body['data']
       this.p = response.body['page']
       this.total = response.body['count']
       this.limit = response.body['limit']
       this.isLoading = false
     }, err => {
-      this.statusResponse = err.status
       this.messageApi = err.error['message']
       this.isLoading = false
     })
   }
 
-  getPage(page: number) {
-    this.noticias = null
-    this._service.params = this._service.params.set('page', page.toString())
-    this.getNoticiasWithParams()
-  }
-
   setActiveMenuItem(event: any) {
     let oldClasses = event.target.getAttribute('class')
+
     this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
+  }
+
+  getPage(page: number) {
+    this.documents = null
+    this._service.params = this._service.params.set('page', page.toString())
+    this.getDocumentsWithParams()
   }
 
   onClickCleanInputFieldsDateSearch() {
@@ -100,11 +108,19 @@ export class NoticiasComponent implements OnInit {
   }
 
   onSelectOrderDropdownMenu(item: any) {
-    this.order = true
-    this.noticias = null
     this.dropdownOrderSelectedItem = item
+    this.documents = null
+    this.order = true
     this._service.params = this._service.params.set('order', item['param'])
-    this.getNoticiasWithParams()
+    this.getDocumentsWithParams()
+  }
+
+  onSelectCategoryMenu(item: any) {
+    this.categorySelectedItem = item
+    this.documents = null
+    this.filterCategory = true
+    this._service.params = this._service.params.set('category', item['param'])
+    this.getDocumentsWithParams()
   }
 
   onClickFilterDate() {
@@ -112,7 +128,7 @@ export class NoticiasComponent implements OnInit {
     let dateStart = this.dateBetweenFilterForm.value.dateStart
     let dateFinish = this.dateBetweenFilterForm.value.dateFinish
 
-    this.noticias = null
+    this.documents = null
     this.filterDate = true
     this._service.params = this._service.params.set('dateStart', dateStart)
 
@@ -123,23 +139,27 @@ export class NoticiasComponent implements OnInit {
     this.closeModal.nativeElement.click()
     this.dateBetweenFilterForm.reset()
 
-    this.getNoticiasWithParams()
+    this.getDocumentsWithParams()
   }
 
   clearConditions() {
-    this.noticias = null
+    this.documents = null
 
     this._service.params = this._service.params.set('page', '1')
 
-    this.order = false
-    this.dropdownOrderSelectedItem = null
-    this._service.params = this._service.params.set('order', 'descending')
+    this.filterCategory = false
+    this.categorySelectedItem = null
+    this._service.params = this._service.params.delete('category')
 
     this.filterDate = false
     this._service.params = this._service.params.delete('dateStart')
     this._service.params = this._service.params.delete('dateFinish')
 
-    this.getNoticiasWithParams()
+    this.order = false
+    this.dropdownOrderSelectedItem = null
+    this._service.params = this._service.params.set('order', 'descending')
+
+    this.getDocumentsWithParams()
   }
 
 }
