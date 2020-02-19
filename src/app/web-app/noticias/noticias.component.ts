@@ -20,7 +20,7 @@ export class NoticiasComponent implements OnInit {
   noticias: Noticia[]
 
   //Forms Set
-  dateBetweenFilterForm: FormGroup
+  keywordFilterForm: FormGroup
 
   //Control Variables
   isLoading: boolean = false
@@ -29,7 +29,7 @@ export class NoticiasComponent implements OnInit {
   p: number
   total: number
   limit: number
-  filterDate: boolean = false
+  filterKeyword: boolean = false
   order: boolean = false
 
   //Selected Items
@@ -57,9 +57,8 @@ export class NoticiasComponent implements OnInit {
     this.getNoticiasWithParams()
 
     //Init Form
-    this.dateBetweenFilterForm = this.fb.group({
-      dateStart: this.fb.control(null, [Validators.required]),
-      dateFinish: this.fb.control(null)
+    this.keywordFilterForm = this.fb.group({
+      keyword: this.fb.control(null, [Validators.required]),
     })
   }
 
@@ -96,7 +95,7 @@ export class NoticiasComponent implements OnInit {
   }
 
   onClickCleanInputFieldsDateSearch() {
-    this.dateBetweenFilterForm.reset()
+    this.keywordFilterForm.reset()
   }
 
   onSelectOrderDropdownMenu(item: any) {
@@ -107,21 +106,16 @@ export class NoticiasComponent implements OnInit {
     this.getNoticiasWithParams()
   }
 
-  onClickFilterDate() {
+  onClickFilterKeyword() {
 
-    let dateStart = this.dateBetweenFilterForm.value.dateStart
-    let dateFinish = this.dateBetweenFilterForm.value.dateFinish
+    let keyword = this.keywordFilterForm.value.keyword
 
     this.noticias = null
-    this.filterDate = true
-    this._service.params = this._service.params.set('dateStart', dateStart)
-
-    if (dateFinish) {
-      this._service.params = this._service.params.set('dateFinish', dateFinish)
-    }
+    this.filterKeyword = true
+    this._service.params = this._service.params.set('keyword', keyword)
 
     this.closeModal.nativeElement.click()
-    this.dateBetweenFilterForm.reset()
+    this.keywordFilterForm.reset()
 
     this.getNoticiasWithParams()
   }
@@ -135,9 +129,8 @@ export class NoticiasComponent implements OnInit {
     this.dropdownOrderSelectedItem = null
     this._service.params = this._service.params.set('order', 'descending')
 
-    this.filterDate = false
-    this._service.params = this._service.params.delete('dateStart')
-    this._service.params = this._service.params.delete('dateFinish')
+    this.filterKeyword = false
+    this._service.params = this._service.params.delete('keyword')
 
     this.getNoticiasWithParams()
   }
