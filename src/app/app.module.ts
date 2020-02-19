@@ -31,15 +31,20 @@ import { DoacaoComponent } from './web-app/doacao/doacao.component';
 import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
 import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
 import { LoadingComponent } from './web-components/loading/loading.component';
+import { NoDataComponent } from './web-components/no-data/no-data.component';
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
 import { NoticiaService } from "./web-app/services/noticia.service"
 import { SobreService } from './web-app/services/sobre.service';
-import { TransparenciaService } from "./web-app/services/transparencia.service"
+import { TransparenciaService } from "./web-app/services/transparencia.service";
+import { ContatoService } from './web-app/services/contato.service';
 
 //Pipes
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
+
+//Environment Variables
+import { apiKeyGoogle } from "./../environments/apiKeyGoogle"
 
 @NgModule({
   declarations: [
@@ -58,6 +63,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     PortalTransparenciaComponent,
     DocumentsCollapseComponent,
     LoadingComponent,
+    NoDataComponent,
 
     //Pipes
     DateAgoPipe,
@@ -73,7 +79,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload' }),
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8' }),
+    AgmCoreModule.forRoot({ apiKey: apiKeyGoogle }),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
@@ -84,7 +90,8 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
     NoticiasService,
     NoticiaService,
     SobreService,
-    TransparenciaService
+    TransparenciaService,
+    ContatoService
   ],
   bootstrap: [AppComponent]
 })

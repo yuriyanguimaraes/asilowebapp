@@ -1,10 +1,10 @@
 /* PARA TESTES */
 
-/* section {
+/* div {
     border: 3px solid black;
 }
 
-table td.td-dir, td.td-dir img {
+table, table td.td-dir, td.td-dir img {
     border: 1px solid red;
 }
 
@@ -12,39 +12,74 @@ td.td-esq {
     border: 1px solid green;
 }
 
-section#redes-sociais p {
+div#redes-sociais p {
     background-color: blue;
 } */
 
-/* CSS EM USO */
+/* CSS EM PROD */
 
+/* CONFIGS DO TÍTULO DA PÁGINA */
+#marginTopBottomCardsContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#marginBottomCardsCol {
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* ESTRUTURAÇÃO */
 div#container {
-    /* float: left; */
-    /* display: block; */
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-section#informacoes, section#mapa {
-    display: block;
-    float: left;
-    margin: 20px;
-    padding: 10px;
-    width: 500px;
+div.conteudo-flutuante, div#informacoes, div#mapa, div#redes-sociais {
+    margin: 10px;
+    padding: 5px;
 }
 
+div.conteudo-flutuante {
+    width: 100%;
+    float: left;
+}
+
+div#informacoes {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+div#mapa {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+div#redes-sociais {
+    text-align: center;
+    clear: both;
+}
+
+/* CONFIGS NA SEÇÃO DE INFORMAÇÃO */
 table {
     border-collapse: separate;
     border-spacing: 20px 30px;
 }
 
 table td.td-dir, td.td-dir img {
-    width: 50px;
-    height: 50px;
+    border-top: none;
+    width: 40px;
+    height: 40px;
 }
 
 td.td-esq {
-    /* position: relative; */
+    border-top: none;
+    position: relative;
     width: 300px;
 }
 
@@ -52,41 +87,30 @@ td span {
     display: block;
     font-weight: bold;
     text-align: justify;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 25px;
 }
 
-span#toHidden {
-    opacity: 0;
-}
-
-section#mapa p {
-    display: block;
-    font-size: 30px;
-    text-align: center;
-}
-
-section#mapa agm-map {
+/* CONFIG DA API DO GOOGLE MAPS */
+div#mapa agm-map {
     position: relative;
-    /* float: right; */
-    width: 573px;
-    height: 350px;
+    align-content: center;
+    width: 550px;
+    height: 330px;
 }
 
-section#redes-sociais {
-    display: block;
-    float: left;
-    margin-bottom: 10px;
-    margin-left: 130px;
-}
-
-section#redes-sociais img {
-    width: 60px;
-    height: 60px;
+div#redes-sociais img {
+    width: 80px;
+    height: 80px;
     margin: 0px 2px 2px 0px;
 }
 
-section#redes-sociais p {
-    display: block;
+div#redes-sociais p {
     font-weight: bolder;
+    font-size: 20px;
+}
+
+/* AUTORIA DE ÍCONES */
+span#toHidden {
+    opacity: 0;
 }

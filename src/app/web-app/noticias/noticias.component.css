@@ -1,7 +1,11 @@
-.notData {
-    text-align: center;
-}
-
 #marginBottomCardsCol {
     margin-bottom: 15px;
+}
+
+a {
+    cursor: pointer;
+}
+
+button:disabled {
+    pointer-events: none;
 }

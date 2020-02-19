@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs';
+import { Contato } from './contato.model';
+import { ContatoService } from './../services/contato.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,14 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor() { }
+  Contato: Contato
 
-  //AQUI SERÁ FEITO A CONFIGURAÇÃO DA API DO GOOGLE MAPS
+  constructor(private contatoService: ContatoService) {
+  }
+
+  ngOnInit() {
+    this.contatoService.getContato().subscribe(response => {
+      console.log(response)
+      this.Contato = response['data']
+    })
+  }
+
+  // CONFIGURAÇÃO DA API DO GOOGLE MAPS
+  // LOCALIZAÇÃO DO LAR DE IBITINGA
   lat: number = -21.748462;
   lng: number = -48.824793;
   zoom: number = 15;
-
-
-  ngOnInit() { }
 
 }
