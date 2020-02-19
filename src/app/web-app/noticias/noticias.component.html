@@ -26,7 +26,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="modalPeriodSearchLabel">Buscar por Período</h5>
+              <h5 class="modal-title" id="modalPeriodSearchLabel">Buscar por palavra-chave</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -51,7 +51,7 @@
           </div>
         </div>
       </div>
-      <button *ngIf="filterDate || order" type="button" class="btn btn-outline-danger btn-sm marginClearFilter"
+      <button *ngIf="filterKeyword || order" type="button" class="btn btn-outline-danger btn-sm marginClearFilter"
         (click)="clearConditions()">Limpar
         filtros </button>
     </div>
