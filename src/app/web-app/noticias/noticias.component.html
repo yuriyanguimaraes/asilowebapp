@@ -18,7 +18,7 @@
       </div>
       <!-- Botão para acionar modal -->
       <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
-        Buscar por período
+        Buscar por palavra-chave
       </button>
       <!-- Modal -->
       <div class="modal fade" id="modalPeriodSearch" tabindex="-1" role="dialog"
@@ -32,24 +32,20 @@
               </button>
             </div>
             <div class="modal-body">
-              <form [formGroup]="dateBetweenFilterForm" novalidate>
+              <form [formGroup]="keywordFilterForm" novalidate>
                 <div class="form-row align-items-center alignContentInsideModal">
-                  De &nbsp;
+                  Palavra-chave &nbsp;
                   <div class="col-sm-5 my-1">
-                    <input type="date" class="form-control" formControlName="dateStart">
-                  </div>&nbsp;&nbsp;
-                  Até &nbsp;
-                  <div class="col-sm-5 my-1">
-                    <input type="date" class="form-control" formControlName="dateFinish">
+                    <input type="text" class="form-control" formControlName="keyword">
                   </div>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button *ngIf="!dateBetweenFilterForm.pristine" type="submit" class="btn btn-outline-danger btn-sm"
+              <button *ngIf="!keywordFilterForm.pristine" type="submit" class="btn btn-outline-danger btn-sm"
                 (click)="onClickCleanInputFieldsDateSearch()">Limpar</button>
               <button #closeModal type="submit" class="btn btn-outline-info btn-sm" data-dismiss="modal"
-                (click)="onClickFilterDate()" [disabled]="!dateBetweenFilterForm.valid"><b><i
+                (click)="onClickFilterKeyword()" [disabled]="!keywordFilterForm.valid"><b><i
                     class="fa fa-search"></i></b></button>
             </div>
           </div>
