@@ -32,6 +32,7 @@ import { PortalTransparenciaComponent } from './web-app/portal-transparencia/por
 import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
 import { LoadingComponent } from './web-components/loading/loading.component';
 import { NoDataComponent } from './web-components/no-data/no-data.component';
+import { GalleryComponent } from './web-app/noticia/gallery/gallery.component'
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -44,7 +45,7 @@ import { ContatoService } from './web-app/services/contato.service';
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
 
 //Environment Variables
-import { apiKeyGoogle } from "./../environments/apiKeyGoogle"
+import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
 
 @NgModule({
   declarations: [
@@ -64,11 +65,11 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle"
     DocumentsCollapseComponent,
     LoadingComponent,
     NoDataComponent,
+    DoacaoComponent,
+    GalleryComponent,
 
     //Pipes
     DateAgoPipe,
-
-    DoacaoComponent
   ],
   imports: [
     //Modules
