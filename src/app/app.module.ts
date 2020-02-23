@@ -5,9 +5,7 @@ import { RouterModule, PreloadAllModules } from "@angular/router"
 import { HttpModule } from "@angular/http"
 import { HttpClientModule } from "@angular/common/http"
 import { AgmCoreModule } from '@agm/core'
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDropdownModule, TooltipModule, ModalModule, CarouselModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { NgxPaginationModule } from "ngx-pagination"
@@ -84,6 +82,7 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    CarouselModule.forRoot(),
     NgxPaginationModule
   ],
   providers: [
