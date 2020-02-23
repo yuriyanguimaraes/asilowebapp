@@ -10,7 +10,7 @@
     <div *ngIf="noticia && hasMultipleImages">
         <hr>
         <h2 class="titlePage">Galeria</h2>
-        <app-gallery></app-gallery>
+        <app-gallery [images]="noticia['imagem']"></app-gallery>
     </div>
     <div *ngIf="!isLoading && !noticia">
         <app-no-data [message]="messageApi"></app-no-data>
