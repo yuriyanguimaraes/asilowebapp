@@ -20,6 +20,7 @@ export class NoticiaComponent implements OnInit, OnDestroy {
   messageApi: string
   statusResponse: number
   hasImage: boolean = false
+  hasMultipleImages: boolean = false
 
   constructor(
     private _service: NoticiaService,
@@ -45,6 +46,9 @@ export class NoticiaComponent implements OnInit, OnDestroy {
       this.isLoading = false
       if (this.noticia.imagem.length > 0) {
         this.hasImage = true
+        if (this.noticia.imagem.length > 1) {
+          this.hasMultipleImages = true
+        }
       }
     }, err => {
       this.statusResponse = err.status
