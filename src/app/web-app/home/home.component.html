@@ -8,7 +8,7 @@
             <div class="card mb-3">
                 <a class="overlay" [routerLink]="['/noticia', noticia.titulo]">
                     <div *ngIf="noticia.imagem[0];else imageNotDefined">
-                        <img class="card-img-top" src="{{noticia.imagem}}" alt="{{noticia.titulo}}">
+                        <img class="card-img-top" src="{{noticia.imagem[0]}}" alt="{{noticia.titulo}}">
                     </div>
                     <ng-template #imageNotDefined>
                         <img class="card-img-top" src="assets/img/defaults/imageNotDefined.png" alt="Imagem não definida">
