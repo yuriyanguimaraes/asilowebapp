@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    color: #212529!important;
+}
+
+.marginTopBottomContentContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.titlePage {
+    text-align: center;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.btnPeriodSearch {
+    text-align: start;
+}
+
+.marginDropdown {
+    margin-right: 6px;
+}
+
+.alignContentInsideModal {
+    justify-content: center;
+}
+
+.marginClearFilter {
+    margin-left: 6px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-bottom: 150px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+/* SET STYLES DEFAULT ARGON SYSTEM */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+    color: inherit;
+}
+
+.btn-danger:hover {
+    background-color: #da1b41;
+    border-color: #da1b41;
+}
