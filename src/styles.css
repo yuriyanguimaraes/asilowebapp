@@ -9,6 +9,10 @@ body {
     margin-bottom: 15px;
 }
 
+#marginBottomCardsCol {
+    margin-bottom: 15px;
+}
+
 .titlePage {
     text-align: center;
 }
@@ -50,15 +54,9 @@ body {
     padding-bottom: 10px;
 }
 
-
 /* SET STYLES DEFAULT ARGON SYSTEM */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     color: inherit;
 }
