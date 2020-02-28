@@ -9,6 +9,7 @@ import { BsDropdownModule, TooltipModule, ModalModule, CarouselModule } from 'ng
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { NgxPaginationModule } from "ngx-pagination"
+import { LightboxModule } from "ngx-lightbox"
 
 //Routes
 import { ROUTES } from "./app.routing"
@@ -83,7 +84,8 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    LightboxModule
   ],
   providers: [
     //Services

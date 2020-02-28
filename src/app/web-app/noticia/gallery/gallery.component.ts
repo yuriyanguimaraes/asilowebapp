@@ -1,21 +1,27 @@
 import { Component, OnInit, Input } from '@angular/core';
-// import { CarouselConfig } from "ngx-bootstrap/carousel"
+import { Lightbox, IAlbum } from "ngx-lightbox"
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css'],
-  // providers: [
-  //   { provide: CarouselConfig, useValue: { interval: 3000, noPause: false, showIndicators: true } }
-  // ]
 })
 export class GalleryComponent implements OnInit {
 
-  @Input() images: string
+  @Input() images: Array<IAlbum>
 
-  constructor() { }
+  constructor(
+    private _lightbox: Lightbox
+  ) { }
 
   ngOnInit() {
+  }
 
+  open(index: number) {
+    this._lightbox.open(this.images, index)
+  }
+
+  close() {
+    this._lightbox.close()
   }
 }

@@ -2,7 +2,7 @@
   <div class="card text-center">
     <img *ngIf="!noticia['imagem'][0]" class="card-img" src="assets/img/noticias-card/square_red.png"
       [alt]="noticia['titulo']">
-    <img *ngIf="noticia['imagem'][0]" class="card-img" [src]="noticia['imagem'][0]" [alt]="noticia['titulo']">
+    <img *ngIf="noticia['imagem'][0]['src']" class="card-img" [src]="noticia['imagem'][0]['src']" [alt]="noticia['titulo']">
     <div class="card-img-overlay d-flex justify-content-center align-items-center" id="overlay">
       <h5 class="card-title">{{noticia['titulo']}}</h5>
     </div>
