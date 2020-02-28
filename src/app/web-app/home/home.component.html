@@ -7,11 +7,11 @@
         <div class="col-md-4" *ngFor="let noticia of noticias">
             <div class="card mb-3">
                 <a class="overlay" [routerLink]="['/noticia', noticia.titulo]">
-                    <div *ngIf="noticia.imagem[0];else imageNotDefined">
-                        <img class="card-img-top" src="{{noticia.imagem[0]}}" alt="{{noticia.titulo}}">
+                    <div *ngIf="noticia.imagem[0]['src'];else imageNotDefined">
+                        <img class="card-img-top" src="{{noticia.imagem[0]['src']}}" alt="{{noticia.titulo}}">
                     </div>
                     <ng-template #imageNotDefined>
-                        <img class="card-img-top" src="assets/img/defaults/imageNotDefined.png" alt="Imagem não definida">
+                        <img class="card-img-top" src="assets/img/noticias-card/square_red.png" alt="Imagem não definida">
                     </ng-template>
                 </a>
                 <div class="card-body">

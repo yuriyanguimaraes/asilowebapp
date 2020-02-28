@@ -14,7 +14,6 @@ export class NoticiaCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
     if (this.noticia['imagem'].length > 0) {
       this.hasImage = true
       this.noticia['imagem'] = this.noticia['imagem'][0]['src']
