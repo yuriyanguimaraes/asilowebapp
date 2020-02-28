@@ -1,0 +1,11 @@
+<div class="container-fluid marginTopBottomContentContainer">
+  <div>
+    <div class="row">
+      <div *ngFor="let image of images; let i = index" class="col-md-3" id="marginBottomCardsCol">
+        <div class="card bg-dark">
+          <img class="card-img maxSize" [src]="image['src']" [alt]="image" (click)="open(i)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

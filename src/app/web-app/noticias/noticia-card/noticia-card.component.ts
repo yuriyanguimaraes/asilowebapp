@@ -9,10 +9,16 @@ import { Noticia } from "./../noticia.model"
 export class NoticiaCardComponent implements OnInit {
 
   @Input() noticia: Noticia[]
+  hasImage: boolean = false
 
   constructor() { }
 
   ngOnInit() {
+
+    if (this.noticia['imagem'].length > 0) {
+      this.hasImage = true
+      this.noticia['imagem'] = this.noticia['imagem'][0]['src']
+    }
   }
 
 }
