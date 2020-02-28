@@ -1,51 +1,48 @@
 <!-- TÍTULO DA PÁGINA -->
 <div class="container-fluid" id="marginTopBottomCardsContainer">
-  <h2>Contato</h2>
-  <hr>
+    <h2>Contato</h2>
+    <hr>
 </div>
-
-<!-- CONTAINER PRINCIPAL DE CONTEÚDO -->
 <div class="container">
+    <div class="conteudo-flutuante">
+        <div class="row">
+            <!-- SEÇÃO COM AS INFORMAÇÕES DE CONTATO -->
+            <div id="informacoes">
 
-  <div class="conteudo-flutuante">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="td-dir"><img src="./../../assets/contato-images/endereco.svg" /></td>
+                            <td class="td-esq"> <span>{{ Contato.rua }} {{ Contato.numero }} {{ Contato.bairro }} {{ Contato.complemento }} {{ Contato.cidade }}  {{ Contato.estado }} </span> </td>
+                        </tr>
+                        <tr *ngFor="let numero of Contato.telefone">
+                            <td class="td-dir"> <img src="./../../assets/contato-images/telefone.svg" /> </td>
+                            <td class="td-esq"> <span>{{ numero }}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td-dir"> <img src="./../../assets/contato-images/enviar.svg" /> </td>
+                            <td class="td-esq"> <span>{{ Contato.email }}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <!-- SEÇÃO COM AS INFORMAÇÕES DE CONTATO -->
-    <div id="informacoes">
+            </div>
 
-        <table>
-          <tbody>
-            <tr>
-              <td class="td-dir"><img src="./../../assets/contato-images/endereco.svg" /></td>
-              <td class="td-esq"> <span>{{ Contato.rua }} {{ Contato.numero }} {{ Contato.bairro }} {{ Contato.complemento }} {{ Contato.cidade }}  {{ Contato.estado }} </span> </td>
-            </tr>
-            <tr *ngFor="let numero of Contato.telefone">
-              <td class="td-dir"> <img src="./../../assets/contato-images/telefone.svg" /> </td>
-              <td class="td-esq"> <span>{{ numero }}</span></td>
-            </tr>
-            <tr>
-              <td class="td-dir"> <img src="./../../assets/contato-images/enviar.svg" /> </td>
-              <td class="td-esq"> <span>{{ Contato.email }}</span></td>
-            </tr>
-          </tbody>
-        </table>
+            <!-- SEÇÃO COM A API DO GOOGLE MAPS -->
+            <div id="mapa">
+                <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+            </div>
 
+        </div>
     </div>
 
-    <!-- SEÇÃO COM A API DO GOOGLE MAPS -->
-    <div id="mapa">
-      <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-      </agm-map>
+    <!-- SEÇÃO COM AS REDES SOCIAIS -->
+    <div id="redes-sociais">
+        <p>Acesse também nossas redes sociais :)</p>
+        <a href="https://www.facebook.com/larsaovicenteibitinga/" target="_blank"><img src="./../../assets/contato-images/facebook.svg" /></a>
     </div>
-
-</div>
-
-  <!-- SEÇÃO COM AS REDES SOCIAIS -->
-  <div id="redes-sociais">
-    <p>Acesse também nossas redes sociais :)</p>
-    <a href="https://www.facebook.com/larsaovicenteibitinga/" target="_blank"><img
-        src="./../../assets/contato-images/facebook.svg" /></a>
-  </div>
 
 </div>
 
