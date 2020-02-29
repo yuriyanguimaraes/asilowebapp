@@ -25,7 +25,7 @@ export class PortalTransparenciaComponent implements OnInit {
   //Control Variables
   filterDate: boolean = false
   filterCategory: boolean = false
-  order: boolean = false
+  filterOrder: boolean = false
   p: number
   total: number
   limit: number
@@ -36,6 +36,7 @@ export class PortalTransparenciaComponent implements OnInit {
   //Selected Items
   dropdownOrderSelectedItem: any
   categorySelectedItem: any
+  categorySelectedTitle: string
 
   //Menu Items Set
   dropdownOrderMenuItems: any[] = [
@@ -44,9 +45,9 @@ export class PortalTransparenciaComponent implements OnInit {
   ]
 
   categoryMenuItems: any[] = [
-    { option: 'Relatório de Atividades', param: 'relatório de atividades' },
-    { option: 'Prestação de Contas', param: 'prestação de contas' },
-    { option: 'Documentos Oficiais', param: 'documentos oficiais' },
+    { option: 'Documentos Oficiais', param: 'documentos oficiais', description: '' },
+    { option: 'Prestação de Contas', param: 'prestação de contas', description: '' },
+    { option: 'Relatório de Atividades', param: 'relatório de atividades', description: '' },
   ]
 
   constructor(
@@ -61,8 +62,6 @@ export class PortalTransparenciaComponent implements OnInit {
 
     this._service.params = this._service.params.set('order', 'descending')
     this._service.params = this._service.params.set('page', '1')
-
-    this.getDocumentsWithParams()
 
     //Init Form
     this.dateBetweenFilterForm = this.fb.group({
@@ -110,13 +109,26 @@ export class PortalTransparenciaComponent implements OnInit {
   onSelectOrderDropdownMenu(item: any) {
     this.dropdownOrderSelectedItem = item
     this.documents = null
-    this.order = true
+    this.filterOrder = true
     this._service.params = this._service.params.set('order', item['param'])
     this.getDocumentsWithParams()
   }
 
   onSelectCategoryMenu(item: any) {
     this.categorySelectedItem = item
+    this.categorySelectedTitle = item['option']
+    this.documents = null
+    this.filterCategory = true
+    this.filterOrder = false
+    this.dropdownOrderSelectedItem = null
+    this._service.params = this._service.params.set('order', 'descending')
+    this._service.params = this._service.params.set('category', item['param'])
+    this.getDocumentsWithParams()
+  }
+
+  navigateToDocs(item: any) {
+    this.categorySelectedItem = item
+    this.categorySelectedTitle = item['option']
     this.documents = null
     this.filterCategory = true
     this._service.params = this._service.params.set('category', item['param'])
@@ -147,15 +159,11 @@ export class PortalTransparenciaComponent implements OnInit {
 
     this._service.params = this._service.params.set('page', '1')
 
-    this.filterCategory = false
-    this.categorySelectedItem = null
-    this._service.params = this._service.params.delete('category')
-
     this.filterDate = false
     this._service.params = this._service.params.delete('dateStart')
     this._service.params = this._service.params.delete('dateFinish')
 
-    this.order = false
+    this.filterOrder = false
     this.dropdownOrderSelectedItem = null
     this._service.params = this._service.params.set('order', 'descending')
 

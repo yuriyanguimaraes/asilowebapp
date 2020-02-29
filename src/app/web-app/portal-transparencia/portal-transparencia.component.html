@@ -1,54 +1,20 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container-fluid marginTopBottomContentContainer">
+<div *ngIf="!filterCategory" class="container-fluid marginTopBottomContentContainer">
   <h2 class="titlePage">Portal da Transparência</h2>
+  <hr>
+  <div class="row">
+    <div *ngFor="let item of categoryMenuItems" class="col-sm-4">
+      <div class="card text-center" style="min-height: 250px;">
+        <div class="card-body">
+          <h5 class="card-title">{{item.option}}</h5>
+          <p class="card-text">{{item.description}}</p>
+          <button (click)="navigateToDocs(item)" class="btn btn-primary">Comece a explorar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="filterCategory" class="container-fluid marginTopBottomContentContainer">
+  <h2 class="titlePage">{{categorySelectedTitle}}</h2>
   <hr>
   <div>
     <div class="btnPeriodSearch">
@@ -64,13 +30,13 @@
               (click)="onSelectOrderDropdownMenu(item)">{{item.option}}</a>
           </li>
         </ul>
-      </div> -->
-<!-- Botão para acionar modal -->
-<!-- <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
+      </div>
+      <!-- Botão para acionar modal -->
+      <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
         Buscar por período
-      </button> -->
-<!-- Modal -->
-<!-- <div class="modal fade" id="modalPeriodSearch" tabindex="-1" role="dialog"
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="modalPeriodSearch" tabindex="-1" role="dialog"
         aria-labelledby="modalPeriodSearchLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -104,8 +70,8 @@
           </div>
         </div>
       </div>
-      <button *ngIf="filterCategory || filterDate || order" type="button"
-        class="btn btn-outline-danger btn-sm marginClearFilter" (click)="clearConditions()">Limpar
+      <button *ngIf="filterDate || filterOrder" type="button" class="btn btn-outline-danger btn-sm marginClearFilter"
+        (click)="clearConditions()">Limpar
         filtros </button>
     </div>
     <br />
@@ -134,4 +100,4 @@
       </ul>
     </nav>
   </div>
-</div> -->
+</div>
