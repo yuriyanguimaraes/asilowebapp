@@ -3,11 +3,11 @@
   <hr>
   <div class="row">
     <div *ngFor="let item of categoryMenuItems" class="col-sm-4">
-      <div class="card text-center" style="min-height: 250px;">
+      <div class="card text-center">
         <div class="card-body">
-          <h5 class="card-title">{{item.option}}</h5>
-          <p class="card-text">{{item.description}}</p>
-          <button (click)="navigateToDocs(item)" class="btn btn-primary">Comece a explorar</button>
+          <h5 class="card-title"><b>{{item.option}}</b></h5>
+          <p class="card-text sizeTextCard">{{item.description}}</p>
+          <button (click)="navigateToDocs(item)" class="btn btn-outline-info">Veja mais</button>
         </div>
       </div>
     </div>

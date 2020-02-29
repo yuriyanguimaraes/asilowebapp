@@ -45,9 +45,21 @@ export class PortalTransparenciaComponent implements OnInit {
   ]
 
   categoryMenuItems: any[] = [
-    { option: 'Documentos Oficiais', param: 'documentos oficiais', description: '' },
-    { option: 'Prestação de Contas', param: 'prestação de contas', description: '' },
-    { option: 'Relatório de Atividades', param: 'relatório de atividades', description: '' },
+    {
+      option: 'Documentos Oficiais',
+      param: 'documentos oficiais',
+      description: 'Nesta seção, você encontrará os documentos oficiais relacionados a entidade, como ATAS de Diretoria e Estatutos.'
+    },
+    {
+      option: 'Prestação de Contas',
+      param: 'prestação de contas',
+      description: 'Nesta seção, você encontrará os documentos de prestação de contas, que comprovam que o dinheiro recebido pela entidade está sendo utilizado em prol de seus moradores.'
+    },
+    {
+      option: 'Relatório de Atividades',
+      param: 'relatório de atividades',
+      description: 'Nesta seção, você encontrará os relatórios de ativiades, que mostram as atividades que realizamos com os moradores da entidade.'
+    },
   ]
 
   constructor(
@@ -71,7 +83,9 @@ export class PortalTransparenciaComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.httpReq.unsubscribe()
+    if (this.httpReq) {
+      this.httpReq.unsubscribe()
+    }
   }
 
   getDocumentsWithParams() {
