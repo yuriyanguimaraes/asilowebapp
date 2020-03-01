@@ -138,8 +138,5 @@
       }
     }
   },
-  "defaultProject": "asiloweb-app",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "asiloweb-app"
 }

@@ -10,7 +10,6 @@ import { FAQ } from "./../faq/faq.model"
 export class FAQComponent implements OnInit {
 
   faqs: FAQ[]
-  private contador = 0;
 
   constructor(private faq: FAQService) { }
 
@@ -20,8 +19,7 @@ export class FAQComponent implements OnInit {
 
   getFAQ(){
     this.faq.getFAQ().subscribe(faqs =>{
-      this.faqs = faqs;
-      this.contador = this.contador +1;
+      this.faqs = faqs['data'];
     }) 
   }
 }
