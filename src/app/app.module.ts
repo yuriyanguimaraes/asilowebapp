@@ -32,6 +32,7 @@ import { DocumentsCollapseComponent } from './web-app/portal-transparencia/docum
 import { LoadingComponent } from './web-components/loading/loading.component';
 import { NoDataComponent } from './web-components/no-data/no-data.component';
 import { GalleryComponent } from './web-app/noticia/gallery/gallery.component'
+import { DashboardComponent } from './admin-panel/dashboard/dashboard.component';
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -66,9 +67,10 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
     NoDataComponent,
     DoacaoComponent,
     GalleryComponent,
+    DashboardComponent,
 
     //Pipes
-    DateAgoPipe,
+    DateAgoPipe
   ],
   imports: [
     //Modules
