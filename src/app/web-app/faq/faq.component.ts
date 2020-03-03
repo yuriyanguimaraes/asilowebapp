@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FAQService } from './../services/faq.service'
+import { FAQ } from './faq.model'
 
 
 @Component({
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FAQComponent implements OnInit {
 
-  constructor() { }
+  faqs: FAQ[]
+
+  constructor(private faq: FAQService) { }
 
   ngOnInit() {
+    this.getFAQ()
   }
 
+  getFAQ() {
+    this.faq.getFAQ().subscribe(faqs => {
+      this.faqs = faqs['data'];
+    })
+  }
 }

@@ -5,12 +5,11 @@ import { RouterModule, PreloadAllModules } from "@angular/router"
 import { HttpModule } from "@angular/http"
 import { HttpClientModule } from "@angular/common/http"
 import { AgmCoreModule } from '@agm/core'
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDropdownModule, TooltipModule, ModalModule, CarouselModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { NgxPaginationModule } from "ngx-pagination"
+import { LightboxModule } from "ngx-lightbox"
 
 //Routes
 import { ROUTES } from "./app.routing"
@@ -32,6 +31,7 @@ import { PortalTransparenciaComponent } from './web-app/portal-transparencia/por
 import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
 import { LoadingComponent } from './web-components/loading/loading.component';
 import { NoDataComponent } from './web-components/no-data/no-data.component';
+import { GalleryComponent } from './web-app/noticia/gallery/gallery.component'
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -44,7 +44,7 @@ import { ContatoService } from './web-app/services/contato.service';
 import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
 
 //Environment Variables
-import { apiKeyGoogle } from "./../environments/apiKeyGoogle"
+import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
 
 @NgModule({
   declarations: [
@@ -64,11 +64,11 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle"
     DocumentsCollapseComponent,
     LoadingComponent,
     NoDataComponent,
+    DoacaoComponent,
+    GalleryComponent,
 
     //Pipes
     DateAgoPipe,
-
-    DoacaoComponent
   ],
   imports: [
     //Modules
@@ -83,7 +83,9 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle"
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    NgxPaginationModule
+    CarouselModule.forRoot(),
+    NgxPaginationModule,
+    LightboxModule
   ],
   providers: [
     //Services
