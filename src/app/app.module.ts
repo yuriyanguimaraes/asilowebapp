@@ -33,6 +33,8 @@ import { LoadingComponent } from './web-components/common/loading/loading.compon
 import { NoDataComponent } from './web-components/common/no-data/no-data.component';
 import { GalleryComponent } from './web-app/noticia/gallery/gallery.component'
 import { DashboardComponent } from './admin-panel/dashboard/dashboard.component';
+import { SidenavComponent } from './web-components/admin-panel/sidenav/sidenav.component';
+import { HeaderAdminComponent } from "./web-components/admin-panel/header/header.component"
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -46,7 +48,6 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
 
 //Environment Variables
 import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
-import { SidenavComponent } from './web-components/admin-panel/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -69,11 +70,11 @@ import { SidenavComponent } from './web-components/admin-panel/sidenav/sidenav.c
     DoacaoComponent,
     GalleryComponent,
     DashboardComponent,
+    SidenavComponent,
+    HeaderAdminComponent,
 
     //Pipes
     DateAgoPipe,
-
-    SidenavComponent
   ],
   imports: [
     //Modules
