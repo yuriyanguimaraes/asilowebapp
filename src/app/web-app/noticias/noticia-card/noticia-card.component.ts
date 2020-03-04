@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Noticia} from "./../noticia.model"
+import { Noticia } from "./../noticia.model"
 
 @Component({
   selector: 'app-noticia-card',
@@ -9,10 +9,15 @@ import {Noticia} from "./../noticia.model"
 export class NoticiaCardComponent implements OnInit {
 
   @Input() noticia: Noticia[]
+  hasImage: boolean = false
 
   constructor() { }
 
   ngOnInit() {
+    if (this.noticia['imagem'].length > 0) {
+      this.hasImage = true
+      this.noticia['imagem'] = this.noticia['imagem'][0]['src']
+    }
   }
 
 }

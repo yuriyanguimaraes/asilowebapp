@@ -1,10 +1,23 @@
-<div class="container-fluid marginTopBottomContentContainer">
-
+<div *ngIf="!filterCategory" class="container-fluid marginTopBottomContentContainer">
   <h2 class="titlePage">Portal da Transparência</h2>
+  <hr>
+  <div class="row">
+    <div *ngFor="let item of categoryMenuItems" class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{item.option}}</b></h5>
+          <p class="card-text sizeTextCard">{{item.description}}</p>
+          <button (click)="navigateToDocs(item)" class="btn btn-outline-info">Veja mais</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="filterCategory" class="container-fluid marginTopBottomContentContainer">
+  <h2 class="titlePage">{{categorySelectedTitle}}</h2>
   <hr>
   <div>
     <div class="btnPeriodSearch">
-
       <div class="btn-group marginDropdown" dropdown>
         <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-info btn-sm dropdown-toggle"
           aria-controls="dropdown-basic">
@@ -18,7 +31,6 @@
           </li>
         </ul>
       </div>
-
       <!-- Botão para acionar modal -->
       <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
         Buscar por período
@@ -35,7 +47,6 @@
               </button>
             </div>
             <div class="modal-body">
-
               <form [formGroup]="dateBetweenFilterForm" novalidate>
                 <div class="form-row align-items-center alignContentInsideModal">
                   De &nbsp;
@@ -48,7 +59,6 @@
                   </div>
                 </div>
               </form>
-
             </div>
             <div class="modal-footer">
               <button *ngIf="!dateBetweenFilterForm.pristine" type="submit" class="btn btn-outline-danger btn-sm"
@@ -60,25 +70,17 @@
           </div>
         </div>
       </div>
-
-      <button *ngIf="filterCategory || filterDate || order" type="button"
-        class="btn btn-outline-danger btn-sm marginClearFilter" (click)="clearConditions()">Limpar
+      <button *ngIf="filterDate || filterOrder" type="button" class="btn btn-outline-danger btn-sm marginClearFilter"
+        (click)="clearConditions()">Limpar
         filtros </button>
-
     </div>
     <br />
-
     <div class="row">
-
       <div class="list-group col-3 menuPosition">
         <a *ngFor="let item of categoryMenuItems" class="list-group-item list-group-item-action"
           [class.active]="item === categorySelectedItem" (click)="onSelectCategoryMenu(item)">{{item.option}}</a>
       </div>
-
-
-
       <div class="col-9">
-
         <app-loading [condition]="isLoading"></app-loading>
         <div *ngIf="documents && statusResponse == 200" class="accordion" id="accordion">
           <app-documents-collapse
@@ -86,19 +88,16 @@
             [document]="document"></app-documents-collapse>
         </div>
         <div *ngIf="!isLoading && !documents">
-          <p class="notData">{{messageApi}}</p>
+          <app-no-data [message]="messageApi"></app-no-data>
         </div>
       </div>
-
     </div>
-
     <br />
-
     <nav *ngIf="documents">
       <ul class="pagination">
         <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
         </pagination-controls>
       </ul>
     </nav>
-
   </div>
+</div>
