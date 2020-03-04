@@ -46,6 +46,7 @@ import { DateAgoPipe } from "./web-app/pipes/date-ago.pipe";
 
 //Environment Variables
 import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
+import { SidenavComponent } from './web-components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,9 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
     DashboardComponent,
 
     //Pipes
-    DateAgoPipe
+    DateAgoPipe,
+
+    SidenavComponent
   ],
   imports: [
     //Modules
