@@ -7,7 +7,7 @@ import { RouterModule } from "@angular/router"
 import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
 import { DashboardComponent } from "./dashboard/dashboard.component";
-import { ContatoComponent } from './contato/contato.component'
+import { ContatoAdminComponent } from './contato/contato.component'
 
 //Import Services
 
@@ -22,11 +22,11 @@ import { ContatoComponent } from './contato/contato.component'
         DashboardComponent,
         SidenavComponent,
         HeaderComponent,
-        ContatoComponent
+        ContatoAdminComponent
     ],
     exports: [
         DashboardComponent,
-        ContatoComponent,
+        ContatoAdminComponent,
         SidenavComponent,
         HeaderComponent
     ]
