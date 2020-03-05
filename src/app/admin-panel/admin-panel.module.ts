@@ -1,6 +1,7 @@
 //Import Modules
 import { NgModule } from "@angular/core"
 import { CommonModule } from "@angular/common"
+import {RouterModule} from "@angular/router"
 
 //Import Components
 import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
@@ -12,7 +13,10 @@ import { DashboardComponent } from "./dashboard/dashboard.component"
 //Import Pipes
 
 @NgModule({
-    imports: [CommonModule],
+    imports: [
+        CommonModule,
+        RouterModule
+    ],
     declarations: [
         DashboardComponent,
         SidenavComponent,
