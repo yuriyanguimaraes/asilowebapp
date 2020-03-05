@@ -9,3 +9,9 @@ a {
 button:disabled {
     pointer-events: none;
 }
+
+.sizeTextCard {
+    height: 120px;
+    text-align: justify;
+    text-justify: inter-word;
+}

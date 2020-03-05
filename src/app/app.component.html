@@ -1,5 +1,13 @@
-<div class="wrapper">
+<div *ngIf="!_router.url.includes('admin')" class="wrapper">
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
+</div>
+<div *ngIf="_router.url.includes('admin')" class="wrapper">
+  <app-sidenav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white"
+    id="sidenav-main"></app-sidenav>
+  <div class="main-content" id="panel">
+    <app-header-admin></app-header-admin>
+    <router-outlet></router-outlet>
+  </div>
 </div>

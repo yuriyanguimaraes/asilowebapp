@@ -1,0 +1,11 @@
+.nav-link:hover {
+    margin-top: -2px;
+    border-radius: 0px;
+    border-bottom: 2px solid #11cdef;
+}
+
+.active {
+    margin-top: -2px;
+    border-radius: 0px;
+    border-bottom: 2px solid #11cdef;
+}

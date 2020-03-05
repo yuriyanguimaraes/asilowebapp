@@ -1,57 +1,56 @@
 <!-- TÍTULO DA PÁGINA -->
 <div class="container-fluid" id="marginTopBottomCardsContainer">
-  <h2>Contato</h2>
-  <hr>
+    <h2>Contato</h2>
+    <hr>
 </div>
-
-<!-- CONTAINER PRINCIPAL DE CONTEÚDO -->
 <div class="container">
+    <div class="conteudo-flutuante">
+        <div class="row">
+            <!-- SEÇÃO COM AS INFORMAÇÕES DE CONTATO -->
+            <div id="informacoes">
 
-  <div class="conteudo-flutuante">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="td-dir"><img src="assets/img/contato/endereco.svg" /></td>
+                            <td class="td-esq"> <span>{{ Contato.rua }} {{ Contato.numero }} {{ Contato.bairro }}
+                                    {{ Contato.complemento }} {{ Contato.cidade }} {{ Contato.estado }} </span> </td>
+                        </tr>
+                        <tr *ngFor="let numero of Contato.telefone">
+                            <td class="td-dir"> <img src="assets/img/contato/telefone.svg" /> </td>
+                            <td class="td-esq"> <span>{{ numero }}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td-dir"> <img src="assets/img/contato/enviar.svg" /> </td>
+                            <td class="td-esq"> <span>{{ Contato.email }}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <!-- SEÇÃO COM AS INFORMAÇÕES DE CONTATO -->
-    <div id="informacoes">
+            </div>
 
-        <table>
-          <tbody>
-            <tr>
-              <td class="td-dir"><img src="./../../assets/contato-images/endereco.svg" /></td>
-              <td class="td-esq"> <span>{{ Contato.rua }} {{ Contato.numero }} {{ Contato.bairro }} {{ Contato.complemento }} {{ Contato.cidade }}  {{ Contato.estado }} </span> </td>
-            </tr>
-            <tr *ngFor="let numero of Contato.telefone">
-              <td class="td-dir"> <img src="./../../assets/contato-images/telefone.svg" /> </td>
-              <td class="td-esq"> <span>{{ numero }}</span></td>
-            </tr>
-            <tr>
-              <td class="td-dir"> <img src="./../../assets/contato-images/enviar.svg" /> </td>
-              <td class="td-esq"> <span>{{ Contato.email }}</span></td>
-            </tr>
-          </tbody>
-        </table>
+            <!-- SEÇÃO COM A API DO GOOGLE MAPS -->
+            <div id="mapa">
+                <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+            </div>
 
+        </div>
     </div>
 
-    <!-- SEÇÃO COM A API DO GOOGLE MAPS -->
-    <div id="mapa">
-      <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-      </agm-map>
+    <!-- SEÇÃO COM AS REDES SOCIAIS -->
+    <div id="redes-sociais">
+        <p>Acesse também nossas redes sociais :)</p>
+        <a href="https://www.facebook.com/larsaovicenteibitinga/" target="_blank"><img
+                src="assets/img/contato/facebook.svg" /></a>
     </div>
-
-</div>
-
-  <!-- SEÇÃO COM AS REDES SOCIAIS -->
-  <div id="redes-sociais">
-    <p>Acesse também nossas redes sociais :)</p>
-    <a href="https://www.facebook.com/larsaovicenteibitinga/" target="_blank"><img
-        src="./../../assets/contato-images/facebook.svg" /></a>
-  </div>
 
 </div>
 
 <!-- AUTORIA DOS ÍCONES UTILIZADOS -->
 <span id="toHidden">Ícones feitos por <a href="https://www.flaticon.com/br/autores/pixel-perfect"
-    title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/br/" title="Flaticon">
-    www.flaticon.com</a></span>
+        title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/br/" title="Flaticon">
+        www.flaticon.com</a></span>
 
 <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3203.984678398103!2d-48.826959985471454!3d-21.748750785612827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRua%20Gama%20Cerqueira%2C%20430%2C%20S%C3%A3o%20Jos%C3%A9%20(51%2C50%20km)%2014940-000%20Ibitinga!5e1!3m2!1spt-BR!2sbr!4v1580326456449!5m2!1spt-BR!2sbr" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
