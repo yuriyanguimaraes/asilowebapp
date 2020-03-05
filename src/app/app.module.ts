@@ -17,8 +17,6 @@ import { ROUTES } from "./app.routing"
 
 //Components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './web-components/web-app/header/header.component';
-import { FooterComponent } from './web-components/web-app/footer/footer.component';
 import { NoticiasComponent } from './web-app/noticias/noticias.component';
 import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
 import { NoticiaComponent } from './web-app/noticia/noticia.component'
@@ -30,9 +28,9 @@ import { CarouselComponent } from './web-app/home/carousel/carousel.component';
 import { DoacaoComponent } from './web-app/doacao/doacao.component';
 import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
 import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
+import { GalleryComponent } from './web-app/noticia/gallery/gallery.component'
 import { LoadingComponent } from './web-components/common/loading/loading.component';
 import { NoDataComponent } from './web-components/common/no-data/no-data.component';
-import { GalleryComponent } from './web-app/noticia/gallery/gallery.component'
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -51,8 +49,6 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
   declarations: [
     //Components
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     NoticiasComponent,
     NoticiaCardComponent,
     NoticiaComponent,
