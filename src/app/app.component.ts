@@ -10,5 +10,5 @@ export class AppComponent {
   title = 'app';
   router: string;
 
-  constructor(protected _router: Router) { }
+  constructor(public _router: Router) { }
 }
