@@ -26,9 +26,9 @@ import { ContatoAdminComponent } from './contato/contato.component'
     ],
     exports: [
         DashboardComponent,
-        ContatoAdminComponent,
         SidenavComponent,
-        HeaderComponent
+        HeaderComponent,
+        ContatoAdminComponent
     ]
 })
 export class AdminPanelModule { }

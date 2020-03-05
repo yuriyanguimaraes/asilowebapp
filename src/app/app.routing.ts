@@ -25,7 +25,7 @@ export const ROUTES: Routes = [
     { path: 'transparencia', component: PortalTransparenciaComponent },
     { path: 'transparencia/:categoria', component: PortalTransparenciaComponent },
     {
-        path: 'admin', component: DashboardComponent, children: [
+        path: 'admin', children: [
             { path: '', component: DashboardComponent },
             { path: 'contato', component: ContatoAdminComponent}
         ]
