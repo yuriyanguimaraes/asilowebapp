@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core"
 import { CommonModule } from "@angular/common"
 
 //Import Components
+import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
+import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
 import { DashboardComponent } from "./dashboard/dashboard.component"
 
 //Import Services
@@ -10,14 +12,16 @@ import { DashboardComponent } from "./dashboard/dashboard.component"
 //Import Pipes
 
 @NgModule({
-    imports: [
-        CommonModule
-    ],
+    imports: [CommonModule],
     declarations: [
-        DashboardComponent
+        DashboardComponent,
+        SidenavComponent,
+        HeaderComponent
     ],
     exports: [
-        DashboardComponent
+        DashboardComponent,
+        SidenavComponent,
+        HeaderComponent
     ]
 })
 export class AdminPanelModule { }

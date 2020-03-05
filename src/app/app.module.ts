@@ -33,8 +33,6 @@ import { DocumentsCollapseComponent } from './web-app/portal-transparencia/docum
 import { LoadingComponent } from './web-components/common/loading/loading.component';
 import { NoDataComponent } from './web-components/common/no-data/no-data.component';
 import { GalleryComponent } from './web-app/noticia/gallery/gallery.component'
-import { SidenavComponent } from './web-components/admin-panel/sidenav/sidenav.component';
-import { HeaderAdminComponent } from "./web-components/admin-panel/header/header.component"
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -69,8 +67,6 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
     NoDataComponent,
     DoacaoComponent,
     GalleryComponent,
-    SidenavComponent,
-    HeaderAdminComponent,
 
     //Pipes
     DateAgoPipe,
