@@ -16,8 +16,8 @@ import { ROUTES } from "./app.routing"
 
 //Components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './web-components/header/header.component';
-import { FooterComponent } from './web-components/footer/footer.component';
+import { HeaderComponent } from './web-components/web-app/header/header.component';
+import { FooterComponent } from './web-components/web-app/footer/footer.component';
 import { NoticiasComponent } from './web-app/noticias/noticias.component';
 import { NoticiaCardComponent } from './web-app/noticias/noticia-card/noticia-card.component'
 import { NoticiaComponent } from './web-app/noticia/noticia.component'
@@ -29,9 +29,12 @@ import { CarouselComponent } from './web-app/home/carousel/carousel.component';
 import { DoacaoComponent } from './web-app/doacao/doacao.component';
 import { PortalTransparenciaComponent } from './web-app/portal-transparencia/portal-transparencia.component';
 import { DocumentsCollapseComponent } from './web-app/portal-transparencia/documents-collapse/documents-collapse.component';
-import { LoadingComponent } from './web-components/loading/loading.component';
-import { NoDataComponent } from './web-components/no-data/no-data.component';
+import { LoadingComponent } from './web-components/common/loading/loading.component';
+import { NoDataComponent } from './web-components/common/no-data/no-data.component';
 import { GalleryComponent } from './web-app/noticia/gallery/gallery.component'
+import { DashboardComponent } from './admin-panel/dashboard/dashboard.component';
+import { SidenavComponent } from './web-components/admin-panel/sidenav/sidenav.component';
+import { HeaderAdminComponent } from "./web-components/admin-panel/header/header.component"
 
 //Services
 import { NoticiasService } from "./web-app/services/noticias.service";
@@ -66,6 +69,9 @@ import { apiKeyGoogle } from "./../environments/apiKeyGoogle";
     NoDataComponent,
     DoacaoComponent,
     GalleryComponent,
+    DashboardComponent,
+    SidenavComponent,
+    HeaderAdminComponent,
 
     //Pipes
     DateAgoPipe,
