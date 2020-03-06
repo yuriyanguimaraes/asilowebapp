@@ -1,3 +1,4 @@
+import { ContatoAdminService } from './services/contato-admin.service';
 //Import Modules
 import { NgModule } from "@angular/core"
 import { CommonModule } from "@angular/common"
@@ -16,7 +17,7 @@ import { ContatoAdminComponent } from './contato/contato.component'
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
     ],
     declarations: [
         DashboardComponent,
@@ -29,6 +30,9 @@ import { ContatoAdminComponent } from './contato/contato.component'
         SidenavComponent,
         HeaderComponent,
         ContatoAdminComponent
+    ],
+    providers: [
+        ContatoAdminService
     ]
 })
 export class AdminPanelModule { }

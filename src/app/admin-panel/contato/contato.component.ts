@@ -1,3 +1,5 @@
+import { Contato } from './../../web-app/contato/contato.model';
+import { ContatoAdminService } from './../services/contato-admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoAdminComponent implements OnInit {
 
-  constructor() { }
+  Contato: Contato
+
+  constructor(private contatoAdminService: ContatoAdminService) { }
 
   ngOnInit() {
+  }
+
+  getTeste(){
+    this.contatoAdminService.getTeste()
   }
 
 }
