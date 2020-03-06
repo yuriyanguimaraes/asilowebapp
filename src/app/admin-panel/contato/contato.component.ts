@@ -1,5 +1,6 @@
+import { FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
+import { ContatoService } from './../../web-app/services/contato.service';
 import { Contato } from './../../web-app/contato/contato.model';
-import { ContatoAdminService } from './../services/contato-admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,15 +10,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoAdminComponent implements OnInit {
 
-  Contato: Contato
+    _id: string
+    rua: string
+    bairro: string
+    numero: number
+    cep: string
+    complemento: string
+    cidade: string
+    estado: string
+    telefone: string
+    email: string
 
-  constructor(private contatoAdminService: ContatoAdminService) { }
+  contato: Contato
+  contatoForm: FormGroup
+
+  constructor(private contatoService: ContatoService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.contatoService.getContato().subscribe(res => {
+      console.log(res)
+    })
+
+    this.contatoForm = this.formBuilder.group({
+      '_id': [null],
+      'rua': [null],
+      'bairro': [null],
+      'numero': [null],
+      'cep': [null],
+      'complemento': [null],
+      'cidade': [null],
+      'estado': [null],
+      'telefone': [null],
+      'email': [null]
+    })
+
   }
 
-  getTeste(){
-    this.contatoAdminService.getTeste()
+  putContato(){
+    console.log("botão de put funcionando")
   }
 
 }

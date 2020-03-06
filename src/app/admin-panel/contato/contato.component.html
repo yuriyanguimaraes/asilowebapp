@@ -1,34 +1,43 @@
 <div class="container-fluid mt--0">
 
-  <!-- <form [formGroup]="filmeForm" (ngSubmit)="">
+  <form [formGroup]="contatoForm" (ngSubmit)="putContato()">
     <div class="form-group">
-      <label for="txt-id-filme">ID do Filme</label>
-      <input name="_id" formControlName="_id" type="text" class="form-control" id="txt-id-filme" readonly>
+      <label for="txt-id-contato">ID do Contato [only for tests]</label>
+      <input name="_id" formControlName="_id" type="text" class="form-control" id="txt-id-contato" readonly>
     </div>
     <div class="form-group">
-      <label for="txt-nome-filme">Nome do Filme</label>
-      <input name="nome" formControlName="nome" type="text" class="form-control" id="txt-nome-filme">
+      <label for="txt-rua-contato">Rua</label>
+      <input name="rua" formControlName="rua" type="text" class="form-control" id="txt-rua-contato">
     </div>
     <div class="form-group">
-      <label for="txt-descricao-filme">Descrição do Filme</label>
-      <input name="descricao" formControlName="descricao" type="text" class="form-control" id="txt-descricao-filme">
+      <label for="txt-bairro-contato">Bairro</label>
+      <input name="bairro" formControlName="bairro" type="text" class="form-control" id="txt-bairro-contato">
     </div>
     <div class="form-group">
-      <label for="txt-duracao-filme">Duração do Filme</label>
-      <input name="duracao" formControlName="duracao" type="text" class="form-control" id="txt-duracao-filme">
+      <label for="txt-numero-contato">Número</label>
+      <input name="numero" formControlName="numero" type="number" class="form-control" id="txt-numero-contato">
     </div>
     <div class="form-group">
-      <label for="txt-diretor-filme">Diretor do Filme</label>
-      <input name="diretor" formControlName="diretor" type="text" class="form-control" id="txt-diretor-filme">
+      <label for="txt-cep-contato">CEP</label>
+      <input name="cep" formControlName="cep" type="text" class="form-control" id="txt-cep-contato">
     </div>
     <div class="form-group">
-      <label for="txt-genero-filme">Gênero do Filme</label>
-      <input name="genero" formControlName="genero" type="text" class="form-control" id="txt-genero-filme">
+      <label for="txt-complemento-contato">Complemento</label>
+      <input name="complemento" formControlName="complemento" type="text" class="form-control" id="txt-complemento-contato">
     </div>
-    <button type="submit" [disabled]="!filmeForm.valid" class="btn btn-primary">Submit</button>
-  </form> -->
-
-  <p>contato-admin funfando legal!</p>
-  <button (click)="getTeste()" >Click me</button>
+    <div class="form-group">
+      <label for="txt-cidade-contato">Complemento</label>
+      <input name="cidade" formControlName="cidade" type="text" class="form-control" id="txt-cidade-contato">
+    </div>
+    <div class="form-group">
+      <label for="txt-estado-contato">Estado</label>
+      <input name="estado" formControlName="estado" type="text" class="form-control" id="txt-estado-contato">
+    </div>
+    <div class="form-group">
+      <label for="txt-email-contato">Email</label>
+      <input name="email" formControlName="email" type="email" class="form-control" id="txt-email-contato">
+    </div>
+    <button type="submit" [disabled]="!contatoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
 
 </div>

@@ -1,8 +1,8 @@
-import { ContatoAdminService } from './services/contato-admin.service';
 //Import Modules
 import { NgModule } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { RouterModule } from "@angular/router"
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Import Components
 import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
@@ -11,6 +11,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ContatoAdminComponent } from './contato/contato.component'
 
 //Import Services
+import { ContatoService } from './../web-app/services/contato.service';
 
 //Import Pipes
 
@@ -18,6 +19,8 @@ import { ContatoAdminComponent } from './contato/contato.component'
     imports: [
         CommonModule,
         RouterModule,
+        FormsModule, 
+        ReactiveFormsModule
     ],
     declarations: [
         DashboardComponent,
@@ -32,7 +35,7 @@ import { ContatoAdminComponent } from './contato/contato.component'
         ContatoAdminComponent
     ],
     providers: [
-        ContatoAdminService
+        ContatoService
     ]
 })
 export class AdminPanelModule { }

@@ -13,8 +13,4 @@ export class ContatoService {
         return this.http.get<Contato>(`${AsiloWebApi}/contato`)
     }
 
-    getTeste(){
-        return "service-funcionando"
-    }
-
 }
