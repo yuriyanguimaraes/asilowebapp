@@ -1,6 +1,6 @@
 <div class="container-fluid mt--0">
 
-  <button id="editar" class="btn btn-warning">Editar</button>
+  <button id="editar" class="btn btn-warning" (click)="enableInputs()">Editar</button>
 
   <form [formGroup]="contatoForm" (ngSubmit)="putContato()">
     <div class="form-group">
@@ -34,6 +34,10 @@
     <div class="form-group">
       <label for="txt-estado-contato">Estado</label>
       <input name="estado" formControlName="estado" type="text" class="form-control" id="txt-estado-contato" readonly>
+    </div>
+    <div class="form-group">
+      <label for="txt-telefone-contato">Telefone</label>
+      <input name="telefone" formControlName="telefone" type="text" class="form-control" id="txt-telefone-contato" readonly>
     </div>
     <div class="form-group">
       <label for="txt-email-contato">Email</label>
