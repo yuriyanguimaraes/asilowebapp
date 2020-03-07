@@ -44,16 +44,16 @@ export class ContatoAdminComponent implements OnInit {
       })
     })
     this.contatoForm = this.formBuilder.group({
-      '_id': [null],
-      'rua': [null],
-      'bairro': [null],
-      'numero': [null],
-      'cep': [null],
-      'complemento': [null],
-      'cidade': [null],
-      'estado': [null],
+      '_id': [null, Validators.required],
+      'rua': [null, [Validators.required, Validators.maxLength(100)]],
+      'bairro': [null, [Validators.required, Validators.maxLength(100)]],
+      'numero': [null, [Validators.required, Validators.maxLength(20)]],
+      'cep': [null, [Validators.required, Validators.maxLength(20)]],
+      'complemento': [null, Validators.maxLength(100)],
+      'cidade': [null, [Validators.required, Validators.maxLength(100)]],
+      'estado': [null, [Validators.required, Validators.maxLength(2)]],
       'telefone': [null],
-      'email': [null]
+      'email': [null, [Validators.required, Validators.maxLength(40)]]
     })
   }
 
