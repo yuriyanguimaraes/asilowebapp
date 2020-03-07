@@ -7,7 +7,7 @@ import { LightboxModule } from "ngx-lightbox"
 import { NgxPaginationModule } from "ngx-pagination"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
-import { BsDropdownModule, TooltipModule, ModalModule, CarouselModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TooltipModule, ModalModule, CarouselModule } from 'ngx-bootstrap'
 
 //Import Components
 import { FAQComponent } from "./../web-app/faq/faq.component"
