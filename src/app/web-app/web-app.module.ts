@@ -24,6 +24,7 @@ import { NoticiaComponent } from "./../web-app/noticia/noticia.component"
 import { GalleryComponent } from "./../web-app/noticia/gallery/gallery.component"
 import { CarouselComponent } from "./../web-app/home/carousel/carousel.component"
 import { NoticiasComponent } from "./../web-app/noticias/noticias.component"
+import { PaginationComponent } from '../web-components/common/pagination/pagination.component'
 import { NoticiaCardComponent } from "./../web-app/noticias/noticia-card/noticia-card.component"
 import { DocumentsCollapseComponent } from "./../web-app/portal-transparencia/documents-collapse/documents-collapse.component"
 import { PortalTransparenciaComponent } from "./../web-app/portal-transparencia/portal-transparencia.component"
@@ -67,6 +68,7 @@ import { apiKeyGoogle } from "./../../environments/apiKeyGoogle"
         GalleryComponent,
         CarouselComponent,
         NoticiasComponent,
+        PaginationComponent,
         NoticiaCardComponent,
         DocumentsCollapseComponent,
         PortalTransparenciaComponent,
