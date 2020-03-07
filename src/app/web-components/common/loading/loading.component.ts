@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'
+import { LottieAnimationViewModule } from "ng-lottie"
 
 @Component({
   selector: 'app-loading',
@@ -8,8 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LoadingComponent implements OnInit {
 
   @Input() condition: any
+  lottieConfig: any
 
-  constructor() { }
+  constructor() {
+    LottieAnimationViewModule.forRoot()
+    this.lottieConfig = {
+      path: 'assets/animations/loading.json',
+      autoplay: true,
+      loop: true
+    }
+  }
 
   ngOnInit() {
   }
