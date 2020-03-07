@@ -54,6 +54,10 @@ body {
     padding-bottom: 10px;
 }
 
+.setPointer:hover {
+    cursor: pointer;
+}
+
 /* SET STYLES DEFAULT ARGON SYSTEM */
 
 h1, h2, h3, h4, h5, h6 {
