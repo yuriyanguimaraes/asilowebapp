@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 /* SET CUSTOM STYLE NGX-PAGINATION */
 
 .my-pagination .ngx-pagination .current {
-    background: rgb(94, 114, 228);
+    background: rgb(239, 84, 85);
     border-radius: 15px;
 }
 
