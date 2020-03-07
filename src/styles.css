@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline-info-dkblue:focus, .btn-outline-info-dkblue.focus {
-    box-shadow: 0 0 0 0.2rem rgba(55, 64, 105, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(43, 50, 82, 0.5);
 }
 
 .btn-outline-info-dkblue.disabled, .btn-outline-info-dkblue:disabled {
@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline-info-dkblue:not(:disabled):not(.disabled):active:focus, .btn-outline-info-dkblue:not(:disabled):not(.disabled).active:focus, .show>.btn-outline-info-dkblue.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(55, 64, 105, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(43, 50, 82, 0.5);
 }
 
 .btn-outline-info-dkorange {
