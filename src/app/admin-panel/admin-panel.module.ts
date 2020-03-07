@@ -2,6 +2,7 @@
 import { NgModule } from "@angular/core"
 import { RouterModule } from "@angular/router"
 import { CommonModule } from "@angular/common"
+import { SharedModule } from "./../shared/shared.module"
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -14,6 +15,7 @@ import { AdminPanelRoutes } from "./admin-panel.routing"
 @NgModule({
     imports: [
         CommonModule,
+        SharedModule,
         RouterModule.forChild(AdminPanelRoutes)
     ],
     declarations: [

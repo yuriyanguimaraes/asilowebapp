@@ -6,9 +6,9 @@ import { AgmCoreModule } from '@agm/core'
 import { LightboxModule } from "ngx-lightbox"
 import { NgxPaginationModule } from "ngx-pagination"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
-import { LottieAnimationViewModule } from "ng-lottie"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { BsDropdownModule, TooltipModule, ModalModule, CarouselModule } from 'ngx-bootstrap'
+import { SharedModule } from "./../shared/shared.module"
 
 //Import Components
 import { FAQComponent } from "./../web-app/faq/faq.component"
@@ -16,9 +16,7 @@ import { HomeComponent } from "./../web-app/home/home.component"
 import { SobreComponent } from "./../web-app/sobre/sobre.component"
 import { HeaderComponent } from "./../web-components/web-app/header/header.component"
 import { FooterComponent } from "./../web-components/web-app/footer/footer.component"
-import { NoDataComponent } from './../web-components/common/no-data/no-data.component'
 import { DoacaoComponent } from "./../web-app/doacao/doacao.component"
-import { LoadingComponent } from './../web-components/common/loading/loading.component'
 import { ContatoComponent } from "./../web-app/contato/contato.component"
 import { NoticiaComponent } from "./../web-app/noticia/noticia.component"
 import { GalleryComponent } from "./../web-app/noticia/gallery/gallery.component"
@@ -42,13 +40,13 @@ import { apiKeyGoogle } from "./../../environments/apiKeyGoogle"
         FormsModule,
         CommonModule,
         LightboxModule,
+        SharedModule,
         ReactiveFormsModule,
         NgxPaginationModule,
         ModalModule.forRoot(),
         TooltipModule.forRoot(),
         BrowserAnimationsModule,
         CarouselModule.forRoot(),
-        LottieAnimationViewModule,
         BsDropdownModule.forRoot(),
         AgmCoreModule.forRoot({ apiKey: apiKeyGoogle }),
         RouterModule.forRoot(WebAppRoutes, { onSameUrlNavigation: 'reload' })
@@ -59,9 +57,7 @@ import { apiKeyGoogle } from "./../../environments/apiKeyGoogle"
         SobreComponent,
         HeaderComponent,
         FooterComponent,
-        NoDataComponent,
         DoacaoComponent,
-        LoadingComponent,
         ContatoComponent,
         NoticiaComponent,
         GalleryComponent,
