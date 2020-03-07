@@ -6,6 +6,7 @@ import { AgmCoreModule } from '@agm/core'
 import { LightboxModule } from "ngx-lightbox"
 import { NgxPaginationModule } from "ngx-pagination"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { LottieAnimationViewModule } from "ng-lottie"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { BsDropdownModule, TooltipModule, ModalModule, CarouselModule } from 'ngx-bootstrap'
 
@@ -47,6 +48,7 @@ import { apiKeyGoogle } from "./../../environments/apiKeyGoogle"
         TooltipModule.forRoot(),
         BrowserAnimationsModule,
         CarouselModule.forRoot(),
+        LottieAnimationViewModule,
         BsDropdownModule.forRoot(),
         AgmCoreModule.forRoot({ apiKey: apiKeyGoogle }),
         RouterModule.forRoot(WebAppRoutes, { onSameUrlNavigation: 'reload' })
