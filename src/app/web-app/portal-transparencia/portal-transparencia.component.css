@@ -2,6 +2,16 @@
     left: 10px;
 }
 
+button:disabled {
+    pointer-events: none;
+}
+
+.sizeTextCard {
+    height: 120px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 a {
     color: rgb(43, 50, 82);
     text-decoration: none;
@@ -45,14 +55,4 @@ a.active:hover {
     color: #fff;
     text-decoration: none;
     background-color: rgb(255, 255, 255);
-}
-
-button:disabled {
-    pointer-events: none;
-}
-
-.sizeTextCard {
-    height: 120px;
-    text-align: justify;
-    text-justify: inter-word;
 }
