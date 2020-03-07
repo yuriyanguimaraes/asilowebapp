@@ -4,7 +4,7 @@
 }
 
 #overlay {
-    height: 85%;
+    height: 81%;
     background-color: rgba(0, 0, 0, 0.5);
     transition: 0.7s;
 }
@@ -18,7 +18,7 @@ a {
 }
 
 a:hover {
-    color: rgb(215, 244, 253);
+    color: rgb(93, 188, 210);
 }
 
 a:active {
