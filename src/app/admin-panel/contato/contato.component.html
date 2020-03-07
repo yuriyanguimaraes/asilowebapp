@@ -2,46 +2,46 @@
 
   <button id="editar" class="btn btn-warning" (click)="enableInputs()">Editar</button>
 
-  <form [formGroup]="contatoForm" (ngSubmit)="putContato()">
+  <form [formGroup]="contatoForm" (ngSubmit)="putContato(contatoForm.value)">
     <div class="form-group">
       <label for="txt-id-contato">ID do Contato [only for tests]</label>
-      <input name="_id" formControlName="_id" type="text" class="form-control" id="txt-id-contato" readonly>
+      <input name="_id" formControlName="_id" type="text" class="form-control" id="txt-id-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-rua-contato">Rua</label>
-      <input name="rua" formControlName="rua" type="text" class="form-control" id="txt-rua-contato" readonly>
+      <input name="rua" formControlName="rua" type="text" class="form-control" id="txt-rua-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-bairro-contato">Bairro</label>
-      <input name="bairro" formControlName="bairro" type="text" class="form-control" id="txt-bairro-contato" readonly>
+      <input name="bairro" formControlName="bairro" type="text" class="form-control" id="txt-bairro-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-numero-contato">Número</label>
-      <input name="numero" formControlName="numero" type="number" class="form-control" id="txt-numero-contato" readonly>
+      <input name="numero" formControlName="numero" type="number" class="form-control" id="txt-numero-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-cep-contato">CEP</label>
-      <input name="cep" formControlName="cep" type="text" class="form-control" id="txt-cep-contato" readonly>
+      <input name="cep" formControlName="cep" type="text" class="form-control" id="txt-cep-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-complemento-contato">Complemento</label>
-      <input name="complemento" formControlName="complemento" type="text" class="form-control" id="txt-complemento-contato" readonly>
+      <input name="complemento" formControlName="complemento" type="text" class="form-control" id="txt-complemento-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-cidade-contato">Complemento</label>
-      <input name="cidade" formControlName="cidade" type="text" class="form-control" id="txt-cidade-contato" readonly>
+      <input name="cidade" formControlName="cidade" type="text" class="form-control" id="txt-cidade-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-estado-contato">Estado</label>
-      <input name="estado" formControlName="estado" type="text" class="form-control" id="txt-estado-contato" readonly>
+      <input name="estado" formControlName="estado" type="text" class="form-control" id="txt-estado-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-telefone-contato">Telefone</label>
-      <input name="telefone" formControlName="telefone" type="text" class="form-control" id="txt-telefone-contato" readonly>
+      <input name="telefone" formControlName="telefone" type="text" class="form-control" id="txt-telefone-contato" [readonly]="propriedade">
     </div>
     <div class="form-group">
       <label for="txt-email-contato">Email</label>
-      <input name="email" formControlName="email" type="email" class="form-control" id="txt-email-contato" readonly>
+      <input name="email" formControlName="email" type="email" class="form-control" id="txt-email-contato" [readonly]="propriedade">
     </div>
     <button type="submit" [disabled]="!contatoForm.valid" class="btn btn-primary">Submit</button>
   </form>

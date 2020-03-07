@@ -10,16 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoAdminComponent implements OnInit {
 
-    _id: string
-    rua: string
-    bairro: string
-    numero: number
-    cep: string
-    complemento: string
-    cidade: string
-    estado: string
-    telefone: string
-    email: string
+  _id: string
+  rua: string
+  bairro: string
+  numero: number
+  cep: string
+  complemento: string
+  cidade: string
+  estado: string
+  telefone: string
+  email: string
+
+  propriedade: boolean = true
 
   contato: Contato
   contatoForm: FormGroup
@@ -40,7 +42,6 @@ export class ContatoAdminComponent implements OnInit {
         estado: res['data']['estado'],
         telefone: res['data']['telefone'],
         email: res['data']['email']
-
       })
     })
     this.contatoForm = this.formBuilder.group({
@@ -57,11 +58,13 @@ export class ContatoAdminComponent implements OnInit {
     })
   }
 
-  enableInputs(){
-    console.log("readonly desativado!")
+  enableInputs() {
+    console.log(this.propriedade)
+    this.propriedade = false
+    console.log(this.propriedade)
   }
 
-  putContato(id, form: NgForm){
+  putContato(id, form: NgForm) {
     console.log("botão de put funcionando")
     this.contatoService.putContato(id, form).subscribe(res => {
       console.log(res)
