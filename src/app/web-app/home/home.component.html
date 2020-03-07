@@ -1,6 +1,4 @@
 <app-carousel></app-carousel>
-
-
 <section class="container">
     <h1 class="text-center display-2 font-weight-bold p-5">Notícias</h1>
     <div class="row">
@@ -11,7 +9,8 @@
                         <img class="card-img-top" src="{{noticia.imagem[0]['src']}}" alt="{{noticia.titulo}}">
                     </div>
                     <ng-template #imageNotDefined>
-                        <img class="card-img-top" src="assets/img/noticias-card/square_red.png" alt="Imagem não definida">
+                        <img class="card-img-top" src="assets/img/noticias-card/square_red.png"
+                            alt="Imagem não definida">
                     </ng-template>
                 </a>
                 <div class="card-body">
@@ -20,8 +19,8 @@
                     </h5>
                     <p class="card-text">{{noticia.descricao | slice: 0:130}}
                         <span *ngIf="showEllipsisInTheText(noticia.descricao, 130)">...
-              <a [routerLink]="['/noticia', noticia.titulo]">continuar lendo</a>
-            </span>
+                            <a [routerLink]="['/noticia', noticia.titulo]">continuar lendo</a>
+                        </span>
                     </p>
                     <p class="card-text">
                         <small class="text-muted">Publicado em: {{noticia.date | date: 'dd/MM/yyyy'}}</small>
@@ -35,15 +34,13 @@
         <button [routerLink]="['/noticias']" class="btn btn-outline-info-dkorange">Ver mais notícias</button>
     </div>
 </section>
-
 <section class="donate-online">
     <div class="container text-center">
         <h1 class="display-2 font-weight-bold p-2">Doe Online</h1>
         <h2>Realize uma doação online!</h2>
-        <button class="btn btn-danger" [routerLink]="['/doacao']">Saiba mais</button>
+        <button class="btn btn-info-dkorange" [routerLink]="['/doacao']">Saiba mais</button>
     </div>
 </section>
-
 <section class="visit-home">
     <div class="container text-center">
         <h1 class="display-2 p-2">Venha nos visitar!</h1>
