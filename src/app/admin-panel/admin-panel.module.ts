@@ -1,31 +1,30 @@
 //Import Modules
 import { NgModule } from "@angular/core"
-import { CommonModule } from "@angular/common"
 import { RouterModule } from "@angular/router"
+import { CommonModule } from "@angular/common"
 
 //Import Components
-import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
+import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
 import { DashboardComponent } from "./dashboard/dashboard.component"
 
-//Import Services
-
-//Import Pipes
+//Import Routes
+import { AdminPanelRoutes } from "./admin-panel.routing"
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule.forChild(AdminPanelRoutes)
     ],
     declarations: [
-        DashboardComponent,
+        HeaderComponent,
         SidenavComponent,
-        HeaderComponent
+        DashboardComponent
     ],
     exports: [
-        DashboardComponent,
+        HeaderComponent,
         SidenavComponent,
-        HeaderComponent
+        DashboardComponent
     ]
 })
 export class AdminPanelModule { }
