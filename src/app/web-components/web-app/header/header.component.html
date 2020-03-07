@@ -1,7 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="{'bg-header-opaque': url !== '/'}">
     <div class="container">
-        <a class="navbar-brand" [routerLink]="['/']">Asilo Web App</a>
-
+        <a class="navbar-brand" [routerLink]="['/']">Lar São Vicente de Paulo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

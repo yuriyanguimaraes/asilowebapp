@@ -5,7 +5,7 @@ body {
 }
 
 .marginTopBottomContentContainer {
-    margin-top: 15px;
+    margin-top: 100px;
     margin-bottom: 15px;
 }
 
@@ -54,6 +54,10 @@ body {
     padding-bottom: 10px;
 }
 
+.setPointer:hover {
+    cursor: pointer;
+}
+
 /* SET STYLES DEFAULT ARGON SYSTEM */
 
 h1, h2, h3, h4, h5, h6 {
@@ -64,4 +68,15 @@ h1, h2, h3, h4, h5, h6 {
 .btn-danger:hover {
     background-color: #da1b41;
     border-color: #da1b41;
+}
+
+/* SET CUSTOM STYLE NGX-PAGINATION */
+
+.my-pagination .ngx-pagination .current {
+    background: rgb(94, 114, 228);
+    border-radius: 15px;
+}
+
+.my-pagination .ngx-pagination a {
+    border-radius: 15px;
 }
