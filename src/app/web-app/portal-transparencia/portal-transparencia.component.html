@@ -7,7 +7,7 @@
         <div class="card-body">
           <h5 class="card-title"><b>{{item.option}}</b></h5>
           <p class="card-text sizeTextCard">{{item.description}}</p>
-          <button (click)="navigateToDocs(item)" class="btn btn-outline-info">Veja mais</button>
+          <button (click)="navigateToDocs(item)" class="btn btn-outline-info-dkorange">Veja mais</button>
         </div>
       </div>
     </div>
@@ -19,8 +19,8 @@
   <div>
     <div class="btnPeriodSearch">
       <div class="btn-group marginDropdown" dropdown>
-        <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-info btn-sm dropdown-toggle"
-          aria-controls="dropdown-basic">
+        <button id="button-basic" dropdownToggle type="button"
+          class="btn btn-outline-info-dkblue btn-sm dropdown-toggle" aria-controls="dropdown-basic">
           Ordenar por <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
@@ -32,7 +32,8 @@
         </ul>
       </div>
       <!-- Botão para acionar modal -->
-      <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
+      <button type="button" class="btn btn-outline-info-dkblue btn-sm" data-toggle="modal"
+        data-target="#modalPeriodSearch">
         Buscar por período
       </button>
       <!-- Modal -->
@@ -63,7 +64,7 @@
             <div class="modal-footer">
               <button *ngIf="!dateBetweenFilterForm.pristine" type="submit" class="btn btn-outline-danger btn-sm"
                 (click)="onClickCleanInputFieldsDateSearch()">Limpar</button>
-              <button #closeModal type="submit" class="btn btn-outline-info btn-sm" data-dismiss="modal"
+              <button #closeModal type="submit" class="btn btn-outline-info-dkblue btn-sm" data-dismiss="modal"
                 (click)="onClickFilterDate()" [disabled]="!dateBetweenFilterForm.valid"><b><i
                     class="fa fa-search"></i></b></button>
             </div>
@@ -95,7 +96,8 @@
     <br />
     <nav *ngIf="documents">
       <ul class="pagination">
-        <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
+        <pagination-controls class="my-pagination" (pageChange)="getPage($event)" previousLabel="Anterior"
+          nextLabel="Próximo">
         </pagination-controls>
       </ul>
     </nav>
