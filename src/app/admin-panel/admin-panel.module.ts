@@ -15,6 +15,7 @@ import { PortalTransparenciaComponent } from './portal-transparencia/portal-tran
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing";
+import { SobreComponent } from './sobre/sobre.component'
 
 @NgModule({
     imports: [
@@ -31,13 +32,15 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         HeaderComponent,
         SidenavComponent,
         DashboardComponent,
-        PortalTransparenciaComponent
+        PortalTransparenciaComponent,
+        SobreComponent
     ],
     exports: [
         HeaderComponent,
         SidenavComponent,
         DashboardComponent,
-        PortalTransparenciaComponent
+        PortalTransparenciaComponent,
+        SobreComponent
     ]
 })
 export class AdminPanelModule { }
