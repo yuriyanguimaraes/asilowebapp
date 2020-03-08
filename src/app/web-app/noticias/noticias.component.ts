@@ -31,7 +31,7 @@ export class NoticiasComponent implements OnInit {
   limit: number
   filterKeyword: boolean = false
   order: boolean = false
-
+  
   //Selected Items
   dropdownOrderSelectedItem: any
 

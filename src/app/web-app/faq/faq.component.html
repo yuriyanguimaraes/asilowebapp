@@ -1,9 +1,10 @@
 <div class="container-fluid" id="marginTopBottomContentContainer">
-  <h2>Perguntas Frequentes</h2>
+  <h2>Dúvidas Frequentes</h2>
 </div>
 
-<div *ngIf="faq; else notData">
-  <div *ngFor="let faq of faqs">
+<app-loading [condition]="isLoading"></app-loading>
+<div *ngIf="faqs && statusResponse == 200; else notData">
+  <div *ngFor="let faq of faqs | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
       <div class='question'>
         <input type='checkbox' id='question-{{faq["_id"]}}'>
         <label for='question-{{faq["_id"]}}'>{{faq["pergunta"]}}</label>
@@ -12,7 +13,15 @@
           </div>
       </div>
   </div>
+  <div *ngIf="!isLoading && !faqs">
+    <app-no-data [message]="messageApi"></app-no-data>
+  </div>
+  <br />
+  <nav *ngIf="faqs">
+    <ul class="pagination">
+      <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
+      </pagination-controls>
+    </ul>
+  </nav>
 </div>
-<ng-template #notData>
-<p class="notData">Lamentamos pelo inconveniente, mas ainda não temos perguntas frequentes, para que possamos ajuda-lo <a [routerLink]="['/contato']" class="nav-link">entre em contato</a> conosco!</p>
-</ng-template>
+
