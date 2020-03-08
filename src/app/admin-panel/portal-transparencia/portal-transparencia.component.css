@@ -5,3 +5,15 @@
 .positionTitle {
     text-align: start;
 }
+
+.dropdown-item.active {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(43, 50, 82);
+}
+
+.dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+}

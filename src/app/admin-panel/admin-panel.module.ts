@@ -4,6 +4,8 @@ import { RouterModule } from "@angular/router"
 import { CommonModule } from "@angular/common"
 import { SharedModule } from "./../shared/shared.module"
 import { NgxPaginationModule } from "ngx-pagination"
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { BsDropdownModule, TooltipModule, ModalModule } from "ngx-bootstrap"
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -19,6 +21,10 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         CommonModule,
         SharedModule,
         NgxPaginationModule,
+        BsDropdownModule.forRoot(),
+        ModalModule.forRoot(),
+        TooltipModule.forRoot(),
+        BrowserAnimationsModule,
         RouterModule.forChild(AdminPanelRoutes)
     ],
     declarations: [

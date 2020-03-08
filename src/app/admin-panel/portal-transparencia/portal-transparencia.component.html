@@ -5,7 +5,26 @@
         <h5>Portal da Transparência</h5>
       </div>
       <div class="col-sm-6 positionButtons">
+        <div class="btn-group marginDropdown" dropdown>
+          <button id="button-basic" dropdownToggle type="button"
+            class="btn btn-outline-info-dkblue btn-sm dropdown-toggle" aria-controls="dropdown-basic">Filtrar<span
+              class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+            <li role="menuItem">
+              <a *ngFor="let item of dropdownFilterMenuItems" class="dropdown-item"
+                [class.active]="item === dropdownFilterSelectedItem"
+                (click)="onSelectFilterDropdownMenu(item)">{{item.option}}</a>
+            </li>
+          </ul>
+        </div>
+
+        <button *ngIf="filterCategory" [@inOutAnimation] type="button"
+          class="btn btn-outline-danger btn-sm marginDropdown" (click)="clearConditions()">Limpar
+          filtros </button>
+
         <button type="button" class="btn btn-outline-success btn-sm">Adicionar</button>
+
       </div>
     </div>
     <app-loading [condition]="isLoading"></app-loading>
