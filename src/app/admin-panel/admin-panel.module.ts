@@ -10,7 +10,8 @@ import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidena
 import { DashboardComponent } from "./dashboard/dashboard.component"
 
 //Import Routes
-import { AdminPanelRoutes } from "./admin-panel.routing"
+import { AdminPanelRoutes } from "./admin-panel.routing";
+import { SobreComponent } from './sobre/sobre.component'
 
 @NgModule({
     imports: [
@@ -21,12 +22,14 @@ import { AdminPanelRoutes } from "./admin-panel.routing"
     declarations: [
         HeaderComponent,
         SidenavComponent,
-        DashboardComponent
+        DashboardComponent,
+        SobreComponent
     ],
     exports: [
         HeaderComponent,
         SidenavComponent,
-        DashboardComponent
+        DashboardComponent,
+        SobreComponent
     ]
 })
 export class AdminPanelModule { }
