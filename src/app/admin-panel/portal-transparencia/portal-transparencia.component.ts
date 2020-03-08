@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core"
+import { Router } from "@angular/router"
+import { TransparenciaAdminService } from "./../services/transparencia.service"
+import { Transparencia } from "./transparencia.model"
+import { Subscription } from "rxjs"
 
 @Component({
   selector: 'app-portal-transparencia',
@@ -7,9 +11,61 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortalTransparenciaComponent implements OnInit {
 
-  constructor() { }
+  //Request
+  private httpReq: Subscription
+
+  //Dataset
+  documents: Transparencia[]
+
+  //Control Variables
+  p: number
+  total: number
+  limit: number
+  messageApi: string
+  statusResponse: number
+  isLoading: boolean
+
+  constructor(
+    private r: Router,
+    private _service: TransparenciaAdminService
+  ) { }
 
   ngOnInit() {
+    this.r.routeReuseStrategy.shouldReuseRoute = () => false
+
+    this._service.params = this._service.params.set('columnSort', 'date')
+    this._service.params = this._service.params.set('valueSort', 'descending')
+    this._service.params = this._service.params.set('page', '1')
+
+    this.getDocumentsWithParams()
+  }
+
+  ngOnDestroy() {
+    if (this.httpReq) {
+      this.httpReq.unsubscribe()
+    }
+  }
+
+  getDocumentsWithParams() {
+    this.isLoading = true
+    this.httpReq = this._service.getDocumentsWithParams().subscribe(response => {
+      this.statusResponse = response.status
+      this.documents = response.body['data']
+      this.messageApi = response.body['message']
+      this.p = response.body['page']
+      this.total = response.body['count']
+      this.limit = response.body['limit']
+      this.isLoading = false
+    }, err => {
+      this.messageApi = err.error['message']
+      this.isLoading = false
+    })
+  }
+
+  getPage(page: number) {
+    this.documents = null
+    this._service.params = this._service.params.set('page', page.toString())
+    this.getDocumentsWithParams()
   }
 
 }

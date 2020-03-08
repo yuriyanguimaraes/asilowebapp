@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core"
 import { RouterModule } from "@angular/router"
 import { CommonModule } from "@angular/common"
 import { SharedModule } from "./../shared/shared.module"
+import { NgxPaginationModule } from "ngx-pagination"
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -12,20 +13,19 @@ import { PortalTransparenciaComponent } from './portal-transparencia/portal-tran
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing";
-import { DocumentsTableComponent } from './portal-transparencia/documents-table/documents-table.component';
 
 @NgModule({
     imports: [
         CommonModule,
         SharedModule,
+        NgxPaginationModule,
         RouterModule.forChild(AdminPanelRoutes)
     ],
     declarations: [
         HeaderComponent,
         SidenavComponent,
         DashboardComponent,
-        PortalTransparenciaComponent,
-        DocumentsTableComponent
+        PortalTransparenciaComponent
     ],
     exports: [
         HeaderComponent,
