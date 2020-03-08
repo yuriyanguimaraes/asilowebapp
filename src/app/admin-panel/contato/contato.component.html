@@ -43,7 +43,7 @@
       <label for="txt-email-contato">Email</label>
       <input name="email" formControlName="email" type="email" class="form-control" id="txt-email-contato" [readonly]="propriedade">
     </div>
-    <button type="submit" [disabled]="!contatoForm.valid" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="propriedade" class="btn btn-primary" (click)="disableInputs()">Submit</button>
   </form>
 
 </div>

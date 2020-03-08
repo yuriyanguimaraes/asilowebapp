@@ -29,8 +29,22 @@ export class ContatoAdminComponent implements OnInit {
   constructor(private contatoService: ContatoService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.contatoForm = this.formBuilder.group({
+      '_id': [Validators.required],
+      'rua': [[Validators.required, Validators.maxLength(100)]],
+      'bairro': [[Validators.required, Validators.maxLength(100)]],
+      'numero': [[Validators.required, Validators.maxLength(20)]],
+      'cep': [[Validators.required, Validators.maxLength(20)]],
+      'complemento': [Validators.maxLength(100)],
+      'cidade': [[Validators.required, Validators.maxLength(100)]],
+      'estado': [[Validators.required, Validators.maxLength(2)]],
+      'telefone': [],
+      'email': [[Validators.required, Validators.maxLength(40)]]
+    })
+
     this.contatoService.getContato().subscribe(res => {
-      console.log(res)
+      this._id = res['data']['_id']
+      console.log(this._id, res)
       this.contatoForm.patchValue({
         _id: res['data']['_id'],
         rua: res['data']['rua'],
@@ -44,27 +58,20 @@ export class ContatoAdminComponent implements OnInit {
         email: res['data']['email']
       })
     })
-    this.contatoForm = this.formBuilder.group({
-      '_id': [null, Validators.required],
-      'rua': [null, [Validators.required, Validators.maxLength(100)]],
-      'bairro': [null, [Validators.required, Validators.maxLength(100)]],
-      'numero': [null, [Validators.required, Validators.maxLength(20)]],
-      'cep': [null, [Validators.required, Validators.maxLength(20)]],
-      'complemento': [null, Validators.maxLength(100)],
-      'cidade': [null, [Validators.required, Validators.maxLength(100)]],
-      'estado': [null, [Validators.required, Validators.maxLength(2)]],
-      'telefone': [null],
-      'email': [null, [Validators.required, Validators.maxLength(40)]]
-    })
   }
 
   enableInputs() {
-    console.log(this.propriedade)
     this.propriedade = false
-    console.log(this.propriedade)
+    console.log(this._id, this.rua, this.email)
+  }
+
+  disableInputs(){
+    this.propriedade = true
   }
 
   putContato(id, form: NgForm) {
+    id = this._id
+    console.log(id)
     console.log("botão de put funcionando")
     this.contatoService.putContato(id, form).subscribe(res => {
       console.log(res)
