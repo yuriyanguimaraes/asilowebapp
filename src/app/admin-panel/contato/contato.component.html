@@ -5,7 +5,7 @@
   <form [formGroup]="contatoForm" (ngSubmit)="putContato(contatoForm.value)">
     <div class="form-group">
       <label for="txt-id-contato">ID do Contato [only for tests]</label>
-      <input name="_id" formControlName="_id" type="text" class="form-control" id="txt-id-contato" [readonly]="propriedade">
+      <input name="_id" formControlName="_id" type="text" class="form-control" id="txt-id-contato" readonly>
     </div>
     <div class="form-group">
       <label for="txt-rua-contato">Rua</label>

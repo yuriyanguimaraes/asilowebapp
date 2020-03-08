@@ -30,23 +30,23 @@ export class ContatoAdminComponent implements OnInit {
 
   ngOnInit() {
     this.contatoForm = this.formBuilder.group({
-      '_id': [Validators.required],
-      'rua': [[Validators.required, Validators.maxLength(100)]],
-      'bairro': [[Validators.required, Validators.maxLength(100)]],
-      'numero': [[Validators.required, Validators.maxLength(20)]],
-      'cep': [[Validators.required, Validators.maxLength(20)]],
-      'complemento': [Validators.maxLength(100)],
-      'cidade': [[Validators.required, Validators.maxLength(100)]],
-      'estado': [[Validators.required, Validators.maxLength(2)]],
-      'telefone': [],
-      'email': [[Validators.required, Validators.maxLength(40)]]
+      '_id': [null, Validators.required],
+      'rua': [null, [Validators.required, Validators.maxLength(100)]],
+      'bairro': [null, [Validators.required, Validators.maxLength(100)]],
+      'numero': [null, [Validators.required, Validators.maxLength(20)]],
+      'cep': [null, [Validators.required, Validators.maxLength(20)]],
+      'complemento': [null, Validators.maxLength(100)],
+      'cidade': [null, [Validators.required, Validators.maxLength(100)]],
+      'estado': [null, [Validators.required, Validators.maxLength(2)]],
+      'telefone': [null],
+      'email': [null, [Validators.required, Validators.maxLength(40)]]
     })
-
+    
     this.contatoService.getContato().subscribe(res => {
       this._id = res['data']['_id']
       console.log(this._id, res)
       this.contatoForm.patchValue({
-        _id: res['data']['_id'],
+        _id: this._id,
         rua: res['data']['rua'],
         bairro: res['data']['bairro'],
         numero: res['data']['numero'],
@@ -58,6 +58,9 @@ export class ContatoAdminComponent implements OnInit {
         email: res['data']['email']
       })
     })
+    console.log(`meu id aqui: ${this._id}`)
+    console.log(`contatoForm:`, this.contatoForm.value)
+    //this.construirForm()
   }
 
   enableInputs() {
@@ -65,7 +68,7 @@ export class ContatoAdminComponent implements OnInit {
     console.log(this._id, this.rua, this.email)
   }
 
-  disableInputs(){
+  disableInputs() {
     this.propriedade = true
   }
 
