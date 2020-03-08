@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SobreService } from '../sobre.service';
+import { SobreService } from '../services/sobre.service';
 import { Sobre } from './sobre.model';
 
 @Component({

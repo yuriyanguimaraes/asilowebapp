@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Sobre } from './sobre/sobre.model';
-import { AsiloWebApi } from '../app.api';
+import { Sobre } from '../sobre/sobre.model';
+import { AsiloWebApi } from '../../app.api';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
