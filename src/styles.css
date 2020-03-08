@@ -9,6 +9,11 @@ body {
     margin-bottom: 15px;
 }
 
+.marginTopBottomContentContainerAdminPanel {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 #marginBottomCardsCol {
     margin-bottom: 15px;
 }
