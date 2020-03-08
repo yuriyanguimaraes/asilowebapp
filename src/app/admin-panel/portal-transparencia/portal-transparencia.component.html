@@ -18,13 +18,10 @@
             </li>
           </ul>
         </div>
-
-        <button *ngIf="filterCategory" type="button"
-          class="btn btn-outline-danger btn-sm marginDropdown" (click)="clearConditions()">Limpar
+        <button *ngIf="filterCategory" type="button" class="btn btn-outline-danger btn-sm marginDropdown"
+          (click)="clearConditions()">Limpar
           filtros </button>
-
         <button type="button" class="btn btn-outline-success btn-sm">Adicionar</button>
-
       </div>
     </div>
     <app-loading [condition]="isLoading"></app-loading>
