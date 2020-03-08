@@ -5,7 +5,7 @@ import { AsiloWebApi } from "../../app.api"
 import { Transparencia } from "./../portal-transparencia/transparencia.model"
 
 @Injectable()
-export class TransparenciaService {
+export class TransparenciaAdminService {
 
     constructor(private http: HttpClient) { }
 

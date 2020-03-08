@@ -15,6 +15,7 @@ import { NoticiaService } from "./web-app/services/noticia.service"
 import { ContatoService } from './web-app/services/contato.service'
 import { NoticiasService } from "./web-app/services/noticias.service"
 import { TransparenciaService } from "./web-app/services/transparencia.service"
+import { TransparenciaAdminService } from "./admin-panel/services/transparencia.service"
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TransparenciaService } from "./web-app/services/transparencia.service"
     ContatoService,
     NoticiaService,
     NoticiasService,
-    TransparenciaService
+    TransparenciaService,
+    TransparenciaAdminService
   ],
   bootstrap: [AppComponent]
 })
