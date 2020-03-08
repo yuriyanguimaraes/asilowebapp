@@ -7,6 +7,7 @@
       <button class="btn btn-warning-outline text-yellow">Editar</button>
     </div>
   </div>
+  <br>
   <div *ngIf="sobre; else notData">
     <h5 class="tituloSobre">{{sobre['titulo']}}</h5>
     <img class="imagemSobre" [src]="sobre['imagem']" [alt]="sobre['titulo']">
