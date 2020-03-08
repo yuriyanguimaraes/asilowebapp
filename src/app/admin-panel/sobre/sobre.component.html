@@ -1,12 +1,21 @@
-<div class="container-fluid" id="marginTopBottomContentAbout">
-  <h2>Sobre</h2>
-  <hr>
+<div class="container-fluid" id="margin">
+  <div class="btn-toolbar justify-content-between">
+    <div>
+      <h2>Sobre</h2>
+    </div>
+    <div>
+      <button class="btn btn-warning-outline text-yellow">Editar</button>
+    </div>
+  </div>
   <div *ngIf="sobre; else notData">
-    <h3 class="tituloSobre">{{sobre['titulo']}}</h3>
+    <h5 class="tituloSobre">{{sobre['titulo']}}</h5>
     <img class="imagemSobre" [src]="sobre['imagem']" [alt]="sobre['titulo']">
     <br>
     <div class="conteudoSobre">
       <p>{{sobre['descricao']}}</p>
     </div>
   </div>
+  <ng-template #notData>
+    <p class="notData">Não há texto para ser exibido!</p>
+  </ng-template>
 </div>

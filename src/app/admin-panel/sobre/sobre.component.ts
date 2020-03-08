@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SobreService } from '../sobre.service';
+import { Sobre } from './sobre.model';
 
 @Component({
   selector: 'app-sobre',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SobreComponent implements OnInit {
 
-  constructor() { }
+  public sobre: Sobre
+
+  constructor(private sobreService: SobreService) { }
 
   ngOnInit() {
+    this.getSobre();
+  }
+
+  getSobre() {
+    this.sobreService.getSobre().subscribe((sobre) => {
+      this.sobre = sobre['data']
+    })
   }
 
 }
