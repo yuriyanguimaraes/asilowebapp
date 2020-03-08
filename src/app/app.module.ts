@@ -1,45 +1,38 @@
-//Modules
-import { BrowserModule } from '@angular/platform-browser'
+//Import Modules
 import { NgModule } from '@angular/core'
-import { RouterModule, PreloadAllModules } from "@angular/router"
 import { HttpModule } from "@angular/http"
+import { WebAppModule } from "./web-app/web-app.module"
+import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from "@angular/common/http"
 import { AdminPanelModule } from "./admin-panel/admin-panel.module"
-import { WebAppModule } from "./web-app/web-app.module"
 
-//Routes
-import { ROUTES } from "./app.routing"
-
-//Components
+//Import Components
 import { AppComponent } from './app.component'
 
-//Services
-import { NoticiasService } from "./web-app/services/noticias.service"
-import { NoticiaService } from "./web-app/services/noticia.service"
+//Import Services
 import { SobreService } from './web-app/services/sobre.service'
-import { TransparenciaService } from "./web-app/services/transparencia.service"
+import { NoticiaService } from "./web-app/services/noticia.service"
 import { ContatoService } from './web-app/services/contato.service'
+import { NoticiasService } from "./web-app/services/noticias.service"
+import { TransparenciaService } from "./web-app/services/transparencia.service"
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    //Modules
-    BrowserModule,
     HttpModule,
+    WebAppModule,
+    BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload' }),
-    AdminPanelModule,
-    WebAppModule
+    AdminPanelModule
   ],
   providers: [
-    //Services
-    NoticiasService,
-    NoticiaService,
     SobreService,
-    TransparenciaService,
-    ContatoService
+    ContatoService,
+    NoticiaService,
+    NoticiasService,
+    TransparenciaService
   ],
   bootstrap: [AppComponent]
 })

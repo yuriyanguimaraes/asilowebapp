@@ -1,12 +1,13 @@
 //Import Modules
 import { NgModule } from "@angular/core"
-import { CommonModule } from "@angular/common"
 import { RouterModule } from "@angular/router"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common"
+import { SharedModule } from "./../shared/shared.module"
 
 //Import Components
-import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
+import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ContatoAdminComponent } from './contato/contato.component'
 
@@ -15,23 +16,27 @@ import { ContatoService } from './../web-app/services/contato.service';
 
 //Import Pipes
 
+//Import Routes
+import { AdminPanelRoutes } from "./admin-panel.routing"
+
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule,
         FormsModule, 
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SharedModule,
+        RouterModule.forChild(AdminPanelRoutes)
     ],
     declarations: [
-        DashboardComponent,
-        SidenavComponent,
         HeaderComponent,
+        SidenavComponent,
+        DashboardComponent,
         ContatoAdminComponent
     ],
     exports: [
-        DashboardComponent,
-        SidenavComponent,
         HeaderComponent,
+        SidenavComponent,
+        DashboardComponent,
         ContatoAdminComponent
     ],
     providers: [

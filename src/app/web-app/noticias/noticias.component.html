@@ -4,7 +4,7 @@
   <div>
     <div class="btnPeriodSearch">
       <div class="btn-group marginDropdown" dropdown>
-        <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-info btn-sm dropdown-toggle"
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-info-dkblue btn-sm dropdown-toggle"
           aria-controls="dropdown-basic">
           Ordenar por <span class="caret"></span>
         </button>
@@ -17,7 +17,7 @@
         </ul>
       </div>
       <!-- Botão para acionar modal -->
-      <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
+      <button type="button" class="btn btn-outline-info-dkblue btn-sm" data-toggle="modal" data-target="#modalPeriodSearch">
         Buscar por palavra-chave
       </button>
       <!-- Modal -->
@@ -44,7 +44,7 @@
             <div class="modal-footer">
               <button *ngIf="!keywordFilterForm.pristine" type="submit" class="btn btn-outline-danger btn-sm"
                 (click)="onClickCleanInputFieldsDateSearch()">Limpar</button>
-              <button #closeModal type="submit" class="btn btn-outline-info btn-sm" data-dismiss="modal"
+              <button #closeModal type="submit" class="btn btn-outline-info-dkblue btn-sm" data-dismiss="modal"
                 (click)="onClickFilterKeyword()" [disabled]="!keywordFilterForm.valid"><b><i
                     class="fa fa-search"></i></b></button>
             </div>
@@ -69,7 +69,8 @@
     <br />
     <nav *ngIf="noticias">
       <ul class="pagination">
-        <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
+        <pagination-controls class="my-pagination" (pageChange)="getPage($event)" previousLabel="Anterior"
+          nextLabel="Próximo">
         </pagination-controls>
       </ul>
     </nav>
