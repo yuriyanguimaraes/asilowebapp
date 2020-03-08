@@ -1,3 +1,12 @@
-<p>
-  sobre works!
-</p>
+<div class="container-fluid" id="marginTopBottomContentAbout">
+  <h2>Sobre</h2>
+  <hr>
+  <div *ngIf="sobre; else notData">
+    <h3 class="tituloSobre">{{sobre['titulo']}}</h3>
+    <img class="imagemSobre" [src]="sobre['imagem']" [alt]="sobre['titulo']">
+    <br>
+    <div class="conteudoSobre">
+      <p>{{sobre['descricao']}}</p>
+    </div>
+  </div>
+</div>
