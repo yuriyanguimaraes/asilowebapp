@@ -12,10 +12,10 @@ import { HeaderComponent } from "./../web-components/admin-panel/header/header.c
 import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
 import { DashboardComponent } from "./dashboard/dashboard.component"
 import { PortalTransparenciaComponent } from './portal-transparencia/portal-transparencia.component'
+import { SobreComponent } from './sobre/sobre.component'
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing";
-import { SobreComponent } from './sobre/sobre.component'
 
 @NgModule({
     imports: [
