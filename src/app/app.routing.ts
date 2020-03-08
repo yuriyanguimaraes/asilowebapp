@@ -9,8 +9,6 @@ import { FAQComponent } from './web-app/faq/faq.component'
 import { HomeComponent } from "./web-app/home/home.component"
 import { DoacaoComponent } from "./web-app/doacao/doacao.component"
 import { PortalTransparenciaComponent } from "./web-app/portal-transparencia/portal-transparencia.component"
-import { DashboardComponent } from "./admin-panel/dashboard/dashboard.component"
-import { ContatoAdminComponent } from "./admin-panel/contato/contato.component"
 
 export const ROUTES: Routes = [
 
@@ -23,13 +21,7 @@ export const ROUTES: Routes = [
     { path: 'faq', component: FAQComponent },
     { path: 'doacao', component: DoacaoComponent },
     { path: 'transparencia', component: PortalTransparenciaComponent },
-    { path: 'transparencia/:categoria', component: PortalTransparenciaComponent },
-    {
-        path: 'admin', children: [
-            { path: '', component: DashboardComponent },
-            { path: 'contato', component: ContatoAdminComponent}
-        ]
-    }
+    { path: 'transparencia/:categoria', component: PortalTransparenciaComponent }
 
     //Rotas administrativas - children routes
     //{path: 'admin', component:, children: [
