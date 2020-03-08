@@ -28,9 +28,12 @@
     <table *ngIf="!isLoading && statusResponse == 200" class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">Título <i class="fa fa-chevron-down"></i></th>
-          <th scope="col">Categoria <i class="fa fa-chevron-down"></i></th>
-          <th scope="col">Postado em <i class="fa fa-chevron-down"></i></th>
+          <th *ngFor="let item of headTableItems" scope="col" class="pointer headTable"
+            (click)="onClickSortTable(item)">
+            {{item['option']}}
+            <span><i class="pull-right rotate fa"
+                [ngClass]="{'i-active': item === sortSelectedItem, 'fa-chevron-down': this._service.params.get('valueSort') == 'descending', 'fa-chevron-up': this._service.params.get('valueSort') == 'ascending'}"></i></span>
+          </th>
           <th scope="col">Ações</th>
         </tr>
       </thead>

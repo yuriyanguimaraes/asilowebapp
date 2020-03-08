@@ -180,3 +180,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-info-dkorange:not(:disabled):not(.disabled):active:focus, .btn-info-dkorange:not(:disabled):not(.disabled).active:focus, .show>.btn-info-dkorange.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(239, 84, 85, 0.5);
 }
+
+.pointer {
+    cursor: pointer;
+}

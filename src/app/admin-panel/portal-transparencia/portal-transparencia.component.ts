@@ -7,7 +7,7 @@ import { Subscription } from "rxjs"
 @Component({
   selector: 'app-portal-transparencia',
   templateUrl: './portal-transparencia.component.html',
-  styleUrls: ['./portal-transparencia.component.css'],
+  styleUrls: ['./portal-transparencia.component.css']
 })
 export class PortalTransparenciaComponent implements OnInit {
 
@@ -28,6 +28,7 @@ export class PortalTransparenciaComponent implements OnInit {
 
   //Selected Items
   dropdownFilterSelectedItem: any
+  sortSelectedItem: any
 
   //Items Set
   dropdownFilterMenuItems: any[] = [
@@ -45,6 +46,21 @@ export class PortalTransparenciaComponent implements OnInit {
     },
   ]
 
+  headTableItems: any[] = [
+    {
+      option: 'Título',
+      param: 'titulo'
+    },
+    {
+      option: 'Categoria',
+      param: 'categoria'
+    },
+    {
+      option: 'Postado em',
+      param: 'date'
+    }
+  ]
+
   constructor(
     private r: Router,
     private _service: TransparenciaAdminService
@@ -52,6 +68,8 @@ export class PortalTransparenciaComponent implements OnInit {
 
   ngOnInit() {
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
+
+    this.sortSelectedItem = this.headTableItems[2]
 
     this._service.params = this._service.params.set('columnSort', 'date')
     this._service.params = this._service.params.set('valueSort', 'descending')
@@ -89,10 +107,22 @@ export class PortalTransparenciaComponent implements OnInit {
   }
 
   onSelectFilterDropdownMenu(item: any) {
-    this.dropdownFilterSelectedItem = item
     this.documents = null
+    this.dropdownFilterSelectedItem = item
     this.filterCategory = true
     this._service.params = this._service.params.set('category', item['param'])
+    this.getDocumentsWithParams()
+  }
+
+  onClickSortTable(item: any) {
+    this.documents = null
+    this.sortSelectedItem = item
+    this._service.params = this._service.params.set('columnSort', item['param'])
+    if (this._service.params.get('valueSort') == 'descending') {
+      this._service.params = this._service.params.set('valueSort', 'ascending')
+    } else {
+      this._service.params = this._service.params.set('valueSort', 'descending')
+    }
     this.getDocumentsWithParams()
   }
 
