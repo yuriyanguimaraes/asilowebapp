@@ -3,35 +3,11 @@ import { Router } from "@angular/router"
 import { TransparenciaAdminService } from "./../services/transparencia.service"
 import { Transparencia } from "./transparencia.model"
 import { Subscription } from "rxjs"
-import { trigger, transition, style, animate } from "@angular/animations"
 
 @Component({
   selector: 'app-portal-transparencia',
   templateUrl: './portal-transparencia.component.html',
   styleUrls: ['./portal-transparencia.component.css'],
-  animations: [
-    trigger(
-      'inOutAnimation',
-      [
-        transition(
-          ':enter',
-          [
-            style({ opacity: 0 }),
-            animate('1s ease-out',
-              style({ opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave',
-          [
-            style({ opacity: 1 }),
-            animate('1s ease-in',
-              style({ opacity: 0 }))
-          ]
-        )
-      ]
-    )
-  ]
 })
 export class PortalTransparenciaComponent implements OnInit {
 
