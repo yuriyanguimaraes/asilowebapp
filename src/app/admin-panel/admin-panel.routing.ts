@@ -8,8 +8,9 @@ import { PortalTransparenciaComponent } from "./portal-transparencia/portal-tran
 export const AdminPanelRoutes: Routes = [
     {
         path: 'admin', children: [
-            { path: '', component: DashboardComponent },
-            { path: 'transparencia', component: PortalTransparenciaComponent }
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'transparencia', component: PortalTransparenciaComponent },
+            { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' }
         ]
     }
 ]
