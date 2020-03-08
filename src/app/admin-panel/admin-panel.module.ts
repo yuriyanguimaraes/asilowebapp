@@ -8,9 +8,10 @@ import { SharedModule } from "./../shared/shared.module"
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
 import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
 import { DashboardComponent } from "./dashboard/dashboard.component"
+import { PortalTransparenciaComponent } from './portal-transparencia/portal-transparencia.component'
 
 //Import Routes
-import { AdminPanelRoutes } from "./admin-panel.routing"
+import { AdminPanelRoutes } from "./admin-panel.routing";
 
 @NgModule({
     imports: [
@@ -21,12 +22,14 @@ import { AdminPanelRoutes } from "./admin-panel.routing"
     declarations: [
         HeaderComponent,
         SidenavComponent,
-        DashboardComponent
+        DashboardComponent,
+        PortalTransparenciaComponent
     ],
     exports: [
         HeaderComponent,
         SidenavComponent,
-        DashboardComponent
+        DashboardComponent,
+        PortalTransparenciaComponent
     ]
 })
 export class AdminPanelModule { }
