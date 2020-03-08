@@ -51,7 +51,7 @@ export class NoticiasComponent implements OnInit {
   ngOnInit() {
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
 
-    this._service.params = this._service.params.set('valueSort', 'descending')
+    this._service.params = this._service.params.set('order', 'descending')
     this._service.params = this._service.params.set('page', '1')
 
     this.getNoticiasWithParams()
