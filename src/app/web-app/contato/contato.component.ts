@@ -10,15 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  Contato: Contato
+  public contato: Contato
 
   constructor(private contatoService: ContatoService) {
   }
 
   ngOnInit() {
+    this.getContato()
+  }
+
+  getContato(){
     this.contatoService.getContato().subscribe(response => {
-      console.log(response)
-      this.Contato = response['data']
+      this.contato = response['data']
     })
   }
 
