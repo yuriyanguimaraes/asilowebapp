@@ -6,6 +6,7 @@ import { SharedModule } from "./../shared/shared.module"
 import { NgxPaginationModule } from "ngx-pagination"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { BsDropdownModule, TooltipModule, ModalModule } from "ngx-bootstrap"
+import { OrderModule } from 'ngx-order-pipe';
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -13,6 +14,7 @@ import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidena
 import { DashboardComponent } from "./dashboard/dashboard.component"
 import { PortalTransparenciaComponent } from './portal-transparencia/portal-transparencia.component'
 import { SobreComponent } from './sobre/sobre.component'
+import { NoticiasComponent } from "./noticias/noticias.component"
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing";
@@ -26,6 +28,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         ModalModule.forRoot(),
         TooltipModule.forRoot(),
         BrowserAnimationsModule,
+        NgxPaginationModule,
+        OrderModule,
         RouterModule.forChild(AdminPanelRoutes)
     ],
     declarations: [
@@ -33,14 +37,16 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         SidenavComponent,
         DashboardComponent,
         PortalTransparenciaComponent,
-        SobreComponent
+        SobreComponent,
+        NoticiasComponent
     ],
     exports: [
         HeaderComponent,
         SidenavComponent,
         DashboardComponent,
         PortalTransparenciaComponent,
-        SobreComponent
+        SobreComponent,
+        NoticiasComponent
     ]
 })
 export class AdminPanelModule { }
