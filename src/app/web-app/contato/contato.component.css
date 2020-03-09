@@ -1,0 +1,116 @@
+/* PARA TESTES */
+
+/* div {
+    border: 3px solid black;
+}
+
+table, table td.td-dir, td.td-dir img {
+    border: 1px solid red;
+}
+
+td.td-esq {
+    border: 1px solid green;
+}
+
+div#redes-sociais p {
+    background-color: blue;
+} */
+
+/* CSS EM PROD */
+
+/* CONFIGS DO TÍTULO DA PÁGINA */
+#marginTopBottomCardsContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#marginBottomCardsCol {
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* ESTRUTURAÇÃO */
+div#container {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.conteudo-flutuante, div#informacoes, div#mapa, div#redes-sociais {
+    margin: 10px;
+    padding: 5px;
+}
+
+div.conteudo-flutuante {
+    width: 100%;
+    float: left;
+}
+
+div#informacoes {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+div#mapa {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+div#redes-sociais {
+    text-align: center;
+    clear: both;
+}
+
+/* CONFIGS NA SEÇÃO DE INFORMAÇÃO */
+table {
+    border-collapse: separate;
+    border-spacing: 20px 30px;
+}
+
+table td.td-dir, td.td-dir img {
+    border-top: none;
+    width: 40px;
+    height: 40px;
+}
+
+td.td-esq {
+    border-top: none;
+    position: relative;
+    width: 300px;
+}
+
+td span {
+    display: block;
+    font-weight: bold;
+    text-align: justify;
+    font-size: 25px;
+    line-height: 25px;
+}
+
+/* CONFIG DA API DO GOOGLE MAPS */
+div#mapa agm-map {
+    position: relative;
+    align-content: center;
+    width: 550px;
+    height: 330px;
+}
+
+div#redes-sociais img {
+    width: 80px;
+    height: 80px;
+    margin: 0px 2px 2px 0px;
+}
+
+div#redes-sociais p {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+/* AUTORIA DE ÍCONES */
+span#toHidden {
+    opacity: 0;
+}

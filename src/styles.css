@@ -1,0 +1,177 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    color: #212529!important;
+}
+
+.marginTopBottomContentContainer {
+    margin-top: 100px;
+    margin-bottom: 15px;
+}
+
+#marginBottomCardsCol {
+    margin-bottom: 15px;
+}
+
+.titlePage {
+    text-align: center;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.btnPeriodSearch {
+    text-align: start;
+}
+
+.marginDropdown {
+    margin-right: 6px;
+}
+
+.alignContentInsideModal {
+    justify-content: center;
+}
+
+.marginClearFilter {
+    margin-left: 6px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-bottom: 150px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.setPointer:hover {
+    cursor: pointer;
+}
+
+/* SET STYLES DEFAULT ARGON SYSTEM */
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    color: inherit;
+}
+
+.btn-danger:hover {
+    background-color: #da1b41;
+    border-color: #da1b41;
+}
+
+/* SET CUSTOM STYLE NGX-PAGINATION */
+
+.my-pagination .ngx-pagination .current {
+    background: rgb(239, 84, 85);
+    border-radius: 15px;
+}
+
+.my-pagination .ngx-pagination a {
+    border-radius: 15px;
+}
+
+.btn-outline-info-dkblue {
+    color: rgb(43, 50, 82);
+    border-color: rgb(43, 50, 82);
+}
+
+.btn-outline-info-dkblue:hover {
+    color: #fff;
+    background-color: rgb(43, 50, 82);
+    border-color: rgb(43, 50, 82);
+}
+
+.btn-outline-info-dkblue:focus, .btn-outline-info-dkblue.focus {
+    box-shadow: 0 0 0 0.2rem rgba(43, 50, 82, 0.5);
+}
+
+.btn-outline-info-dkblue.disabled, .btn-outline-info-dkblue:disabled {
+    color: rgb(43, 50, 82);
+    background-color: transparent;
+}
+
+.btn-outline-info-dkblue:not(:disabled):not(.disabled):active, .btn-outline-info-dkblue:not(:disabled):not(.disabled).active, .show>.btn-outline-info-dkblue.dropdown-toggle {
+    color: #fff;
+    background-color: rgb(43, 50, 82);
+    border-color: rgb(43, 50, 82);
+}
+
+.btn-outline-info-dkblue:not(:disabled):not(.disabled):active:focus, .btn-outline-info-dkblue:not(:disabled):not(.disabled).active:focus, .show>.btn-outline-info-dkblue.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(43, 50, 82, 0.5);
+}
+
+.btn-outline-info-dkorange {
+    color: rgb(239, 84, 85);
+    border-color: rgb(239, 84, 85);
+}
+
+.btn-outline-info-dkorange:hover {
+    color: #fff;
+    background-color: rgb(239, 84, 85);
+    border-color: rgb(239, 84, 85);
+}
+
+.btn-outline-info-dkorange:focus, .btn-outline-info-dkorange.focus {
+    box-shadow: 0 0 0 0.2rem rgba(239, 84, 85, 0.5);
+}
+
+.btn-outline-info-dkorange.disabled, .btn-outline-info-dkorange:disabled {
+    color: rgb(239, 84, 85);
+    background-color: transparent;
+}
+
+.btn-outline-info-dkorange:not(:disabled):not(.disabled):active, .btn-outline-info-dkorange:not(:disabled):not(.disabled).active, .show>.btn-outline-info-dkorange.dropdown-toggle {
+    color: #fff;
+    background-color: rgb(239, 84, 85);
+    border-color: rgb(239, 84, 85);
+}
+
+.btn-outline-info-dkorange:not(:disabled):not(.disabled):active:focus, .btn-outline-info-dkorange:not(:disabled):not(.disabled).active:focus, .show>.btn-outline-info-dkorange.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(239, 84, 85, 0.5);
+}
+
+.btn-info-dkorange {
+    color: #fff;
+    background-color: rgb(239, 84, 85);
+    border-color: rgb(239, 84, 85);
+}
+
+.btn-info-dkorange:hover {
+    color: #fff;
+    background-color: rgb(239, 84, 85);
+    border-color: rgb(239, 84, 85);
+}
+
+.btn-info-dkorange:focus, .btn-info-dkorange.focus {
+    color: #fff;
+    background-color: rgb(239, 84, 85);
+    border-color: rgb(239, 84, 85);
+    box-shadow: 0 0 0 0.2rem rgba(239, 84, 85, 0.5);
+}
+
+.btn-info-dkorange.disabled, .btn-info-dkorange:disabled {
+    color: #fff;
+    background-color: rgb(239, 84, 85);
+    border-color: rgb(239, 84, 85);
+}
+
+.btn-info-dkorange:not(:disabled):not(.disabled):active, .btn-info-dkorange:not(:disabled):not(.disabled).active, .show>.btn-info-dkorange.dropdown-toggle {
+    color: #fff;
+    background-color: rgb(239, 84, 85);
+    border-color: rgb(239, 84, 85);
+}
+
+.btn-info-dkorange:not(:disabled):not(.disabled):active:focus, .btn-info-dkorange:not(:disabled):not(.disabled).active:focus, .show>.btn-info-dkorange.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(239, 84, 85, 0.5);
+}

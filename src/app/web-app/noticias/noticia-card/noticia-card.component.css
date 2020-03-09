@@ -1,0 +1,26 @@
+.card-title {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#overlay {
+    height: 81%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.7s;
+}
+
+#overlay:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    color: rgb(239, 84, 85);
+}
+
+a:active {
+    color: rgb(239, 84, 85)
+}
