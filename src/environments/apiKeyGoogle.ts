@@ -1,1 +1,0 @@
-export const apiKeyGoogle = 'AIzaSyAaqMUl8rdJBCXFuikA_nxaMIIfmq4Orx8'
