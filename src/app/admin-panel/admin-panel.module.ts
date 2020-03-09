@@ -1,6 +1,7 @@
 //Import Modules
 import { NgModule } from "@angular/core"
 import { RouterModule } from "@angular/router"
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common"
 import { SharedModule } from "./../shared/shared.module"
 import { NgxPaginationModule } from "ngx-pagination"
@@ -15,6 +16,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component"
 import { PortalTransparenciaComponent } from './portal-transparencia/portal-transparencia.component'
 import { SobreComponent } from './sobre/sobre.component'
 import { NoticiasComponent } from "./noticias/noticias.component"
+import { ContatoAdminComponent } from './contato/contato.component'
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing";
@@ -22,6 +24,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         SharedModule,
         NgxPaginationModule,
         BsDropdownModule.forRoot(),
@@ -38,7 +42,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         DashboardComponent,
         PortalTransparenciaComponent,
         SobreComponent,
-        NoticiasComponent
+        NoticiasComponent,
+        ContatoAdminComponent
     ],
     exports: [
         HeaderComponent,
@@ -46,7 +51,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         DashboardComponent,
         PortalTransparenciaComponent,
         SobreComponent,
-        NoticiasComponent
+        NoticiasComponent,
+        ContatoAdminComponent
     ]
 })
 export class AdminPanelModule { }
