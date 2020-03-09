@@ -1,6 +1,7 @@
 //Import Modules
 import { Routes } from "@angular/router"
 
+
 //Import Components
 import { DashboardComponent } from "./dashboard/dashboard.component"
 import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"

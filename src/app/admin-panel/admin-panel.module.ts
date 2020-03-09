@@ -10,9 +10,10 @@ import { HeaderComponent } from "./../web-components/admin-panel/header/header.c
 import { SidenavComponent } from "./../web-components/admin-panel/sidenav/sidenav.component"
 import { DashboardComponent } from "./dashboard/dashboard.component"
 
+
 //Import Routes
-import { AdminPanelRoutes } from "./admin-panel.routing";
-import { FaqAdmninComponent } from './faq-admnin/faq-admnin.component'
+import { AdminPanelRoutes } from "./admin-panel.routing"
+import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
 
 @NgModule({
     imports: [
