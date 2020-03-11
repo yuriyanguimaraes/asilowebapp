@@ -20,16 +20,16 @@
               <span class="nav-link-text">Sobre</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin/faq']">
               <i class="fa fa-question-circle text-yellow"></i>
-              <span class="nav-link-text">FAQ</span>
+              <span class="nav-link-text">Dúvidas Frequentes</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin/noticias']">
               <i class="fa fa-inbox text-info"></i>
-              <span class="nav-link-text" [routerLink]="['/admin/noticias']">Notícias</span>
+              <span class="nav-link-text">Notícias</span>
             </a>
           </li>
           <li class="nav-item" routerLinkActive="active">
@@ -38,7 +38,7 @@
               <span class="nav-link-text">Contato</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" [routerLink]="['/admin/transparencia']">
               <i class="fa fa-archive text-primary"></i>
               <span class="nav-link-text">Portal da Transparência</span>

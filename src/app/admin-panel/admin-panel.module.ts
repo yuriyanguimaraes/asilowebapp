@@ -17,12 +17,14 @@ import { PortalTransparenciaComponent } from './portal-transparencia/portal-tran
 import { SobreComponent } from './sobre/sobre.component'
 import { NoticiasComponent } from "./noticias/noticias.component"
 import { ContatoAdminComponent } from './contato/contato.component'
+import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
 
 //Import Routes
-import { AdminPanelRoutes } from "./admin-panel.routing";
+import { AdminPanelRoutes } from "./admin-panel.routing"
 
 @NgModule({
     imports: [
+        NgxPaginationModule,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
@@ -40,6 +42,7 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         HeaderComponent,
         SidenavComponent,
         DashboardComponent,
+        FaqAdmninComponent,
         PortalTransparenciaComponent,
         SobreComponent,
         NoticiasComponent,
