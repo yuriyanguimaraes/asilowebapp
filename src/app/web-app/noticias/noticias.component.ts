@@ -53,6 +53,7 @@ export class NoticiasComponent implements OnInit {
 
     this._service.params = this._service.params.set('order', 'descending')
     this._service.params = this._service.params.set('page', '1')
+    this._service.params = this._service.params.set('limit', '6')
 
     this.getNoticiasWithParams()
 
