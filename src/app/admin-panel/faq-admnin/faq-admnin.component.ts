@@ -1,21 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { FAQService } from './../services/faq.service'
-import { FAQ } from './faq.model'
+import { FAQ_AdminService } from '../services/faq_admin.service'
+import { FAQ_Admin } from './faq.model'
 import { Subscription } from "rxjs"
 import { Router } from "@angular/router"
 import { FormGroup} from "@angular/forms"
 
 
 @Component({
-  selector: 'app-faq',
-  templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.css']
+  selector: 'app-faq-admnin',
+  templateUrl: './faq-admnin.component.html',
+  styleUrls: ['./faq-admnin.component.css']
 })
-export class FAQComponent implements OnInit {
+export class FaqAdmninComponent implements OnInit {
 
   private httpReq: Subscription
+  
+  faqs: FAQ_Admin[]
 
-  faqs: FAQ[]
+  // // Configuração da ordenação
+  // key: string = 'ordenar';
+  // reverse: boolean = false;
+  // sort(key) {
+  //     this.key = key;
+  //     this.reverse = !this.reverse;
+  // }
+
 
   keywordFilterForm: FormGroup
 
@@ -28,12 +37,11 @@ export class FAQComponent implements OnInit {
   order: boolean = false
 
   constructor(
-    private faqService: FAQService,
+    private faqService: FAQ_AdminService,
     private r: Router
     ) { }
 
   ngOnInit() {
-    // this.getFAQ()
 
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
 
@@ -43,14 +51,8 @@ export class FAQComponent implements OnInit {
     this.getFAQWithParams()
   }
 
-  ngOnDestroy() {
-    this.httpReq.unsubscribe()
-  }
-
-  // getFAQ() {
-  //   this.faq.getFAQ().subscribe(faqs => {
-  //     this.faqs = faqs['data'];
-  //   })
+  // ngOnDestroy() {
+  //   this.httpReq.unsubscribe()
   // }
 
   getFAQWithParams() {
@@ -86,5 +88,4 @@ export class FAQComponent implements OnInit {
 
     this.getFAQWithParams()
   }
-
 }
