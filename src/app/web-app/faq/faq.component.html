@@ -4,7 +4,7 @@
   <hr>
 
   <app-loading [condition]="isLoading"></app-loading>
-  <div *ngIf="faqs && statusResponse == 200; else notData">
+  <div *ngIf="faqs && statusResponse == 200">
     <div *ngFor="let faq of faqs | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
         <div class='question'>
           <input type='checkbox' id='question-{{faq["_id"]}}'>
