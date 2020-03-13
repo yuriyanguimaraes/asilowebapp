@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { AsiloWebApi } from '../../app.api'
-import { Sobre } from '../../web-app/sobre/sobre.model'
+import { Sobre } from '../models/sobre.model'
 
 @Injectable()
 export class SobreService {

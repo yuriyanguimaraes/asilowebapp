@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core"
 import { HttpClient, HttpResponse } from "@angular/common/http"
 import { Observable } from "rxjs"
 import { AsiloWebApi } from "../../app.api"
-import { Noticia } from "../../web-app/noticias/noticia.model"
+import { Noticia } from "../models/noticia.model"
 
 @Injectable()
 export class NoticiaService {

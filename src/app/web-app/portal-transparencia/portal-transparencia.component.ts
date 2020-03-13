@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"
-import { Transparencia } from "./transparencia.model"
+import { Transparencia } from "../../shared/models/transparencia.model"
 import { TransparenciaService } from "../../shared/services/transparencia.service"
 import { Router } from "@angular/router"
 import { Subscription } from "rxjs"

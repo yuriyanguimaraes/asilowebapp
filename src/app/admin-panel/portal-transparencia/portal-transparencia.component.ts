@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Router } from "@angular/router"
 import { TransparenciaService } from "./../../shared/services/transparencia.service"
-import { Transparencia } from "./transparencia.model"
+import { Transparencia } from "./../../shared/models/transparencia.model"
 import { Subscription } from "rxjs"
 
 @Component({

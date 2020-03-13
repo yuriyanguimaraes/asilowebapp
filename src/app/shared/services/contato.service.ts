@@ -1,4 +1,4 @@
-import { Contato } from '../../web-app/contato/contato.model';
+import { Contato } from '../models/contato.model';
 import { Injectable } from "@angular/core"
 import { HttpClient, HttpResponse } from "@angular/common/http"
 import { Observable } from "rxjs"

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FAQService } from './../../shared/services/faq.service'
-import { FAQ_Admin } from './faq.model'
+import { FAQ } from "./../../shared/models/faq.model"
 import { Subscription } from "rxjs"
 import { Router } from "@angular/router"
 import { FormGroup } from "@angular/forms"
@@ -15,7 +15,7 @@ export class FaqAdmninComponent implements OnInit {
 
   private httpReq: Subscription
 
-  faqs: FAQ_Admin[]
+  faqs: FAQ[]
 
   // // Configuração da ordenação
   // key: string = 'ordenar';

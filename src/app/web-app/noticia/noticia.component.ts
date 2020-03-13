@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from "@angular/router"
 import { NoticiaService } from "../../shared/services/noticia.service"
 import { Subscription } from "rxjs"
-import { Noticia } from "./../noticias/noticia.model"
+import { Noticia } from "../../shared/models/noticia.model"
 
 @Component({
   selector: 'app-noticia',
