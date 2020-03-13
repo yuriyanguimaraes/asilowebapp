@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FAQ_AdminService } from '../services/faq_admin.service'
+import { FAQService } from './../../shared/services/faq.service'
 import { FAQ_Admin } from './faq.model'
 import { Subscription } from "rxjs"
 import { Router } from "@angular/router"
-import { FormGroup} from "@angular/forms"
+import { FormGroup } from "@angular/forms"
 
 
 @Component({
@@ -14,7 +14,7 @@ import { FormGroup} from "@angular/forms"
 export class FaqAdmninComponent implements OnInit {
 
   private httpReq: Subscription
-  
+
   faqs: FAQ_Admin[]
 
   // // Configuração da ordenação
@@ -37,9 +37,9 @@ export class FaqAdmninComponent implements OnInit {
   order: boolean = false
 
   constructor(
-    private faqService: FAQ_AdminService,
+    private faqService: FAQService,
     private r: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
 
