@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NoticiasService } from '../services/noticias.service';
+import { NoticiasService } from './../../shared/services/noticias.service';
 import { Router } from '@angular/router';
-import { Noticia } from 'src/app/web-app/noticias/noticia.model';
+import { Noticia } from 'src/app/shared/models/noticia.model';
 import { Subscription } from 'rxjs';
 import { OrderPipe } from 'ngx-order-pipe';
 
