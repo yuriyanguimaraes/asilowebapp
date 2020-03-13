@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Router } from "@angular/router"
-import { TransparenciaAdminService } from "./../services/transparencia.service"
-import { Transparencia } from "./transparencia.model"
+import { TransparenciaService } from "./../../shared/services/transparencia.service"
+import { Transparencia } from "./../../shared/models/transparencia.model"
 import { Subscription } from "rxjs"
 
 @Component({
@@ -63,7 +63,7 @@ export class PortalTransparenciaComponent implements OnInit {
 
   constructor(
     private r: Router,
-    private _service: TransparenciaAdminService
+    private _service: TransparenciaService
   ) { }
 
   ngOnInit() {
