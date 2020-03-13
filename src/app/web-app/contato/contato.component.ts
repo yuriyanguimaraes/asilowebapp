@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Contato } from './contato.model';
-import { ContatoService } from './../services/contato.service';
+import { ContatoService } from '../../shared/services/contato.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HomeService } from '../services/home.service';
+import { HomeService } from '../../shared/services/home.service';
 import { Noticia } from '../noticias/noticia.model';
 import { Subscription } from 'rxjs';
 

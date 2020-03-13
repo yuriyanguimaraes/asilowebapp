@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
-import { NoticiasService } from "./../services/noticias.service"
+import { NoticiasService } from "../../shared/services/noticias.service"
 import { Noticia } from "./noticia.model"
 import { Subscription } from "rxjs"
 import { Router } from "@angular/router"
