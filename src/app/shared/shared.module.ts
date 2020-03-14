@@ -22,11 +22,12 @@ import { TransparenciaService } from "./services/transparencia.service";
         CommonModule,
         LottieAnimationViewModule
     ],
-    exports: [
-        LoadingComponent,
-        NoDataComponent
-    ],
     declarations: [
+        LoadingComponent,
+        NoDataComponent,
+        ErrorComponent
+    ],
+    exports: [
         LoadingComponent,
         NoDataComponent,
         ErrorComponent
