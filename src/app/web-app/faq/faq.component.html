@@ -1,11 +1,10 @@
 <div class="container-fluid marginTopBottomContentContainer">
-  <br>
-  <h2>Dúvidas Frequentes</h2>
+  <h2 class="titlePage">Dúvidas Frequentes</h2>
   <hr>
-
-  <app-loading [condition]="isLoading"></app-loading>
   <div *ngIf="faqs && statusResponse == 200">
-    <div *ngFor="let faq of faqs | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
+    <div class="col-9 center">
+      <app-loading [condition]="isLoading"></app-loading>
+      <div *ngFor="let faq of faqs | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
         <div class='question'>
           <input type='checkbox' id='question-{{faq["_id"]}}'>
           <label for='question-{{faq["_id"]}}'>{{faq["pergunta"]}}</label>
@@ -13,14 +12,19 @@
               {{faq["resposta"]}}
             </div>
         </div>
+      </div>
+      <div *ngIf="!isLoading && statusResponse == 200 && !faqs">
+        <app-no-data></app-no-data>
+      </div>
+      <div *ngIf="!isLoading && statusResponse != 200 && !faqs">
+        <app-error></app-error>
+      </div>
     </div>
-    <div *ngIf="!isLoading && !faqs">
-      <app-no-data [message]="messageApi"></app-no-data>
-    </div>
-    <br />
+    <br/>
     <nav *ngIf="faqs">
       <ul class="pagination">
-        <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
+        <pagination-controls class="my-pagination" (pageChange)="getPage($event)" previousLabel="Anterior"
+          nextLabel="Próximo">
         </pagination-controls>
       </ul>
     </nav>
