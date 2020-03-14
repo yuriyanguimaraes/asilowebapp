@@ -18,9 +18,10 @@ import { SobreComponent } from './sobre/sobre.component'
 import { NoticiasComponent } from "./noticias/noticias.component"
 import { ContatoAdminComponent } from './contato/contato.component'
 import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
+import { NovoTransparenciaComponent } from './portal-transparencia/novo-transparencia/novo-transparencia.component'
 
 //Import Routes
-import { AdminPanelRoutes } from "./admin-panel.routing"
+import { AdminPanelRoutes } from "./admin-panel.routing";
 
 @NgModule({
     imports: [
@@ -46,7 +47,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing"
         PortalTransparenciaComponent,
         SobreComponent,
         NoticiasComponent,
-        ContatoAdminComponent
+        ContatoAdminComponent,
+        NovoTransparenciaComponent
     ],
     exports: [
         HeaderComponent,
@@ -55,7 +57,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing"
         PortalTransparenciaComponent,
         SobreComponent,
         NoticiasComponent,
-        ContatoAdminComponent
+        ContatoAdminComponent,
+        NovoTransparenciaComponent
     ]
 })
 export class AdminPanelModule { }
