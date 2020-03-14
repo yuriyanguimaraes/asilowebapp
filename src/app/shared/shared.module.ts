@@ -7,6 +7,7 @@ import { LottieAnimationViewModule } from "ng-lottie"
 import { LoadingComponent } from "./../web-components/common/loading/loading.component"
 import { NoDataComponent } from "./../web-components/common/no-data/no-data.component"
 import { ErrorComponent } from '../web-components/common/error/error.component'
+import { InputComponent } from '../web-components/common/input/input.component';
 
 //import Services
 import { ContatoService } from "./services/contato.service"
@@ -25,12 +26,14 @@ import { TransparenciaService } from "./services/transparencia.service";
     declarations: [
         LoadingComponent,
         NoDataComponent,
-        ErrorComponent
+        ErrorComponent,
+        InputComponent
     ],
     exports: [
         LoadingComponent,
         NoDataComponent,
-        ErrorComponent
+        ErrorComponent,
+        InputComponent
     ]
 })
 export class SharedModule {
