@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LottieAnimationViewModule } from "ng-lottie"
 
 @Component({
   selector: 'app-error',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  lottieConfig: any
+
+  constructor() {
+    LottieAnimationViewModule.forRoot()
+    this.lottieConfig = {
+      path: 'assets/animations/error.json',
+      autoplay: true,
+      loop: true
+    }
+  }
 
   ngOnInit() {
   }
