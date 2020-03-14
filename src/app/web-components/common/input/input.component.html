@@ -1,3 +1,7 @@
-<p>
-  input works!
-</p>
+<div class="form-group has-feedback" [class.has-success]="hasSuccess()" [class.has-error]="hasError()">
+  <label>{{label}}</label>
+  <ng-content></ng-content>
+  <span class="help-block" *ngIf="showTip && hasSuccess() && verifyInputEmpty()"><i class="fa fa-check"></i> Ok</span>
+  <span class="help-block" *ngIf="showTip && hasError() && !verifyUniqueInput()"><i class="fa fa-remove"></i>
+    {{errorMessage}}</span>
+</div>
