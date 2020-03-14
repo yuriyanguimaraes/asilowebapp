@@ -11,9 +11,12 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="col-sm" (click)="setOrder('titulo')" [class.active]="order === 'titulo'">Título <span [hidden]="!reverseTitulo">▼</span><span [hidden]="reverseTitulo">▲</span></th>
-          <th class="col-sm" (click)="setOrder('date')" [class.active]="order === 'date'">Publicação <span [hidden]="!reverseDate">▼</span><span [hidden]="reverseDate">▲</span></th>
-          <th class="col-sm" (click)="setOrder('status')" [class.active]="order === 'status'">Publicado ? <span [hidden]="!reverseStatus">▼</span><span [hidden]="reverseStatus">▲</span></th>
+          <th class="col-sm" (click)="setOrder('titulo')" [class.active]="ordenacao == 'titulo'">Título <span
+              [hidden]="!reverseTitulo">▼</span><span [hidden]="reverseTitulo">▲</span></th>
+          <th class="col-sm" (click)="setOrder('date')" [class.active]="ordenacao == 'date'">Publicação <span
+              [hidden]="!reverseDate">▼</span><span [hidden]="reverseDate">▲</span></th>
+          <th class="col-sm" (click)="setOrder('status')" [class.active]="ordenacao == 'status'">Publicado ? <span
+              [hidden]="!reverseStatus">▼</span><span [hidden]="reverseStatus">▲</span></th>
           <th class="col-sm acoes" scope="col">Ações</th>
         </tr>
       </thead>

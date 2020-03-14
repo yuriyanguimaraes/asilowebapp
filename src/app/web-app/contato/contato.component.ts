@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { Contato } from './contato.model';
-import { ContatoService } from './../services/contato.service';
+import { Contato } from '../../shared/models/contato.model';
+import { ContatoService } from '../../shared/services/contato.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,15 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  Contato: Contato
+  public contato: Contato
 
   constructor(private contatoService: ContatoService) {
   }
 
   ngOnInit() {
+    this.getContato()
+  }
+
+  getContato(){
     this.contatoService.getContato().subscribe(response => {
-      console.log(response)
-      this.Contato = response['data']
+      this.contato = response['data']
     })
   }
 

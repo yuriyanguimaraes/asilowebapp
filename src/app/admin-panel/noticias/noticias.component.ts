@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NoticiasService } from '../noticias.service';
+import { NoticiasService } from './../../shared/services/noticias.service';
 import { Router } from '@angular/router';
-import { Noticia } from 'src/app/web-app/noticias/noticia.model';
+import { Noticia } from 'src/app/shared/models/noticia.model';
 import { Subscription } from 'rxjs';
 import { OrderPipe } from 'ngx-order-pipe';
 
@@ -29,7 +29,7 @@ export class NoticiasComponent implements OnInit {
   reverseTitulo: boolean = false;
   reverseDate: boolean = false;
   reverseStatus: boolean = false;
-  sortedCollection:any[];
+  sortedCollection: any[];
   collection: Noticia[]
 
   constructor(
@@ -74,57 +74,57 @@ export class NoticiasComponent implements OnInit {
     this.getNoticiasWithParams()
   }
 
-  setOrder(value: string){
-    if(this.ordenacao == 'titulo'){
-      
+  setOrder(value: string) {
+    if (this.ordenacao == 'titulo') {
+
       this.reverseDate = false;
       this.reverseStatus = false;
 
-      if(this.reverseTitulo == true){
+      if (this.reverseTitulo == true) {
         this.SetarParametrosOrdenacao(this.ordenacao, 'ascending')
         this.getNoticiasWithParams()
-      }else if(this.reverseTitulo == false){
+      } else if (this.reverseTitulo == false) {
         this.SetarParametrosOrdenacao(this.ordenacao, 'descending')
         this.getNoticiasWithParams()
       }
-      if(this.ordenacao === value){
+      if (this.ordenacao === value) {
         this.reverseTitulo = !this.reverseTitulo;
       }
-    }else if(this.ordenacao == 'date'){
-      
+    } else if (this.ordenacao == 'date') {
+
       this.reverseTitulo = false;
       this.reverseStatus = false;
 
-      if(this.reverseDate == true){
+      if (this.reverseDate == true) {
         this.SetarParametrosOrdenacao(this.ordenacao, 'ascending')
         this.getNoticiasWithParams()
-      }else if(this.reverseTitulo == false){
+      } else if (this.reverseTitulo == false) {
         this.SetarParametrosOrdenacao(this.ordenacao, 'descending')
         this.getNoticiasWithParams()
       }
-      if(this.ordenacao === value){
+      if (this.ordenacao === value) {
         this.reverseDate = !this.reverseDate;
       }
-    }else if(this.ordenacao == 'status'){
-      
+    } else if (this.ordenacao == 'status') {
+
       this.reverseTitulo = false;
       this.reverseDate = false;
-      
-      if(this.reverseStatus == true){
+
+      if (this.reverseStatus == true) {
         this.SetarParametrosOrdenacao(this.ordenacao, 'ascending')
         this.getNoticiasWithParams()
-      }else if(this.reverseStatus == false){
+      } else if (this.reverseStatus == false) {
         this.SetarParametrosOrdenacao(this.ordenacao, 'descending')
         this.getNoticiasWithParams()
       }
-      if(this.ordenacao === value){
+      if (this.ordenacao === value) {
         this.reverseStatus = !this.reverseStatus;
       }
     }
     this.ordenacao = value;
   }
 
-  SetarParametrosOrdenacao(columnSort:string, valueSort:string){
+  SetarParametrosOrdenacao(columnSort: string, valueSort: string) {
     this._service.params = this._service.params.set('columnSort', columnSort)
     this._service.params = this._service.params.set('valueSort', valueSort)
   }

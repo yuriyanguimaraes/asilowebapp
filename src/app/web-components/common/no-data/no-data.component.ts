@@ -1,4 +1,5 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { LottieAnimationViewModule } from "ng-lottie"
 
 @Component({
   selector: 'app-no-data',
@@ -8,8 +9,16 @@ import { Component, OnInit, Input} from '@angular/core';
 export class NoDataComponent implements OnInit {
 
   @Input() message: string
+  lottieConfig: any
 
-  constructor() { }
+  constructor() {
+    LottieAnimationViewModule.forRoot()
+    this.lottieConfig = {
+      path: 'assets/animations/sad.json',
+      autoplay: true,
+      loop: true
+    }
+  }
 
   ngOnInit() {
   }
