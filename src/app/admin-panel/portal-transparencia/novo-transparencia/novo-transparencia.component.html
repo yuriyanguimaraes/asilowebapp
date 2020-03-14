@@ -1,3 +1,48 @@
-<p>
-  novo-transparencia works!
-</p>
+<div class="container-fluid marginTopBottomContentContainerAdminPanel">
+  <div>
+    <div class="row">
+      <div class="col-sm-6 positionTitle">
+        <h5>Adicionar documentos</h5>
+      </div>
+      <p class="col-sm-6 positionRequired">
+        * Campos obrigatórios
+      </p>
+    </div>
+    <div>
+      <form novalidate>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="example-text-input" class="form-control-label">Título <span class="required">*</span></label>
+            <input class="form-control" type="text" value="Título" id="example-text-input">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="example-search-input" class="form-control-label">Descrição <span
+                class="required">*</span></label>
+            <input class="form-control" type="search" value="Descrição..." id="example-search-input">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="exampleFormControlSelect1">Categoria <span class="required">*</span></label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>Selecione...</option>
+              <option>Documentos Oficiais</option>
+              <option>Prestação de Contas</option>
+              <option>Relatório de Atividades</option>
+            </select>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="exampleFormControlFile1">Documento <span class="required">*</span></label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 positionButtons">
+            <button type="button" class="btn btn-outline-danger btn-sm">Cancelar</button>
+            <button type="button" class="btn btn-outline-success btn-sm">Adicionar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
