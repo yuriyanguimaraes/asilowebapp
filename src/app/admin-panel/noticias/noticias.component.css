@@ -2,6 +2,10 @@
     padding: 2% 2%;
 }
 
-.acoes{
-    text-align: center;
+.i-active {
+    color: rgb(239, 84, 85);
+}
+
+.positionButtons {
+    text-align: end;
 }

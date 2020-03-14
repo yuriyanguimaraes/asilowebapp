@@ -1,40 +1,41 @@
-<div id="margin">
-  <div class="btn-toolbar justify-content-between">
-    <div>
-      <h2>Notícia</h2>
-    </div>
-    <div>
-      <button class="btn btn-warning-outline text-green">Adicionar</button>
-    </div>
-  </div>
+<div class="container-fluid marginTopBottomContentContainerAdminPanel">
   <div>
-    <table class="table">
+    <div class="row">
+      <div class="col-sm-6 positionTitle">
+        <h5>Notícia</h5>
+      </div>
+      <div class="col-sm-6 positionButtons">
+        <button type="button" class="btn btn-outline-success btn-sm">Adicionar</button>
+      </div>
+    </div>
+    <app-loading [condition]="isLoading"></app-loading>
+    <table *ngIf="!isLoading && statusResponse == 200" class="table">
       <thead>
         <tr>
-          <th class="col-sm" (click)="setOrder('titulo')" [class.active]="ordenacao == 'titulo'">Título <span
-              [hidden]="!reverseTitulo">▼</span><span [hidden]="reverseTitulo">▲</span></th>
-          <th class="col-sm" (click)="setOrder('date')" [class.active]="ordenacao == 'date'">Publicação <span
-              [hidden]="!reverseDate">▼</span><span [hidden]="reverseDate">▲</span></th>
-          <th class="col-sm" (click)="setOrder('status')" [class.active]="ordenacao == 'status'">Publicado ? <span
-              [hidden]="!reverseStatus">▼</span><span [hidden]="reverseStatus">▲</span></th>
-          <th class="col-sm acoes" scope="col">Ações</th>
+          <th *ngFor="let item of headTableItems" scope="col" class="pointer headTable"
+            (click)="onClickSortTable(item)">
+            {{item['option']}}
+            <span><i class="pull-right rotate fa"
+                [ngClass]="{'i-active': item === sortSelectedItem, 'fa-chevron-down': this._service.params.get('valueSort') == 'descending', 'fa-chevron-up': this._service.params.get('valueSort') == 'ascending'}"></i></span>
+          </th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let noticia of noticias | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
-          <td class="col-sm"> {{noticia.titulo}}</td>
-          <td class="col-sm"> {{noticia.date}}</td>
-          <td class="col-sm"> {{noticia.status}}</td>
-          <td class="col-sm">
-            <div>
-              <button class="btn btn-warning-outline text-yellow">Editar</button>
-              <button class="btn btn-danger-outline text-red">Deletar</button>
-            </div>
+          <th scope="row">{{noticia['titulo']}}</th>
+          <td>{{noticia['date'] | date: 'dd/MM/yyyy'}}</td>
+          <td>{{noticia['status']}}</td>
+          <td>
+            <button class="btn btn-outline-warning btn-sm">Editar</button>
+            <button class="btn btn-outline-danger btn-sm">Apagar</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <nav *ngIf="noticias">
+    <app-no-data *ngIf="!isLoading && statusResponse == 200 && !documents"></app-no-data>
+    <app-error *ngIf="!isLoading && statusResponse != 200 && !documents"></app-error>
+    <nav *ngIf="documents">
       <ul class="pagination">
         <pagination-controls class="my-pagination" (pageChange)="getPage($event)" previousLabel="Anterior"
           nextLabel="Próximo">

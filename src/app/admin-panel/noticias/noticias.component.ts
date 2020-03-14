@@ -3,7 +3,6 @@ import { NoticiasService } from './../../shared/services/noticias.service';
 import { Router } from '@angular/router';
 import { Noticia } from 'src/app/shared/models/noticia.model';
 import { Subscription } from 'rxjs';
-import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-noticias',
@@ -16,40 +15,54 @@ export class NoticiasComponent implements OnInit {
 
   noticias: Noticia[]
 
-  //Control Variables
   isLoading: boolean = false
   messageApi: string
   statusResponse: number
   p: number
   total: number
   limit: number
-  filterKeyword: boolean = false
-  order: boolean = false
-  ordenacao: string = 'titulo'
-  reverseTitulo: boolean = false;
-  reverseDate: boolean = false;
-  reverseStatus: boolean = false;
   sortedCollection: any[];
   collection: Noticia[]
+  sortSelectedItem: any
+
+  headTableItems: any[] = [
+    {
+      option: 'Título',
+      param: 'titulo'
+    },
+    {
+      option: 'Publicação',
+      param: 'date'
+    },
+    {
+      option: 'Publicado ?',
+      param: 'status'
+    }
+  ]
 
   constructor(
-    private orderPipe: OrderPipe,
     private _service: NoticiasService,
     private r: Router,
-  ) {
-    this.sortedCollection = orderPipe.transform(this.collection, 'titulo');
-  }
+  ) {}
 
   ngOnInit() {
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
+    
+    this.sortSelectedItem = this.headTableItems[1]
 
-    this.SetarParametrosOrdenacao('titulo', 'ascending')
+    this._service.params = this._service.params.set('columnSort', 'titulo')
+    this._service.params = this._service.params.set('valueSort', 'ascending')
     this._service.params = this._service.params.set('page', '1')
     this._service.params = this._service.params.set('limit', '10')
 
     this.getNoticiasWithParams()
   }
 
+  ngOnDestroy() {
+    if (this.httpReq) {
+      this.httpReq.unsubscribe()
+    }
+  }
 
   getNoticiasWithParams() {
     this.isLoading = true
@@ -74,58 +87,15 @@ export class NoticiasComponent implements OnInit {
     this.getNoticiasWithParams()
   }
 
-  setOrder(value: string) {
-    if (this.ordenacao == 'titulo') {
-
-      this.reverseDate = false;
-      this.reverseStatus = false;
-
-      if (this.reverseTitulo == true) {
-        this.SetarParametrosOrdenacao(this.ordenacao, 'ascending')
-        this.getNoticiasWithParams()
-      } else if (this.reverseTitulo == false) {
-        this.SetarParametrosOrdenacao(this.ordenacao, 'descending')
-        this.getNoticiasWithParams()
-      }
-      if (this.ordenacao === value) {
-        this.reverseTitulo = !this.reverseTitulo;
-      }
-    } else if (this.ordenacao == 'date') {
-
-      this.reverseTitulo = false;
-      this.reverseStatus = false;
-
-      if (this.reverseDate == true) {
-        this.SetarParametrosOrdenacao(this.ordenacao, 'ascending')
-        this.getNoticiasWithParams()
-      } else if (this.reverseTitulo == false) {
-        this.SetarParametrosOrdenacao(this.ordenacao, 'descending')
-        this.getNoticiasWithParams()
-      }
-      if (this.ordenacao === value) {
-        this.reverseDate = !this.reverseDate;
-      }
-    } else if (this.ordenacao == 'status') {
-
-      this.reverseTitulo = false;
-      this.reverseDate = false;
-
-      if (this.reverseStatus == true) {
-        this.SetarParametrosOrdenacao(this.ordenacao, 'ascending')
-        this.getNoticiasWithParams()
-      } else if (this.reverseStatus == false) {
-        this.SetarParametrosOrdenacao(this.ordenacao, 'descending')
-        this.getNoticiasWithParams()
-      }
-      if (this.ordenacao === value) {
-        this.reverseStatus = !this.reverseStatus;
-      }
+  onClickSortTable(item: any) {
+    this.noticias = null
+    this.sortSelectedItem = item
+    this._service.params = this._service.params.set('columnSort', item['param'])
+    if (this._service.params.get('valueSort') == 'descending') {
+      this._service.params = this._service.params.set('valueSort', 'ascending')
+    } else {
+      this._service.params = this._service.params.set('valueSort', 'descending')
     }
-    this.ordenacao = value;
-  }
-
-  SetarParametrosOrdenacao(columnSort: string, valueSort: string) {
-    this._service.params = this._service.params.set('columnSort', columnSort)
-    this._service.params = this._service.params.set('valueSort', valueSort)
+    this.getNoticiasWithParams()
   }
 }
