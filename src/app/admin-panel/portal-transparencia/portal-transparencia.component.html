@@ -25,16 +25,16 @@
       </div>
     </div>
     <app-loading [condition]="isLoading"></app-loading>
-    <table *ngIf="!isLoading && statusResponse == 200" class="table table-bordered">
+    <table *ngIf="!isLoading && statusResponse == 200" class="table">
       <thead>
         <tr>
-          <th *ngFor="let item of headTableItems" scope="col" class="pointer headTable"
-            (click)="onClickSortTable(item)">
+          <th *ngFor="let item of headTableItems" scope="col" class="pointer headTable" (click)="onClickSortTable(item)"
+            tooltip="Ordenar por {{item['option']}}" placement="top" [delay]="750">
             {{item['option']}}
             <span><i class="pull-right rotate fa"
                 [ngClass]="{'i-active': item === sortSelectedItem, 'fa-chevron-down': this._service.params.get('valueSort') == 'descending', 'fa-chevron-up': this._service.params.get('valueSort') == 'ascending'}"></i></span>
           </th>
-          <th scope="col">Ações</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
