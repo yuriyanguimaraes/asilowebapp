@@ -2,7 +2,7 @@ import { Component, Input, ContentChild, AfterContentInit } from '@angular/core'
 import { FormControlName } from "@angular/forms"
 
 @Component({
-  selector: 'app-input',
+  selector: 'app-input-container',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
