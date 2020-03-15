@@ -3,7 +3,6 @@ import { Transparencia } from "../../../shared/models/transparencia.model"
 import { TransparenciaService } from "../../../shared/services/transparencia.service"
 import { Subscription } from "rxjs"
 import { ModalLoadingComponent } from "./../../../web-components/common/modals/modal-loading/modal-loading.component"
-import { ModalDialogComponent } from "./../../../web-components/common/modals/modal-dialog/modal-dialog.component"
 import { BsModalService, BsModalRef, ModalOptions } from "ngx-bootstrap/modal"
 
 @Component({
@@ -34,6 +33,22 @@ export class DocumentsCollapseComponent {
     private _modal: BsModalService
   ) { }
 
+  ngOnDestroy() {
+    if (this.httpReq) {
+      this.httpReq.unsubscribe()
+    }
+  }
+
+  getDownloadDocument() {
+    this.modalRef = this._modal.show(ModalLoadingComponent, this.configLoadingModal)
+    this.httpReq = this._service.downloadDocument(this.document['file']['filename']).subscribe(file => {
+      this.modalRef.hide()
+      this.createBlobFile(file)
+    }, err => {
+      console.log('error')
+    })
+  }
+
   createBlobFile(file) {
     var newBlob = new Blob([file], { type: "application/pdf" });
 
@@ -53,20 +68,6 @@ export class DocumentsCollapseComponent {
       window.URL.revokeObjectURL(data);
       link.remove();
     }, 100);
-  }
-
-  getDownloadDocument() {
-    this.httpReq = this._service.downloadDocument(this.document['file']['filename']).subscribe(file => {
-      this.modalRef.hide()
-      this.createBlobFile(file)
-    }, err => {
-      console.log('error')
-    })
-  }
-
-  downloadDocument() {
-    this.modalRef = this._modal.show(ModalLoadingComponent, this.configLoadingModal)
-    this.getDownloadDocument()
   }
 
 }

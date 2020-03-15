@@ -16,7 +16,8 @@
                 <small class="infoDocs"><b>Categoria: </b> {{document['categoria']}}</small>&nbsp;
                 <small class="infoDocs"><b>Postado em: </b> {{document['date'] | date: 'dd/MM/yyyy'}}</small>
                 <hr>
-                <button type="submit" class="btn btn-outline-success btn-sm float-right" (click)="downloadDocument()">Download</button>
+                <button type="submit" class="btn btn-outline-success btn-sm float-right"
+                    (click)="getDownloadDocument()">Download</button>
                 <br />
             </div>
         </div>
