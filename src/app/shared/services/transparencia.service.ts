@@ -14,4 +14,8 @@ export class TransparenciaService {
     getDocumentsWithParams(): Observable<HttpResponse<Transparencia[]>> {
         return this.http.get<Transparencia[]>(`${AsiloWebApi}/transparencia/`, { params: this.params, observe: 'response' })
     }
+
+    postDocuments(formData) {
+        return this.http.post<any>(`${AsiloWebApi}/transparencia/`, formData, { reportProgress: true, observe: 'events' })
+    }
 }
