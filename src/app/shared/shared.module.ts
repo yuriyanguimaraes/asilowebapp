@@ -7,7 +7,7 @@ import { LottieAnimationViewModule } from "ng-lottie"
 import { LoadingComponent } from "./../web-components/common/loading/loading.component"
 import { NoDataComponent } from "./../web-components/common/no-data/no-data.component"
 import { ErrorComponent } from '../web-components/common/error/error.component'
-import { InputComponent } from '../web-components/common/input/input.component';
+import { ModalDialogComponent } from '../web-components/common/modal-dialog/modal-dialog.component';
 
 //import Services
 import { ContatoService } from "./services/contato.service"
@@ -16,7 +16,7 @@ import { HomeService } from "./services/home.service"
 import { NoticiaService } from "./services/noticia.service"
 import { NoticiasService } from "./services/noticias.service"
 import { SobreService } from "./services/sobre.service"
-import { TransparenciaService } from "./services/transparencia.service";
+import { TransparenciaService } from "./services/transparencia.service"
 
 @NgModule({
     imports: [
@@ -27,13 +27,16 @@ import { TransparenciaService } from "./services/transparencia.service";
         LoadingComponent,
         NoDataComponent,
         ErrorComponent,
-        InputComponent
+        ModalDialogComponent
     ],
     exports: [
         LoadingComponent,
         NoDataComponent,
         ErrorComponent,
-        InputComponent
+        ModalDialogComponent
+    ],
+    entryComponents: [
+        ModalDialogComponent
     ]
 })
 export class SharedModule {
