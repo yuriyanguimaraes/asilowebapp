@@ -8,6 +8,7 @@ import { NgxPaginationModule } from "ngx-pagination"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { BsDropdownModule, TooltipModule, ModalModule } from "ngx-bootstrap"
 import { OrderModule } from 'ngx-order-pipe';
+import { ToastrModule } from "ngx-toastr"
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -37,7 +38,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         BrowserAnimationsModule,
         NgxPaginationModule,
         OrderModule,
-        RouterModule.forChild(AdminPanelRoutes)
+        RouterModule.forChild(AdminPanelRoutes),
+        ToastrModule.forRoot()
     ],
     declarations: [
         HeaderComponent,
