@@ -39,7 +39,9 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         NgxPaginationModule,
         OrderModule,
         RouterModule.forChild(AdminPanelRoutes),
-        ToastrModule.forRoot()
+        ToastrModule.forRoot({
+            preventDuplicates: true
+        })
     ],
     declarations: [
         HeaderComponent,
