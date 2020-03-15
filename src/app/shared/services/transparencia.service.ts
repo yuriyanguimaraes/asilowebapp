@@ -18,4 +18,8 @@ export class TransparenciaService {
     postDocuments(formData) {
         return this.http.post<any>(`${AsiloWebApi}/transparencia/`, formData, { reportProgress: true, observe: 'events' })
     }
+
+    downloadDocument(filename: string): Observable<HttpResponse<Transparencia>> {
+        return this.http.get<Transparencia>(`${AsiloWebApi}/transparencia/${filename}`, { observe: 'response' })
+    }
 }
