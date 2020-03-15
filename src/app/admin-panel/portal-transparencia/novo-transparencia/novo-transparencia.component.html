@@ -13,7 +13,8 @@
         <div class="row">
           <div class="form-group col-sm-6">
             <label for="titulo" class="form-control-label">Título <span class="required">*</span></label>
-            <input class="form-control" formControlName="titulo" type="text" placeholder="Título" id="titulo">
+            <input class="form-control" formControlName="titulo" type="text" placeholder="Título" id="titulo"
+              maxlength="150">
           </div>
           <div class="form-group col-sm-6">
             <label for="categoria" class="form-control-label">Categoria <span class="required">*</span></label>
@@ -27,8 +28,11 @@
           <div class="form-group col-sm-12">
             <label for="descricao" class="form-control-label">Descrição <span class="required">*</span></label>
             <textarea class="form-control" formControlName="descricao" type="text" placeholder="Descrição..."
-              id="descricao"></textarea>
+              id="descricao" [(ngModel)]="role" [maxLength]="maxChars"></textarea>
           </div>
+          <span class="col-sm-12 countChars">
+            {{role.length}}/{{maxChars}}
+          </span>
         </div>
         <div class="row">
           <div class="form-group col-sm-12">

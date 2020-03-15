@@ -20,6 +20,9 @@ export class NovoTransparenciaComponent implements OnInit {
   _formTransparencia: FormGroup
   progress = 0
   success = false
+  maxChars = 500
+  role = ''
+  chars = 0
 
   selectOptionCategory: any[] = [
     { value: 'Documentos Oficiais' },
