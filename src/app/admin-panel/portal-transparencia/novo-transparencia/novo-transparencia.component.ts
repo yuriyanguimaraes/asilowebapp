@@ -76,7 +76,7 @@ export class NovoTransparenciaComponent implements OnInit {
   }
 
   showToastrSuccess() {
-    this._toastr.success('O documento foi adicionado com sucesso', '', {
+    this._toastr.success('O documento foi adicionado com sucesso', null, {
       progressBar: true,
       positionClass: 'toast-bottom-center'
     })
