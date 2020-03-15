@@ -9,7 +9,6 @@ import { BsModalRef } from "ngx-bootstrap/modal"
 })
 export class ModalDialogComponent {
 
-  @Input() title: string
   @Input() message: string
   @Output() action = new EventEmitter
   lottieConfig: any
