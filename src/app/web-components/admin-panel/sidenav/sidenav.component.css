@@ -4,3 +4,25 @@
     margin-top: -40px;
     margin-left: -12px;
 }
+
+.navbar-nav .nav-link .nav-link-text {
+    transition: 0.5s all;
+}
+
+.navbar-nav .nav-item.active {
+    border-bottom: 2px solid rgb(239, 84, 85);
+    margin-left: 15px;
+    border-radius: 0px;
+}
+
+.navbar-nav .nav-item:not(.active) .nav-link:hover {
+    border-bottom: 2px solid rgb(239, 84, 85);
+    margin-left: 15px;
+    border-radius: 0px;
+    transition: 0.5s all;
+}
+
+.navbar-nav .nav-item .nav-link:hover .nav-link-text {
+    margin-left: 15px;
+    transition: 1s all;
+}
