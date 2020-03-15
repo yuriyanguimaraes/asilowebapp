@@ -3,6 +3,7 @@ import { Transparencia } from "../../../shared/models/transparencia.model"
 import { TransparenciaService } from "../../../shared/services/transparencia.service"
 import { Subscription } from "rxjs"
 import { ModalLoadingComponent } from "./../../../web-components/common/modals/modal-loading/modal-loading.component"
+import { ModalErrorComponent } from "./../../../web-components/common/modals/modal-error/modal-error.component"
 import { BsModalService, BsModalRef, ModalOptions } from "ngx-bootstrap/modal"
 
 @Component({
@@ -28,6 +29,15 @@ export class DocumentsCollapseComponent {
     }
   }
 
+  configErrorModal: ModalOptions = {
+    backdrop: 'static',
+    keyboard: false,
+    initialState: {
+      message: "Ocorreu um erro ao fazer o download do arquivo",
+      withFooter: true
+    }
+  }
+
   constructor(
     private _service: TransparenciaService,
     private _modal: BsModalService
@@ -44,8 +54,14 @@ export class DocumentsCollapseComponent {
     this.httpReq = this._service.downloadDocument(this.document['file']['filename']).subscribe(file => {
       this.modalRef.hide()
       this.createBlobFile(file)
-    }, err => {
-      console.log('error')
+    }, () => {
+      this.modalRef.hide()
+      this.modalRef = this._modal.show(ModalErrorComponent, this.configErrorModal)
+      this.modalRef.content.action.subscribe((event) => {
+        if (event) {
+          this.modalRef.hide()
+        }
+      })
     })
   }
 

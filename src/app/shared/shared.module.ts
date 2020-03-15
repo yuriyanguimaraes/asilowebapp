@@ -7,10 +7,11 @@ import { LottieAnimationViewModule } from "ng-lottie"
 import { LoadingComponent } from "./../web-components/common/loading/loading.component"
 import { NoDataComponent } from "./../web-components/common/no-data/no-data.component"
 import { ErrorComponent } from '../web-components/common/error/error.component'
-import { ModalDialogComponent } from '../web-components/common/modals/modal-dialog/modal-dialog.component';
 import { ProgressComponent } from '../web-components/common/progress/progress.component'
 import { FileUploadComponent } from '../web-components/common/file-upload/file-upload.component';
+import { ModalDialogComponent } from '../web-components/common/modals/modal-dialog/modal-dialog.component';
 import { ModalLoadingComponent } from '../web-components/common/modals/modal-loading/modal-loading.component';
+import { ModalErrorComponent } from '../web-components/common/modals/modal-error/modal-error.component';
 
 //import Services
 import { ContatoService } from "./services/contato.service"
@@ -33,7 +34,8 @@ import { TransparenciaService } from "./services/transparencia.service";
         ModalDialogComponent,
         ProgressComponent,
         FileUploadComponent,
-        ModalLoadingComponent
+        ModalLoadingComponent,
+        ModalErrorComponent
     ],
     exports: [
         LoadingComponent,
@@ -42,11 +44,13 @@ import { TransparenciaService } from "./services/transparencia.service";
         ModalDialogComponent,
         ProgressComponent,
         FileUploadComponent,
-        ModalLoadingComponent
+        ModalLoadingComponent,
+        ModalErrorComponent
     ],
     entryComponents: [
         ModalDialogComponent,
-        ModalLoadingComponent
+        ModalLoadingComponent,
+        ModalErrorComponent
     ]
 })
 export class SharedModule {
