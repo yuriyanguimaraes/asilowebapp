@@ -36,7 +36,8 @@
         </div>
         <div class="row">
           <div class="col-sm-12 positionButtons">
-            <button type="button" class="btn btn-outline-danger btn-sm" (click)="canCancel()">Cancelar</button>
+            <button type="button" *ngIf="_formTransparencia.dirty" class="btn btn-outline-danger btn-sm"
+              (click)="canCancel()">Cancelar</button>
             <button type="button" class="btn btn-outline-success btn-sm"
               [disabled]="!_formTransparencia.valid">Adicionar</button>
           </div>
