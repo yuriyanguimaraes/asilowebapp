@@ -7,9 +7,10 @@ import { LottieAnimationViewModule } from "ng-lottie"
 import { LoadingComponent } from "./../web-components/common/loading/loading.component"
 import { NoDataComponent } from "./../web-components/common/no-data/no-data.component"
 import { ErrorComponent } from '../web-components/common/error/error.component'
-import { ModalDialogComponent } from '../web-components/common/modal-dialog/modal-dialog.component';
+import { ModalDialogComponent } from '../web-components/common/modals/modal-dialog/modal-dialog.component';
 import { ProgressComponent } from '../web-components/common/progress/progress.component'
 import { FileUploadComponent } from '../web-components/common/file-upload/file-upload.component';
+import { ModalLoadingComponent } from '../web-components/common/modals/modal-loading/modal-loading.component';
 
 //import Services
 import { ContatoService } from "./services/contato.service"
@@ -31,7 +32,8 @@ import { TransparenciaService } from "./services/transparencia.service";
         ErrorComponent,
         ModalDialogComponent,
         ProgressComponent,
-        FileUploadComponent
+        FileUploadComponent,
+        ModalLoadingComponent
     ],
     exports: [
         LoadingComponent,
@@ -39,10 +41,12 @@ import { TransparenciaService } from "./services/transparencia.service";
         ErrorComponent,
         ModalDialogComponent,
         ProgressComponent,
-        FileUploadComponent
+        FileUploadComponent,
+        ModalLoadingComponent
     ],
     entryComponents: [
-        ModalDialogComponent
+        ModalDialogComponent,
+        ModalLoadingComponent
     ]
 })
 export class SharedModule {
