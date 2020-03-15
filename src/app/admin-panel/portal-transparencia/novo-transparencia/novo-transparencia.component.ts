@@ -43,7 +43,6 @@ export class NovoTransparenciaComponent implements OnInit {
       title: "Confirmação",
       message: "Deseja cancelar a inserção do documento atual?"
     }
-
     this.modalRef = this._modal.show(ModalDialogComponent, { initialState })
     this.modalRef.content.action.subscribe((answer) => {
       if (answer) {
