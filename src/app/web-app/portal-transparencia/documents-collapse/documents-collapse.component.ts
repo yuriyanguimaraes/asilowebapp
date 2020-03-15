@@ -25,15 +25,7 @@ export class DocumentsCollapseComponent {
     keyboard: false,
     initialState: {
       message: "Fazendo download do documento...",
-      withFooter: true
-    }
-  }
-
-  configDialogModal: ModalOptions = {
-    backdrop: 'static',
-    keyboard: false,
-    initialState: {
-      message: "Deseja cancelar o download do documento?",
+      withFooter: false
     }
   }
 
@@ -42,9 +34,31 @@ export class DocumentsCollapseComponent {
     private _modal: BsModalService
   ) { }
 
-  getDownloadDocument(filename) {
-    this.httpReq = this._service.downloadDocument(filename).subscribe(response => {
-      console.log('ok')
+  createBlobFile(file) {
+    var newBlob = new Blob([file], { type: "application/pdf" });
+
+    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveOrOpenBlob(newBlob);
+      return;
+    }
+
+    const data = window.URL.createObjectURL(newBlob);
+
+    var link = document.createElement('a');
+    link.href = data;
+    link.download = `${this.document['file']['originalname']}`
+    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+    setTimeout(function () {
+      window.URL.revokeObjectURL(data);
+      link.remove();
+    }, 100);
+  }
+
+  getDownloadDocument() {
+    this.httpReq = this._service.downloadDocument(this.document['file']['filename']).subscribe(file => {
+      this.modalRef.hide()
+      this.createBlobFile(file)
     }, err => {
       console.log('error')
     })
@@ -52,22 +66,7 @@ export class DocumentsCollapseComponent {
 
   downloadDocument() {
     this.modalRef = this._modal.show(ModalLoadingComponent, this.configLoadingModal)
-    this.modalRef.content.action.subscribe((canCancel: boolean) => {
-      if (canCancel) {
-        //pausa a requisição enquanto aguarda a resposta
-        this.modalRef = this._modal.show(ModalDialogComponent, this.configDialogModal)
-        this.modalRef.content.action.subscribe((answer: boolean) => {
-          if (answer) {
-            //caso sim, cancela a requisição
-            console.log('cancelar')
-          } else {
-            //caso não, despausa a requisição e volta o modal de carregamento
-            console.log('nao cancelar')
-            this.downloadDocument()
-          }
-        })
-      }
-    })
+    this.getDownloadDocument()
   }
 
 }
