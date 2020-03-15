@@ -9,37 +9,36 @@
       </p>
     </div>
     <div>
-      <form novalidate>
+      <form [formGroup]="_formTransparencia" novalidate>
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="example-text-input" class="form-control-label">Título <span class="required">*</span></label>
-            <input class="form-control" type="text" value="Título" id="example-text-input">
+            <label for="titulo" class="form-control-label">Título <span class="required">*</span></label>
+            <input class="form-control" formControlName="titulo" type="text" placeholder="Título" id="titulo">
           </div>
           <div class="form-group col-sm-6">
-            <label for="example-search-input" class="form-control-label">Descrição <span
-                class="required">*</span></label>
-            <input class="form-control" type="search" value="Descrição..." id="example-search-input">
+            <label for="descricao" class="form-control-label">Descrição <span class="required">*</span></label>
+            <input class="form-control" formControlName="descricao" type="text" placeholder="Descrição..."
+              id="descricao">
           </div>
         </div>
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="exampleFormControlSelect1">Categoria <span class="required">*</span></label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>Selecione...</option>
-              <option>Documentos Oficiais</option>
-              <option>Prestação de Contas</option>
-              <option>Relatório de Atividades</option>
+            <label for="categoria" class="form-control-label">Categoria <span class="required">*</span></label>
+            <select class="form-control" formControlName="categoria" id="categoria">
+              <option [ngValue]="null">Selecione</option>
+              <option *ngFor="let option of selectOptionCategory">{{option.value}}</option>
             </select>
           </div>
           <div class="form-group col-sm-6">
-            <label for="exampleFormControlFile1">Documento <span class="required">*</span></label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <label for="arquivo" class="form-control-label">Documento <span class="required">*</span></label>
+            <input type="file" formControlName="arquivo" class="form-control-file" id="arquivo">
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12 positionButtons">
-            <button type="button" class="btn btn-outline-danger btn-sm">Cancelar</button>
-            <button type="button" class="btn btn-outline-success btn-sm">Adicionar</button>
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="canCancel()">Cancelar</button>
+            <button type="button" class="btn btn-outline-success btn-sm"
+              [disabled]="!_formTransparencia.valid">Adicionar</button>
           </div>
         </div>
       </form>
