@@ -25,7 +25,7 @@
         <tr *ngFor="let noticia of noticias | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
           <th scope="row">{{noticia['titulo']}}</th>
           <td>{{noticia['date'] | date: 'dd/MM/yyyy'}}</td>
-          <td>{{noticia['status']}}</td>
+          <td>{{noticia['status'] | status}}</td>
           <td>
             <button class="btn btn-outline-warning btn-sm">Editar</button>
             <button class="btn btn-outline-danger btn-sm">Apagar</button>
@@ -33,9 +33,9 @@
         </tr>
       </tbody>
     </table>
-    <app-no-data *ngIf="!isLoading && statusResponse == 200 && !documents"></app-no-data>
-    <app-error *ngIf="!isLoading && statusResponse != 200 && !documents"></app-error>
-    <nav *ngIf="documents">
+    <app-no-data *ngIf="!isLoading && statusResponse == 200 && !noticias"></app-no-data>
+    <app-error *ngIf="!isLoading && statusResponse != 200 && !noticias"></app-error>
+    <nav *ngIf="noticias">
       <ul class="pagination">
         <pagination-controls class="my-pagination" (pageChange)="getPage($event)" previousLabel="Anterior"
           nextLabel="Próximo">

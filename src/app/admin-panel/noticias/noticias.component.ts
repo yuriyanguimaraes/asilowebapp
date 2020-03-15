@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform, OnDestroy } from '@angular/core';
 import { NoticiasService } from './../../shared/services/noticias.service';
 import { Router } from '@angular/router';
 import { Noticia } from 'src/app/shared/models/noticia.model';
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './noticias.component.html',
   styleUrls: ['./noticias.component.css']
 })
-export class NoticiasComponent implements OnInit {
+export class NoticiasComponent implements OnInit, OnDestroy {
 
   private httpReq: Subscription
 

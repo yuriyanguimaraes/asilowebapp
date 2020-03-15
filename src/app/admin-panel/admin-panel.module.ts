@@ -21,6 +21,8 @@ import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing"
+//Import Pipes
+import { StatusPipe } from "./pipes/status.pipe";
 
 @NgModule({
     imports: [
@@ -46,7 +48,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing"
         PortalTransparenciaComponent,
         SobreComponent,
         NoticiasComponent,
-        ContatoAdminComponent
+        ContatoAdminComponent,
+        StatusPipe
     ],
     exports: [
         HeaderComponent,
