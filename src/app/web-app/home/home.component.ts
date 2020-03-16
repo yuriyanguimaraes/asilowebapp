@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   getNoticias() {
     this.components = this._service.getNoticiasThreeResults().subscribe(result => {
       this.noticias = result['data'];
-      console.log(result['data'])
     },
       error => console.log("Erro ao carregar as notícias: ", error)
     )

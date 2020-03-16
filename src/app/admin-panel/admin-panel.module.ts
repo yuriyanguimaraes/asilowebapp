@@ -8,6 +8,7 @@ import { NgxPaginationModule } from "ngx-pagination"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { BsDropdownModule, TooltipModule, ModalModule } from "ngx-bootstrap"
 import { OrderModule } from 'ngx-order-pipe';
+import { NgxEditorModule } from 'ngx-editor';
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -18,11 +19,13 @@ import { SobreComponent } from './sobre/sobre.component'
 import { NoticiasComponent } from "./noticias/noticias.component"
 import { ContatoAdminComponent } from './contato/contato.component'
 import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
+import { CreateNoticiaComponent } from './noticias/create-noticia/create-noticia.component'
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing"
 //Import Pipes
 import { StatusPipe } from "./pipes/status.pipe";
+
 
 @NgModule({
     imports: [
@@ -31,13 +34,12 @@ import { StatusPipe } from "./pipes/status.pipe";
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
-        NgxPaginationModule,
         BsDropdownModule.forRoot(),
         ModalModule.forRoot(),
         TooltipModule.forRoot(),
         BrowserAnimationsModule,
-        NgxPaginationModule,
         OrderModule,
+        NgxEditorModule,
         RouterModule.forChild(AdminPanelRoutes)
     ],
     declarations: [
@@ -49,7 +51,8 @@ import { StatusPipe } from "./pipes/status.pipe";
         SobreComponent,
         NoticiasComponent,
         ContatoAdminComponent,
-        StatusPipe
+        StatusPipe,
+        CreateNoticiaComponent
     ],
     exports: [
         HeaderComponent,

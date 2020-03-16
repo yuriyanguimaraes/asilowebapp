@@ -9,6 +9,7 @@ import { PortalTransparenciaComponent } from "./portal-transparencia/portal-tran
 import { SobreComponent } from "./sobre/sobre.component"
 import { NoticiasComponent } from "./noticias/noticias.component"
 import { ContatoAdminComponent } from "./contato/contato.component"
+import { CreateNoticiaComponent } from "./noticias/create-noticia/create-noticia.component"
 
 export const AdminPanelRoutes: Routes = [
     {
@@ -20,7 +21,8 @@ export const AdminPanelRoutes: Routes = [
             { path: 'sobre', component: SobreComponent },
             { path: 'noticias', component: NoticiasComponent },
             { path: 'contato', component: ContatoAdminComponent },
-            { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' }
+            { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
+            { path: 'noticias/create', component: CreateNoticiaComponent}
         ]
     }
 ]

@@ -12,4 +12,8 @@ export class NoticiaService {
     getNoticiaByTitle(title: string): Observable<HttpResponse<Noticia>> {
         return this.http.get<Noticia>(`${AsiloWebApi}/noticia/${title}`, { observe: 'response' })
     }
+
+    postNoticia(noticia: Noticia): Observable<HttpResponse<any>>{
+        return this.http.post(`${AsiloWebApi}/noticia`,noticia, {observe: 'response'});
+    }
 }
