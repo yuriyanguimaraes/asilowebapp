@@ -1,6 +1,7 @@
 .conteudoNoticia {
     text-align: justify;
     text-justify: inter-word;
+    text-indent: 1%;
 }
 
 .dataNoticia {
