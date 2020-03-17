@@ -22,4 +22,8 @@ export class FAQService {
     return this.http.get<FAQ[]>(`${AsiloWebApi}/faq`, { params: this.params, observe: 'response' })
   }
 
+  post(faq: FAQ): Observable<HttpResponse<any>>{
+    return this.http.post(`${AsiloWebApi}/faq`,faq, {observe: 'response'})      
+  }  
+  
 }

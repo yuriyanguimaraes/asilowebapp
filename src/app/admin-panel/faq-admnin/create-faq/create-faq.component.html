@@ -1,0 +1,48 @@
+<div id="margin">
+  <div class="container-fluid">  
+    <div class="row">
+      <div class="col-sm-6 positionTitle">
+        <h5>
+          Cadastro de Dúvida Frequente
+        </h5>
+      </div>
+    </div>
+   
+    <br>
+  
+    <form [formGroup]="faqForm" (ngSubmit)="post(faqForm.value)" novalidates>
+        <div class="form-group form-control-sm6">
+          <label for="pergunta" class="table">Pergunta <span class="text-danger">*</span></label>
+          <textarea rows="5" type="text" name="pergunta" class="form-control" placeholder="Informea pergunta"
+            formControlName="pergunta" [(ngModel)]="faqForm.pergunta"> </textarea>
+          <div *ngIf="pergunta.invalid && pergunta.touched">
+            <div class="nomeValidacao" *ngIf="pergunta.errors.required">
+              Pergunta é obrigatória.
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-control-sm6">
+          <label for="resposta" class="table">Resposta <span class="text-danger">*</span></label>
+          <textarea rows="8" type="text" name="resposta" class="form-control" placeholder="Informe a resposta"
+            formControlName="resposta" [(ngModel)]="faqForm.resposta"></textarea>
+          <div *ngIf="resposta.invalid && resposta.touched">
+            <div class="nomeValidacao" *ngIf="resposta.errors.required">
+              Resposta é obrigatória.
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-outline-success btn-sm" [disabled]="faqForm.invalid">
+            Salvar
+          </button>
+          <div routerLinkActive="active">
+            <button class="btn btn-outline-warning btn-sm" [routerLink]="['/admin/faq']">
+              Cancelar
+            </button>
+          </div>
+          
+        </div>
+    </form>
+  </div>  
+</div>
+  

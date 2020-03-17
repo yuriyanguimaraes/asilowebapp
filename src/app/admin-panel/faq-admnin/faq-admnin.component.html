@@ -1,40 +1,50 @@
-<div class="table-wrapper">
-  <div class="table-title">
-    <div class="row">
-      <div class="col-sm-8">
-        <h2>Dúvidas Frequentes</h2>
-      </div>
-      <div class="col-sm-2">
-        <button type="button" class="btn btn-outline-success">Adicionar</button>
-      </div>
+<div id="margin">
+  <div class="row">
+    <div class="col-sm-6 positionTitle">
+      <h5>Dúvidas Frequentes</h5>
+    </div>
+    <div class="col-sm-6 positionButtons" routerLinkActive="active">
+      <button type="button" class="btn btn-outline-success btn-sm" [routerLink]="['/admin/faq/create']" >Adicionar</button>
+      <!-- <button class="btn btn-outline-success btn-sm" (click)="modalAdicionar()">Extra large modal</button> -->
     </div>
   </div>
+
+  <br>
+
+  <app-loading [condition]="isLoading"></app-loading>
   <div *ngIf="faqs && statusResponse == 200">
-    <table class="table table-bordered" id="table-boby">
+    <table *ngIf="!isLoading && statusResponse == 200" class="table">
       <thead>
-        <tr *ngIf="faqs && statusResponse == 200">
-          <th>Ordenação</th>
-          <th>Pergunta</th>
-          <th>Resposta</th>
-          <th>Ações</th>
+        <tr>
+          <th scope="col">Perguntas</th>
+          <th *ngFor="let item of headTableItems" scope="col" class="pointer headTable" (click)="onClickSortTable(item)">
+            {{item['option']}}
+            <span><i class="pull-right rotate fa"
+                [ngClass]="{'i-active': item === ordenationPerItem, 'fa-chevron-down': this.faqService.params.get('valueSort')== 'descending', 'fa-chevron-up': this.faqService.params.get('valueSort') == 'ascending'}"></i></span>
+          </th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
-      <tbody class="table table-striped">
+      <tbody>        
         <tr *ngFor="let faq of faqs | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
-          <td>{{faq["ordenar"]}}</td>
-          <td>{{faq["pergunta"]}}</td>
-          <td>{{faq["resposta"]}}</td>
+          <td>{{faq['pergunta']}}</td>
+          <td>{{faq['createdAt'] | date: 'dd/MM/yyyy'}}</td>
           <td>
-            <button type="button" class="btn btn-outline-warning" id='editar-{{faq["_id"]}}'>Editar</button>
-            <button type="button" class="btn btn-outline-danger" id='deletar-{{faq["_id"]}}'>Deletar</button>
+            <button class="btn btn-outline-warning btn-sm">Editar</button>
+            <button class="btn btn-outline-danger btn-sm">Apagar</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <br />
+
+    <app-no-data *ngIf="!isLoading && statusResponse == 200 && !faqs"></app-no-data>
+
+    <app-error *ngIf="!isLoading && statusResponse != 200 && !faqs"></app-error>
+
     <nav *ngIf="faqs">
       <ul class="pagination">
-        <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
+        <pagination-controls class="my-pagination" (pageChange)="getPage($event)" previousLabel="Anterior"
+          nextLabel="Próximo">
         </pagination-controls>
       </ul>
     </nav>

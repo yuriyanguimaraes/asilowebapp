@@ -3,7 +3,7 @@ import { FAQService } from './../../shared/services/faq.service'
 import { FAQ } from "./../../shared/models/faq.model"
 import { Subscription } from "rxjs"
 import { Router } from "@angular/router"
-import { FormGroup } from "@angular/forms"
+import { FormsModule } from "@angular/forms"
 
 
 @Component({
@@ -17,24 +17,28 @@ export class FaqAdmninComponent implements OnInit {
 
   faqs: FAQ[]
 
-  // // Configuração da ordenação
-  // key: string = 'ordenar';
-  // reverse: boolean = false;
-  // sort(key) {
-  //     this.key = key;
-  //     this.reverse = !this.reverse;
-  // }
-
-
-  keywordFilterForm: FormGroup
+  ordenationPerItem: any
 
   isLoading: boolean = false
+  order: boolean = false
   messageApi: string
   statusResponse: number
   p: number
   total: number
   limit: number
-  order: boolean = false
+  
+
+  
+  headTableItems: any[] = [
+    // {
+    //   option: 'Pergunta',
+    //   param: 'pergunta'
+    // },
+    {
+      option: 'Postado em',
+      param: 'createdAt'
+    }
+  ]
 
   constructor(
     private faqService: FAQService,
@@ -44,16 +48,20 @@ export class FaqAdmninComponent implements OnInit {
   ngOnInit() {
 
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
+    this.ordenationPerItem = this.headTableItems[2]
 
-    this.faqService.params = this.faqService.params.set('order', 'descending')
+    this.faqService.params = this.faqService.params.set('columnSort', 'createdAt')
+    this.faqService.params = this.faqService.params.set('valueSort', 'descending')
     this.faqService.params = this.faqService.params.set('page', '1')
 
     this.getFAQWithParams()
   }
 
-  // ngOnDestroy() {
-  //   this.httpReq.unsubscribe()
-  // }
+  ngOnDestroy() {
+    if (this.httpReq) {
+      this.httpReq.unsubscribe()
+    }
+  }
 
   getFAQWithParams() {
     this.isLoading = true
@@ -78,14 +86,16 @@ export class FaqAdmninComponent implements OnInit {
     this.getFAQWithParams()
   }
 
-  clearConditions() {
+  onClickSortTable(item: any) {
     this.faqs = null
-
-    this.faqService.params = this.faqService.params.set('page', '1')
-
-    this.order = false
-    this.faqService.params = this.faqService.params.set('order', 'descending')
-
+    this.ordenationPerItem = item
+    this.faqService.params = this.faqService.params.set('columnSort', item['param'])
+    if (this.faqService.params.get('valueSort') == 'descending') {
+      this.faqService.params = this.faqService.params.set('valueSort', 'ascending')
+    } else {
+      this.faqService.params = this.faqService.params.set('valueSort', 'descending')
+    }
     this.getFAQWithParams()
   }
+
 }

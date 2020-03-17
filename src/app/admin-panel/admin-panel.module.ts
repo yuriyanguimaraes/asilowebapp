@@ -7,7 +7,7 @@ import { SharedModule } from "./../shared/shared.module"
 import { NgxPaginationModule } from "ngx-pagination"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { BsDropdownModule, TooltipModule, ModalModule } from "ngx-bootstrap"
-import { OrderModule } from 'ngx-order-pipe';
+import { OrderModule } from 'ngx-order-pipe'
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -20,7 +20,8 @@ import { ContatoAdminComponent } from './contato/contato.component'
 import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
 
 //Import Routes
-import { AdminPanelRoutes } from "./admin-panel.routing"
+import { AdminPanelRoutes } from "./admin-panel.routing";
+import { CreateFaqComponent } from './faq-admnin/create-faq/create-faq.component'
 
 @NgModule({
     imports: [
@@ -46,7 +47,8 @@ import { AdminPanelRoutes } from "./admin-panel.routing"
         PortalTransparenciaComponent,
         SobreComponent,
         NoticiasComponent,
-        ContatoAdminComponent
+        ContatoAdminComponent,
+        CreateFaqComponent
     ],
     exports: [
         HeaderComponent,

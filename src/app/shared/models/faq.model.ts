@@ -1,4 +1,5 @@
 export interface FAQ {
     pergunta: string,
-    resposta: string
+    resposta: string,
+    status: boolean
 }
