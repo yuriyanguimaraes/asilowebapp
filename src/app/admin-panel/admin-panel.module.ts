@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { BsDropdownModule, TooltipModule, ModalModule } from "ngx-bootstrap"
 import { OrderModule } from 'ngx-order-pipe';
 import { ToastrModule } from "ngx-toastr"
+import { NgxEditorModule } from 'ngx-editor';
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -20,9 +21,15 @@ import { NoticiasComponent } from "./noticias/noticias.component"
 import { ContatoAdminComponent } from './contato/contato.component'
 import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
 import { NovoTransparenciaComponent } from './portal-transparencia/novo-transparencia/novo-transparencia.component'
+import { CreateNoticiaComponent } from './noticias/create-noticia/create-noticia.component'
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing";
+
+//Import Routes
+//Import Pipes
+import { StatusPipe } from "./pipes/status.pipe";
+
 
 @NgModule({
     imports: [
@@ -31,17 +38,16 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
-        NgxPaginationModule,
         BsDropdownModule.forRoot(),
         ModalModule.forRoot(),
         TooltipModule.forRoot(),
         BrowserAnimationsModule,
-        NgxPaginationModule,
         OrderModule,
         RouterModule.forChild(AdminPanelRoutes),
         ToastrModule.forRoot({
             preventDuplicates: true
-        })
+        }),
+        NgxEditorModule
     ],
     declarations: [
         HeaderComponent,
@@ -52,7 +58,9 @@ import { AdminPanelRoutes } from "./admin-panel.routing";
         SobreComponent,
         NoticiasComponent,
         ContatoAdminComponent,
-        NovoTransparenciaComponent
+        NovoTransparenciaComponent,
+        StatusPipe,
+        CreateNoticiaComponent
     ],
     exports: [
         HeaderComponent,

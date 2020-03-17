@@ -1,0 +1,36 @@
+<div class="container-fluid marginTopBottomContentContainerAdminPanel">
+  <div>
+    <h1>
+      Cadastro de Notícia
+    </h1>
+    <app-loading [condition]="isLoading"></app-loading>
+    <form [formGroup]="noticiaForm" (ngSubmit)="postNoticia(noticiaForm.value)" novalidates>
+      <div class="form-row">
+        <div class="form-group col-sm-4">
+          <label for="titulo">Título <span class="text-danger">*</span></label>
+          <input type="text" name="titulo" class="form-control" placeholder="Informe o título" formControlName="titulo"
+            [(ngModel)]="noticiaForm.titulo">
+          <div *ngIf="titulo.invalid && titulo.touched">
+            <div class="nomeValidacao" *ngIf="titulo.errors.required">
+              Título é obrigatório.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-control-sm6">
+        <label for="descricao">Descrição <span class="text-danger">*</span></label>
+        <app-ngx-editor [config]="editorConfig" name="descricao" placeholder="Informe a descrição"
+          formControlName="descricao" [(ngModel)]="noticiaForm.descricao">
+        </app-ngx-editor>
+        <div *ngIf="descricao.invalid && descricao.touched">
+          <div class="nomeValidacao" *ngIf="descricao.errors.required">
+            Descrição é obrigatória.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-success btn-sm" [disabled]="noticiaForm.invalid">
+        Salvar
+      </button>
+    </form>
+  </div>
+</div>
