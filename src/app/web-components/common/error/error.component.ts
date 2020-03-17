@@ -15,7 +15,7 @@ export class ErrorComponent implements OnInit {
     this.lottieConfig = {
       path: 'assets/animations/error.json',
       autoplay: true,
-      loop: true
+      loop: false
     }
   }
 

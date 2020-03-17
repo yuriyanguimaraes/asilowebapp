@@ -16,7 +16,7 @@ export class NoDataComponent implements OnInit {
     this.lottieConfig = {
       path: 'assets/animations/sad.json',
       autoplay: true,
-      loop: true
+      loop: false
     }
   }
 

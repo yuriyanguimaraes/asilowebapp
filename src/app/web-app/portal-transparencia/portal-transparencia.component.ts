@@ -64,21 +64,21 @@ export class PortalTransparenciaComponent implements OnInit {
 
   constructor(
     private _service: TransparenciaService,
-    private r: Router,
-    private render: Renderer,
-    private fb: FormBuilder
+    private _router: Router,
+    private _render: Renderer,
+    private _formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
-    this.r.routeReuseStrategy.shouldReuseRoute = () => false
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false
 
     this._service.params = this._service.params.set('valueSort', 'descending')
     this._service.params = this._service.params.set('page', '1')
 
     //Init Form
-    this.dateBetweenFilterForm = this.fb.group({
-      dateStart: this.fb.control(null, [Validators.required]),
-      dateFinish: this.fb.control(null)
+    this.dateBetweenFilterForm = this._formBuilder.group({
+      dateStart: this._formBuilder.control(null, [Validators.required]),
+      dateFinish: this._formBuilder.control(null)
     })
   }
 
@@ -107,7 +107,7 @@ export class PortalTransparenciaComponent implements OnInit {
   setActiveMenuItem(event: any) {
     let oldClasses = event.target.getAttribute('class')
 
-    this.render.setElementAttribute(event.target, "class", `${oldClasses} active`)
+    this._render.setElementAttribute(event.target, "class", `${oldClasses} active`)
   }
 
   getPage(page: number) {

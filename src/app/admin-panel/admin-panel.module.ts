@@ -8,6 +8,8 @@ import { NgxPaginationModule } from "ngx-pagination"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { BsDropdownModule, TooltipModule, ModalModule } from "ngx-bootstrap"
 import { OrderModule } from 'ngx-order-pipe'
+import { ToastrModule } from "ngx-toastr"
+import { NgxEditorModule } from 'ngx-editor';
 
 //Import Components
 import { HeaderComponent } from "./../web-components/admin-panel/header/header.component"
@@ -18,10 +20,15 @@ import { SobreComponent } from './sobre/sobre.component'
 import { NoticiasComponent } from "./noticias/noticias.component"
 import { ContatoAdminComponent } from './contato/contato.component'
 import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
+import { NovoTransparenciaComponent } from './portal-transparencia/novo-transparencia/novo-transparencia.component'
+import { CreateNoticiaComponent } from './noticias/create-noticia/create-noticia.component'
+import { CreateFaqComponent } from './faq-admnin/create-faq/create-faq.component'
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing";
-import { CreateFaqComponent } from './faq-admnin/create-faq/create-faq.component'
+
+//Import Pipes
+import { StatusPipe } from "./pipes/status.pipe";
 
 @NgModule({
     imports: [
@@ -30,14 +37,16 @@ import { CreateFaqComponent } from './faq-admnin/create-faq/create-faq.component
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
-        NgxPaginationModule,
         BsDropdownModule.forRoot(),
         ModalModule.forRoot(),
         TooltipModule.forRoot(),
         BrowserAnimationsModule,
-        NgxPaginationModule,
         OrderModule,
-        RouterModule.forChild(AdminPanelRoutes)
+        RouterModule.forChild(AdminPanelRoutes),
+        ToastrModule.forRoot({
+            preventDuplicates: true
+        }),
+        NgxEditorModule
     ],
     declarations: [
         HeaderComponent,
@@ -48,7 +57,10 @@ import { CreateFaqComponent } from './faq-admnin/create-faq/create-faq.component
         SobreComponent,
         NoticiasComponent,
         ContatoAdminComponent,
-        CreateFaqComponent
+        CreateFaqComponent,
+        NovoTransparenciaComponent,
+        StatusPipe,
+        CreateNoticiaComponent
     ],
     exports: [
         HeaderComponent,
@@ -57,7 +69,8 @@ import { CreateFaqComponent } from './faq-admnin/create-faq/create-faq.component
         PortalTransparenciaComponent,
         SobreComponent,
         NoticiasComponent,
-        ContatoAdminComponent
+        ContatoAdminComponent,
+        NovoTransparenciaComponent
     ]
 })
 export class AdminPanelModule { }
